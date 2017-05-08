@@ -1,6 +1,8 @@
-# Ni-Framework
-Ni-Framework is a Custom Web Application Framework and CMS. Designed for extensibility and ease-of-use for developers. 
-Check out the Wiki to see a video about how to install the framework to your webserver.
+# NiFrame
+NiFrame is a Custom Web Application Framework/CMS. NiFrame is designed to serve as a starting place
+for developers to create custom websites or applications. All the common features for all websites
+and web apps is included. Developers simply create or install third party modules to extend the 
+functionality.
 
 
 ## Ni Framework - Version 1.0
@@ -8,7 +10,7 @@ Check out the Wiki to see a video about how to install the framework to your web
 
 ### Overview:
 
-NiFrame aka Native Inventions Framework is a web application (or website) starter system. 
+NiFrame is a web application (or website) starter system. 
 Simply install NiFrame to your web server and MySQL database. The system is designed so that 
 features can be added with as little as a new "driver" file or as many class, driver, and HTML 
 files as needed. HTML is separated from PHP so HTML files can be combined to form new pages or 
