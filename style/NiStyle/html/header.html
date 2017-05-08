@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> {%SITE_NAME} | {%PAGE_NAME}</title>
+<meta http-equiv="Content-type" content='text/html;charset=UTF-8'>
+<link rel='StyleSheet' href='{%STYLE_PATH}/style.css' type='text/css'>
+<script type="text/javascript" src="inc/niveri.js"></script>
+</head>
+<body>
+<div id='wrap'>
+	<div id='header'></div>
+  
+  <style>
+  #NavMenu { position:relative; }
+  #NavMenu li { display:inline-block; list-style-type:none; margin:0px; padding:0px;}
+  #NavMenu ul { margin:0; padding:0; }
+  #NavMenu li .main-menu .sub-menu { display:none; }
+  #NavMenu li .main-menu:hover .sub-menu { display:block; position:absolute; z-index:42; }
+  #NavMenu li .main-menu a:hover, #NavMenu li .main-menu span.dumbLink:hover { background-color:silver; color:black; }
+  #NavMenu li .sub-menu a:hover, #NavMenu li .sub-menu span.dumbLink:hover { background-color:silver; color:black; }
+  #NavMenu li a, #NavMenu li span.dumbLink { background-color:#1C1D1F; color:white; border:thin solid aqua; display:block; padding:5px; text-decoration:none;}
+  #NavMenu li span.dumbLink { cursor:pointer; }
+  </style>
+  <div id='NavMenu'>
+    {&menu.html}
+  </div>
+  
+	<div id='pageBody'>
+<!-- END HEADER HTML //-->

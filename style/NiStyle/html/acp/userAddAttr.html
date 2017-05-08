@@ -1,0 +1,70 @@
+
+<!-- addAttr HTML START //-->
+<div id='addAttr'>
+	<p id='Msg'>{%MSG}</p>
+	<form action='userA.php?addAttr' method='POST'>
+	<div>
+		<span class='label'>Attribute Name&nbsp;:&nbsp; </span>
+		<input class='txtbx' type='basic' alt='basic' name='attrName'><br><br>
+    
+    <span class='label'>Attribute Label:&nbsp; </span>
+    <input class='txtbx' type='text' alt='text' name='attrLabel'><br><br>
+    
+    <span class='label'>Attribute Type:&nbsp; </span>
+    <select name='attrRank'>
+      <option value='0'>Default</option>
+      <option value='1'>Join + Profile</option>
+      <option value='2'>Join Only</option>
+    </select><br><br>
+    
+    <span class='label'>Default Value:&nbsp; </span>
+    <input class='txtbx' type='text' alt='text' name='attrDefault'><br><br>
+
+    <span class='label'>Verification Type:&nbsp; </span>
+    <select name='attrVtype'>
+      <option value='text'>Text</option>
+      <option value='basic'>Basic</option>
+      <option value='number'>Number</option>
+      <option value='color'>Color</option>
+      <option value='tel'>Telephone</option>
+      <option value='email'>E-Mail</option>
+      <option value='date'>Date</option>
+      <option value='time'>Time</option>
+      <option value='month'>Month</option>
+      <option value='day'>Day</option>
+      <option value='year'>Year</option>
+    </select><br><br>
+    
+		<input class='btn' type='submit' name='submit' value='Create'>
+	</div>
+  <!-- ATTR_LIST //-->
+  <br>
+  <style>
+    div#attrList { margin:auto;width:70%; }
+    div#attrList table { width:100%; table-layout:fixed; overflow:hidden; white-space:nowrap; }
+    div#attrList th,td { padding:5px; }
+  </style>
+  <div id='attrList'>
+    <table border='1'>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Label</th>
+        <th>Rank</th>
+        <th>Verify Type</th>
+      </tr>
+      <!-- !USER_ATTRS //-->
+      <tr>
+        <td>{%USER_ATTR_ID[%N]}</td>
+        <td>{%USER_ATTR_NAME[%N]}</td>
+        <td>{%USER_ATTR_LABEL[%N]}</td>
+        <td>{%USER_ATTR_RANK[%N]}</td>
+        <td>{%USER_ATTR_VTYPE[%N]}</td>
+      </tr>
+      <!-- FIN !USER_ATTRS //-->
+    </table>
+  </div>
+  <!-- FIN ATTR_LIST //-->
+	</form>
+</div>
+<!-- addAttr HTML END //-->

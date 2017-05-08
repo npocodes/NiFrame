@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/html4/strict.dtd'>
+<html>
+<head>
+<title>{%SITE_NAME} - E-mail Verification</title>
+</head>
+<body>
+	<div id='Main'>
+		<h4>Welcome to {%SITE_NAME}, {%USER_NAME},<h4>
+		
+		<p>
+			Below are your user details and an account activation link:<br>
+			User - {%USER_EMAIL}<br>
+      Pass - {%USER_PASS}<br>
+			
+			Please use the Account Activation Link to activate your new user account.<br><br>
+			
+			<a href='http://{%SCRIPT_PATH}/login.php?act&uKey={%USER_KEY}'>Click here to Activate your Account!</a><br>
+			If the link above does not work cut and paste the link below into your browser:<br>
+			http://{%SCRIPT_PATH}/login.php?act&uKey={%USER_KEY}<br><br>
+      
+			~{%CONTACT_EMAIL}
+		</p>
+	</div>
+</body>
+</html>

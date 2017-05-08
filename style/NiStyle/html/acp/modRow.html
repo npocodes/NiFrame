@@ -1,0 +1,23 @@
+
+<!-- modRow HTML START //-->
+      <tr>
+        <td>{%MOD_NAME}</td>
+        <td>{%MOD_VERSION}</td>
+        <td><div style='min-width:150px;'>{%MOD_AUTHOR}</div></td>
+        <td><div style='min-width:350px;text-align:left;word-wrap:break-word;'>{%MOD_BRIEF}</div></td>
+        <td>{%MOD_INSTALLED}</td>
+        <td class='actions'>
+          <table id='actions' style='font-size:smaller;'>
+            <tr>
+              <td><a href='mod.php?view&name={%MOD_NAME}'>VIEW</a></td>
+              <!-- INSTALL //--><td><a href='mod.php?install&name={%MOD_NAME}'>INSTALL</a></td><!-- FIN INSTALL //-->
+              <!-- REMOVE //--><td><a href='mod.php?remove&name={%MOD_NAME}'>REMOVE</a></td><!-- FIN REMOVE //-->
+            </tr>
+            <tr>
+              <td><!--<a href='mod.php?update&name={%MOD_NAME}'>UPDATE</a>//--></td>
+              <td><!--<a href='mod.php?remove&name={%MOD_NAME}&del'>DELETE</a>//--></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+<!-- modRow HTML END //-->

@@ -1,0 +1,17 @@
+
+<!-- settings HTML START //-->
+<div id='settings' style='width:50%;margin:auto;'>
+  <div>
+    <form action='sysA.php?settings' method='POST'>
+    <span class='label'>Set Login Acceptance Level: </span><br>
+      <select name='logNE'>
+        <option value='0' {%SELECT_BOTH}>Both Email + Nickname</option>
+        <option value='1' {%SELECT_EMAIL}>Email Only</option>
+        <option value='2' {%SELECT_NICK}>Nickname Only</option>
+      </select>
+      
+      <input type='submit' class='btn' name='submit' value='Update'>
+    </form>
+  </div>
+</div>
+<!-- settings HTML END //-->

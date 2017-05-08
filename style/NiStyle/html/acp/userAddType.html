@@ -1,0 +1,34 @@
+
+<!-- addType HTML START //-->
+<div id='addType'>
+	<p id='Msg'>{%MSG}</p>
+	<form action='userA.php?addType' method='POST'>
+	<div>
+		<span class='label'>Type Name:&nbsp; </span>
+		<input class='txtbx' type='text' name='{%UserTypeName_col}'>
+		<input class='btn' type='submit' name='submit' value='Create'>
+	</div>
+  <!-- TYPE_LIST //-->
+  <br>
+  <div style='width:25%;margin:auto;'>
+    <style>
+      .left {text-align:right;}
+      .right {text-align:left;}
+    </style>
+    <table border=1 style='width:100%;'>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+      <!-- !USER_TYPES //-->
+      <tr>
+        <td>{%USER_TYPE_ID[%N]}</td>
+        <td>{%USER_TYPE_NAME[%N]}</td>
+      </tr>
+      <!-- FIN !USER_TYPES //-->
+    </table>
+  </div>
+  <!-- FIN TYPE_LIST //-->
+	</form>
+</div>
+<!-- addType HTML END //-->

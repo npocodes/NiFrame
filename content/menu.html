@@ -1,0 +1,53 @@
+    <ul>
+      <li>
+        <div class='main-menu'>
+          <a href='index.php' style='border-top-left-radius:5px;'>Home</a>
+        </div>
+      </li><!-- LOGIN //--><li>
+        <div class='main-menu'>
+          <span class='dumbLink'>My Stuff</span>
+          
+          <div class="sub-menu">
+            <a href='user.php?edit'>My Settings</a>
+          </div>
+        </div>
+      </li><!-- ACP //--><li>
+        <div class='main-menu'>
+          <span class='dumbLink'>Manage Users</span>
+          
+          <div class='sub-menu'>
+            <a href='user.php?search'>Search Users</a>
+            <a href='userA.php?add'>Create User</a>
+            <a href='userA.php?addAttr'>Create User Attributes</a>
+            <a href='userA.php?addType'>Create User Types</a>
+            <a href='userA.php?addPerm'>Create Permissions</a>
+            <a href='userA.php?typePerm'>Manage Type Permissions</a>
+          </div>
+        </div>
+      </li><!-- LINK_TPL //--><li>
+        <div class='main-menu'>
+          <span class='dumbLink'>{%MAIN_LABEL}</span>
+          <div class='sub-menu'>
+<!-- SUB_LINK_TPL //-->            <a href='{%SUB_LINK}'>{%SUB_LABEL}</a><!-- FIN SUB_LINK_TPL //-->
+          </div>
+        </div>
+      </li><!-- FIN LINK_TPL //--><li>
+        <div class='main-menu'>
+          <span class='dumbLink'>System</span>
+          
+          <div class='sub-menu'>
+            <a href='sysA.php?settings'>Settings</a>
+            <a href='sysA.php?styles'>Manage Styles</a>
+            <a href='mod.php?search'>Mod Packages</a>
+          </div>
+        </div>
+      </li><!-- FIN ACP //--><!-- FIN LOGIN //--><!-- LOGOUT //--><li>
+        <div class='main-menu'>
+          <a href='login.php?join'>Join Us!</a>
+        </div>
+      </li><!-- FIN LOGOUT //--><li>
+        <div class='main-menu'>
+          <a href='login.php' style='border-top-right-radius:5px;'><!-- LOGOUT //-->Login<!-- FIN LOGOUT //--><!-- LOGIN //-->Logout<!-- FIN LOGIN //--></a>
+        </div>
+      </li>
+    </ul>

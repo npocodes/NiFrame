@@ -1,0 +1,21 @@
+
+<!-- styles HTML START //-->
+<div id='styles' style='width:50%;margin:auto;'>
+  <div>
+    <form action='sysA.php?styles' method='POST'>
+      <span class='label'>Choose a style: </span><br>
+      <select name='style'>
+        <!-- !STYLE_OPTS //--><option value='{%STYLE_NAME[%N]}' {%STYLE_SELECTED[%N]}>{%STYLE_NAME[%N]}</option><!-- FIN !STYLE_OPTS //-->
+      </select>
+      
+      <input type='hidden' name='submit' value='true'>
+      
+      <input type='submit' class='btn' name='setStyle' value='Set as Default'>
+      <!-- Link Version: <a href='sysA.php?settings&styles=set&style=<styleName>'>Set as Default</a> //-->
+   
+      <input type='submit' class='btn' name='killStyle' value='Remove'>
+      <!-- Link Version: <a href='sysA.php?settings&styles=kill&style=<styleName>'>Remove</a> //-->
+    </form>
+  </div>
+</div>
+<!-- styles HTML END //-->

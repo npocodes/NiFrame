@@ -1,0 +1,13 @@
+/*
+###
+###	~ INDEX STYLE SHEET ~
+###
+### -Notes-
+*/
+
+#index{
+  text-align:left;
+  width:80%;
+  margin:auto;
+  word-wrap: break-word;
+}

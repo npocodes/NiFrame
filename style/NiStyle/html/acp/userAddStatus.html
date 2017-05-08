@@ -1,0 +1,30 @@
+
+<!-- addStatus HTML START //-->
+<div id='addStatus'>
+	<p id='Msg'>{%MSG}</p>
+	<form action='userA.php?addStatus' method='POST'>
+	<div>
+		<span class='label'>Status Name:&nbsp; </span>
+		<input class='txtbx' type='text' name='{%UserStatusName_col}'>
+		<input class='btn' type='submit' name='submit' value='Create'>
+	</div>
+  <!-- STATUS_LIST //-->
+  <br>
+  <div>
+    <table border='1'>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+      <!-- !USER_STATUSES //-->
+      <tr>
+        <td>{%USER_STATUS_ID[%N]}</td>
+        <td>{%USER_STATUS_NAME[%N]}</td>
+      </tr>
+      <!-- FIN !USER_STATUSES //-->
+    </table>
+  </div>
+  <!-- FIN STATUS_LIST //-->
+	</form>
+</div>
+<!-- addStatus HTML END //-->

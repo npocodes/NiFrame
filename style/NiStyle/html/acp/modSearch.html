@@ -1,0 +1,26 @@
+
+<!-- modSearch HTML START //-->
+<div id='modSearch'>
+  <div id='modList' style='width:1000px;margin:auto;font-size:small;'>
+    <!-- NO_RESULT //-->
+    <p>{%MSG}</p>
+    <!-- FIN NO_RESULT //-->
+    <!-- RESULT //-->
+    <style>
+      #mods td {padding:5px;}
+    </style>
+    <table id='mods' border='1' style='width:1000px'>
+      <tr>
+        <td>Package</td>
+        <td>Version</td>
+        <td>Author</td>
+        <td>Brief</td>
+        <td>Installed</td>
+        <td>Actions</td>
+      </tr>
+      {%MOD_LIST}
+    </table>
+    <!-- FIN RESULT //-->
+  </div>
+</div>
+<!-- modSearch HTML END //-->

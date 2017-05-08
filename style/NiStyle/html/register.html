@@ -1,0 +1,55 @@
+
+<!-- register HTML START //-->
+<div id='register' style='width:25%;margin:auto;'>
+  <form name='createForm' action='login.php?join' method='POST'>
+    <p style='text-align:left;'>{%MSG}</p><br>
+    <style>
+      table td {padding:5px;}
+    </style>
+    <table>
+      <tr>
+        <td class='left'><span class='label'>First Name:</span></td>
+        <td class='right'><input class='txtbx' type='basic' alt='basic' name='{%UserFirstName_col}'></td>
+      </tr>
+      <tr>
+        <td class='left'><span class='label'>Last Name:</span></td>
+        <td class='right'><input class='txtbx' type='basic' alt='basic' name='{%UserLastName_col}'></td>
+      </tr>
+      <tr>
+        <td class='left'><span class='label'>E-Mail:</span></td>
+        <td class='right'><input class='txtbx' type='email' alt='email' name='{%UserEmail_col}'></td>
+      </tr>
+      <tr>
+        <td class='left'><span class='label'>Password:</span></td>
+        <td class='right'><input class='txtbx' type='password' name='{%UserPass_col}'></td>
+      </tr>
+      <tr>
+        <td class='left'><span class='label'>Confirm:</span></td>
+        <td class='right'><input class='txtbx' type='password' id='confPass'></td>
+      </tr>
+      <tr>
+        <td class='left'><span class='label'>Phone #:</span></td>
+        <td class='right'><input class='txtbx' type='tel' alt='tel' name='{%UserPhone_col}'></td>
+      </tr>
+      <!-- USER_ATTR_LIST //--><!-- !USER_ATTRS //-->
+      <tr>
+        <td class='left'><span class='label'>{%USER_ATTR_LABEL[%N]}:</span></td>
+        <td class='right'><input class='txtbx' type='{%USER_ATTR_VTYPE[%N]}' alt='{%USER_ATTR_VTYPE[%N]}' name='{%USER_ATTR_NAME[%N]}'></td>
+      </tr>      
+      <!-- FIN !USER_ATTRS //--><!-- FIN USER_ATTR_LIST //-->
+      <tr>
+        <td colspan='2'>
+          <span class='label'>Image Verification: </span><br>
+          <div id='recaptcha'>
+          {%RECAPTCHA}
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class='left'><input class='btn' type='submit' name='submit' value='Join!'></td>
+      </tr>
+    </table>
+  </form>        
+</div>
+<!-- register HTML END //-->

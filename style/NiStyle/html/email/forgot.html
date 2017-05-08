@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN' 'http://www.w3.org/TR/html4/strict.dtd'>
+<html>
+<head>
+<title>{%SITE_NAME} - Password Reset Email</title>
+</head>
+<body>
+	<div id='Main'>
+		<h4>Did you forget your password?<h4>
+		
+		<p>
+			Below are your user details and a Password Reset link:<br>
+			User - {%USER_EMAIL}<br>
+			
+			If you have forgotten your password, Please use the Password Reset link to reset your password.<br>
+			Otherwise, please disregard this email.<br><br>
+			
+			<a href='http://{%SCRIPT_PATH}/login.php?reset&uKey={%USER_KEY}'>Click here to Reset your Password!</a><br>
+			If the link above does not work cut and paste the link below into your browser:<br>
+			http://{%SCRIPT_PATH}/login.php?reset&uKey={%USER_KEY}<br><br>
+			~{%FROM}
+		</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version='1.0' standalone='yes'?>
+<inventory>
+  <name>ItemMod</name>
+  <version>1.0</version>
+  
+  <author>
+    <name>Native Inventions</name>
+    <link>http://www.NativeInventions.com/NiFrame</link>
+  </author>
+  <brief>The ItemMod extends NiFrame with a complete Inventory Management System. </brief>
+  
+  <classf>class.item.php</classf>
+  <driver>item.php</driver>
+  <driver>itemA.php</driver>  
+  
+  <file type='acp'>itemAdd.html</file>
+  <file type='acp'>itemAddMaker.html</file>
+  <file type='acp'>itemAddType.html</file>
+  <file type='acp'>itemEdit.html</file>
+  <file>itemRow.html</file>
+  <file>itemSearch.html</file>
+  <file>itemView.html</file>
+  
+  <sheet>item.css</sheet>
+  <jsFile>item.js</jsFile>
+  <content>itemBrief.html</content>
+  
+  <menu>
+    <label>Manage Inventory</label>
+    
+    <sub>
+      <label>Search Items</label>
+      <link>item.php?search</link>
+    </sub>
+    
+    <sub>
+      <label>Add Items</label>
+      <link>itemA.php?add</link>
+    </sub>
+    
+    <sub>
+      <label>Add Manufacturer</label>
+      <link>item.php?addMaker</link>
+    </sub>
+  </menu>
+
+  <config type='table' name='Item_Table' comment='Item Table Name'>item</config>
+  <config type='col' name='ItemID_col' comment='Item ID Column'>item_ID</config>
+  <config type='col' name='ItemType_col' comment='Item Type Column'>itemType_ID</config>
+  <config type='col' name='ItemName_col' comment='Item Name Column'>itemName</config>
+  <config type='col' name='ItemMaker_col' comment='Item Manufacturer Column'>itemMake</config>
+  <config type='col' name='ItemValue_col' comment='Item Value Column'>itemValue</config>
+  <config type='col' name='ItemCost_col' comment='Item Cost Column'>itemCost</config>
+  <config type='col' name='ItemPrice_col' comment='Item Price Column'>itemPrice</config>
+  <config type='col' name='ItemUnits_col' comment='Item Units Column'>itemUnits</config>
+  <config type='col' name='ItemOnHand_col' comment='Item OnHand Column'>onHand</config>
+  <config type='col' name='ItemConsume_col' comment='Item Consume Column'>consume</config>
+  <config type='col' name='ItemPerish_col' comment='Item Perish Column'>perish</config>
+  <config type='col' name='ItemWeight_col' comment='Item Weight Column'>itemWeight</config>
+  <config type='col' name='ItemSize_col' comment='Item Size Column'>itemSize</config>
+  <config type='col' name='ItemColor_col' comment='Item Color Column'>itemColor</config>
+  
+  <config type='table' name='ItemType_Table' comment='Item Type Table Name'>itemType</config>
+  <config type='col' name='ItemTypeID_col' comment='Item Type ID Column'>itemType_ID</config>
+  <config type='col' name='ItemTypeName_col' comment='Item Type Name Column'>itemTypeName</config>
+  
+  <config type='table' name='ItemMaker_Table' comment='Item Manufacturer Table Name'>itemMaker</config>
+  <config type='col' name='ItemMakerID_col' comment='Item Manufacturer ID Column'>itemMaker_ID</config>
+  <config type='col' name='ItemMakerName_col' comment='Item Manufacturer Name Column'>itemMakerName</config>  
+</inventory>

@@ -1,0 +1,28 @@
+
+<!-- userRow HTML START //-->
+      <tr>
+        <!-- ACP //--><td>{%USER_ID}</td><!-- FIN ACP //-->
+        <td>{%USER_NAME}</td>
+        <td>{%USER_NICK_NAME}</td>
+        <td>{%USER_TYPE_NAME}</td>
+        <td>{%USER_STATUS_NAME}</td>
+        <td>
+            {%USER_EMAIL}
+        </td>
+        <td>{%USER_PHONE}</td>
+        <td class='actions'>
+          <table id='actions'>
+            <tr>
+              <td><a href='user.php?view&uid={%USER_ID}'>VIEW</a></td>
+            <!-- ACP //-->
+              <td><a href='userA.php?del&uid={%USER_ID}'>DELETE</a></td>
+            </tr>
+            <tr>
+              <td><a href='user.php?edit&uid={%USER_ID}'>EDIT</a></td>
+              <td><a href='calendar.php?week&uid={%USER_ID}'>SCHEDULE</a></td>
+            <!-- FIN ACP //-->
+            </tr>
+          </table>
+        </td>
+      </tr>
+<!-- userRow HTML END //-->

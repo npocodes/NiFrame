@@ -1,0 +1,31 @@
+<!-- Login HTML START //-->
+<div id='login'>
+	<div id='formDiv'>
+  	<p id='Msg'>{%MSG}</p>
+    <form action='login.php' method='POST'>
+      <table>
+        <tr>
+          <td><span class='label'>Email/Nickname:&nbsp; </span></td>
+          <td><input class='txtbx' type='text' alt='text' name='userNE' value=''></td>
+        </tr>
+        <tr>
+          <td><span class='label'>Password:&nbsp; </span></td>
+          <td><input class='txtbx' type='password' name='user_pass'></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type='checkbox' name='RememberMe'>&nbsp;Remember me?</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input class='btn' type='submit' name='submit' value='Login'></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><a href='login.php?forgot'>Forgot Password?</a></td>
+        </tr>
+      </table>
+    </form>  		
+  </div>
+</div>
+<!-- Login HTML END //-->

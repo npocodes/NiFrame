@@ -1,0 +1,15 @@
+@import url('sheets/common.css');
+@import url('sheets/index.css');
+/*
+@import url('sheets/MyCSS.css');
+
+	Calling the style sheets this way allows
+	you to separate the CSS code making updating
+	page specific CSS much less cumbersome.
+	It also makes adding new pages easier
+	
+	When adding a new sheet to import..
+	be certain to add the new call at the BOTTOM
+	of the list. As the order is important.
+	(Never add any code/comments above the imports.)
+*/

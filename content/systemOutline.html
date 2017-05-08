@@ -1,0 +1,140 @@
+<h3>Ni Framework - Version 1.0</h3><br>
+  
+  <h4>Overview:</h4>
+  <p>
+    NiFrame aka Native Inventions Framework is a web application (or website) starter system.
+    Simply install NiFrame to your web server and MySQL database. The system is designed so that features
+    can be added with as little as a new "driver" file or as many class, driver, and HTML files as needed.
+    HTML is separated from PHP so HTML files can be combined to form new pages or "conditioned" to remove 
+    or add HTML as needed. Driver files can even be constructed or modified to work with FLASH style GUIs
+    or AJAX style HTML pages with very little effort. After installing NiFrame the following system features
+    and functionality are available to you:
+  </p>
+  <br>
+  
+  <h4>Proposed System and Functionality:</h4>
+  <style>
+  span.checkMarkL{color:green;font-size:x-large;}
+  span.checkMark{color:green;}
+  span.inProgL{color:GoldenRod;font-size:xx-large;}
+  span.inProg{color:GoldenRod;font-size:large;}
+  span.holdL{color:red;font-size:xx-large;}
+  span.hold{color:red;font-size:large;}
+  
+  </style>
+  <br>
+  <ul>
+
+      <li><span style='text-decoration:underline;'>System Installer:</span>
+      <ul style='padding-left:30px;'>
+        <li>System Install Wizard <<span title='Finished' class='checkMarkL'>&#x2713;</span>
+          <ul style='padding-left:30px;'>
+            <li>System Files - Automatically installs required system files on your server. <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>MySQL Data - Automatically builds system data tables and default values into your MySQL database. <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Configuration - Choose how to configure the System for specific needs. <span title='On Hold' class='hold'>&#x26A0;</span></li>
+            <li>Mod Selector - Choose which mods to install with the system. <span title='On Hold' class='hold'>&#x26A0;</span></li>
+          </ul>
+        </li><br>
+        
+         <li>System Un-Installer - Removes all NiFrame system files and database tables.<span title='In Progress' class='inProgL'>&#x2692;</span></li>
+      </ul>
+    </li><br>
+    
+    <li><span style='text-decoration:underline;'>Style (Template) System:</span>
+      <ul style='padding-left:30px;'>
+        <li>HTML File Merging - Combine HTML files to create different pages! <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Variable Injection - Change page data based on user and/or situation! <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Content Includes - Maintain a single content set while changing styles! <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Dynamic HTML Conditioning - Remove, Repeat, or even Repeat within Repeating HTML dynamically! <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Automatic form detection and Input Validation for HTML5 inspired types on all browsers! <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Flash GUI Support - Use Flash as your user interface instead of an HTML template! <span title='On Hold' class='hold'>&#x26A0;</span></li>
+      </ul>
+    </li><br>
+    
+    <li><span style='text-decoration:underline;'>User System:</span>
+      <ul style='padding-left:30px;'>
+        <li>Session Handling & Data Security <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>User Types(Groups)<span title='Finished' class='checkMarkL'>&#x2713;</span> </li>
+        <li>User Type Based Permissions<span title='Finished' class='checkMarkL'>&#x2713;</span> </li>
+        <li>User Statuses (Active, Banned, Misc...)<span title='Finished' class='checkMarkL'>&#x2713;</span> </li>
+        <li>Registration System <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Basic Profiles <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Action Stalking (tracks what users do and when) <span title='On Hold' class='hold'>&#x26A0;</span></li>
+        <li>Phone SMS Fishing <span title='On Hold' class='hold'>&#x26A0;</span></li>
+      </ul>
+    </li><br>
+
+    <li><span style='text-decoration:underline;'>User-Defined Attribute Support:</span>
+      <ul style='padding-left:30px;'>
+        <li>Custom Labels - Label attributes how you want to! <span title='Finished' class='checkMarkL'>&#x2713;</span></li>
+        <li>Attribute Ranks - Adding a rank to an attribute allows you to choose where they show up! <span title='Finished' class='checkMarkL'>&#x2713;</span> 
+          <br>(ex: User Profile, Registration, Both, etc...)
+        </li>
+        <li>Input Verification - Assign a verification type to your attribute/s for form inputs! <span title='Finished' class='checkMarkL'>&#x2713;</span> </li>
+        <li>Default Values - Assign default values to your attributes! <span title='Finished' class='checkMarkL'>&#x2713;</span> </li>
+        <li>Interface Design - Mod Devs, add user-defined attributes to any "thing" classes with ease! <span title='Finished' class='checkMarkL'>&#x2713;</span>
+          <br>(A "thing" has attributes..items, users, etc...)
+        </li>
+      </ul>
+    </li><br>
+    
+    <li><span style='text-decoration:underline;'>Inventory System:</span>
+      <ul style='padding-left:30px;'>
+        <li>Product Inventory</li>
+        <li>Product Display and Search</li>
+        <li>Service Inventory</li>
+        <li>Service Display and Search</li>
+      </ul>
+    </li><br>
+
+    <li><span style='text-decoration:underline;'>Event System:</span>
+      <ul style='padding-left:30px;'>
+        <li>Event Calendar</li>
+        <li>Event Creation and Registration</li>
+        <li>User Availability Schedules</li>
+        <li>User Event Schedules</li>
+        <li>Event Support: Users, Items, Locations</li>
+      </ul>
+    </li><br>
+
+    <li><span style='text-decoration:underline;'>Administrative Control Panel (ACP):</span>
+      <ul style='padding-left:30px;'>
+        <li>System Settings <span title='In Progress' class='inProgL'>&#x2692;</span>
+          <ul style='padding-left:30px;'>
+            <li>Default Time: 12/24hr formats, Time Zones <span title='In Progress' class='inProg'>&#x2692;</span></li>
+            <li>
+              Select - Deselect - Remove Styles <span title='Finished' class='checkMark'>&#x2713;</span>
+              <br>(change entire website layout, look and content with 1 click!)
+            </li>
+          </ul>
+        </li>
+        <li>User Management: <span title='Finished' class='checkMarkL'>&#x2713;</span>
+          <ul style='padding-left:30px;'>
+            <li>User Settings (Self-Edit) <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Search - Create - Edit - Remove Users <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Create - Edit - Remove Types(Groups) <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Create - Edit - Remove Type(Group) Permissions <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Create - Edit - Remove Statuses <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Add - Remove Permission Access by User Type <span title='Finished' class='checkMark'>&#x2713;</span><br></li>
+          </ul>
+        </li><br>
+        <li>Inventory Management</li>
+        <li>Event Management</li>
+        <li>Mod Support: <span title='In Progress' class='inProgL'>&#x2692;</span>
+          <ul style='padding-left:30px;'>
+            <li>Search Mod Packages <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Mod Package View <span title='In Progress' class='inProg'>&#x2692;</span></li>
+            <li>Mod Package Installer <span title='Finished' class='checkMark'>&#x2713;</span></li>
+            <li>Mod Package Remover <span title='In Progress' class='inProg'>&#x2692;</span>
+            <li>Mod Package Updater <span title='In Progress' class='inProg'>&#x2692;</span></li>
+          </ul>        
+        </li>
+      </ul>
+    </li><br>
+    
+    <li><span style='text-decoration:underline;'>Programming Languages:</span>  PHP v5, SQL, HTML5, CSS3, JavaScript</li>
+    <li><span style='text-decoration:underline;'>Server Platform:</span>  Hosted Server Running: Apache, PHP, and MySQL</li>
+    <li><span style='text-decoration:underline;'>Tools Used:</span> Notepad++,  FileZilla, phpMyAdmin, Adobe Photoshop, Windows 7</li>
+    <li><span style='text-decoration:underline;'>Browser Support:</span> Internet Explorer, Fire Fox, Chrome, Android (latest versions)</li>
+  </ul>
+  <br>
