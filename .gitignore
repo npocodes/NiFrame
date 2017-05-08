@@ -1,0 +1,4 @@
+*.ini
+*.bakup
+*thumbs.db
+inc/const.php
