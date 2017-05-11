@@ -1,0 +1,583 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:18.0pt;line-height:107%;font-family:"Times New Roman",serif'>Attribute
+Class – (attr)<br>
+<br>
+<br>
+</span></u></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Attributes</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>attrE           </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– <span style='color:red'>private</span>
+– Flag whether Attrs exist yet for *this class (childs)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>attrList        </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– <span style='color:red'>protected</span>
+– List of unique attribute name =&gt; value pairs for *this class</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>attrIndex     </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– <span style='color:red'>protected</span>
+– The attribute data index for *this class (Name, Label, Rank)<br>
+<br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Methods</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>__construct()</span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> </span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>– This constructor will
+initialize attributes to their default values, retrieve the <span
+style='color:#5B9BD5'>AttrIndex() </span>and if provided with a thing’s ID will
+call the <span style='color:#5B9BD5'>AttrList()</span> method to retrieve
+unique thing’s values.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$ID </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– optional, The thing’s unique identifier<br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>AttrIndex()</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> – Retrieves the Attribute Index
+Table data associated with *this class. The Attr Index Table holds data to
+describe the user-defined attributes (attrs). If a rank is provided, the method
+will return only attributes that match that rank#.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$rank</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – optional, a rank # to filter results
+with.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:  </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Array of Attr Data</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False</span><span style='color:#70AD47'><br>
+</span><span style='color:#C00000'><br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>AttrList()</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Retrieves the Attribute, name = value,
+pairs from the Attribute Values table, if any are available for the unique thing’s
+ID provided.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$ID</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Thing’s unique identifier<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:  </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Associative Array of Attr
+values</span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+</span><span style='color:#70AD47'><br>
+</span><span style='color:#C00000'><br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>AddAttribute()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>AddAttr() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Adds a new attribute to
+*this class (child) within the system. If adding attributes to *this class for
+the first time, this method will attempt to generate the require database
+tables and then create the new attribute/s. Parameters may be matched arrays to
+add more than one attribute at a time.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$name </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– the “code” name of the attribute to add,
+ex: userName.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$label </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The label of the attribute to add, ex:
+User Name</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$rank </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Optional, the rank to assign to the
+attribute, int(11)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$default </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Optional, The default value the
+attribute should have ex: ‘none’</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$vType </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Optional, The verification type to use
+for form inputs with this attribute.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>color
+– A hexadecimal color code</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>date
+– A date yyyy/mm/dd etc..</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>time
+– A timestamp</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>email
+– An E-mail address</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>month
+– A month out of the year, mm or Name</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>day
+– The numerical day of the month, dd</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>year
+– The year, yyyy+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>tel
+(phone) – A standard telephone number</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>number
+– An integer number</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>basic
+– String with no spaces that begins with a letter</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>text
+(default) – Text…<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False</span><span style='color:#70AD47'><br>
+</span><span style='color:#C00000'><br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>EditAttribute()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>EditAttr() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Allows changing of
+user-defined attribute labels and/or ranks only. Modifying any other attribute
+data could cause data corruption. Create new attributes instead using <span
+style='color:#5B9BD5'>AddAttr()</span>. WARNING! Does not change attr values!
+See <span style='color:#5B9BD5'>UpdateValues()</span>.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$name </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The “code” name of the attribute to edit</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$newLabel </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The new label to give the attribute</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$newRank </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Optional, the new rank to assign to the
+attribute<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RemoveAttribute(), DropAttr(), KillAttr()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RemoveAttr() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>    Removes the
+attribute/s from the attribute index table associated with *this class, then
+modifies the attribute values table associated with *this class and drops the
+attributes from the table. WARNING! All unique values associated with attribute
+will be lost!</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$name </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The “code” name of the attribute to
+remove, may be array of attribute names to remove.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>UpdateValues() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Accepts an array of name
+=&gt; value pairs and if the array contains pairs matching attributes in the Attr
+Index Table those pairs are updated in the Attr Values Table. Any remaining
+pairs will be returned for further processing, unless an error occurs in which <span
+style='color:#C00000'>False</span> is returned. If no data remains and no error
+occurs <span style='color:#70AD47'>True</span> is returned.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$data </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Array of name =&gt; value pairs to
+update</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$ID</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The thing’s unique identifier for which
+the values are associated</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in'><b><u><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Courier New"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#C00000'> </span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Remaining Data Array</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> | <span
+style='color:#70AD47'>True</span> | <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>DropValues(), KillValues()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RemoveValues() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Removes any values
+associated with the provided thing’s ID from the Attribute Values Table.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$ID </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The thing’s unique identifier for which
+the values are associated<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False</span></span></p>
+
+</div>
+
+</body>
+
+</html>

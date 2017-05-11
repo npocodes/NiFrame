@@ -1,0 +1,1678 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:18.0pt;line-height:107%;font-family:"Times New Roman",serif'>User
+Class – (user)<br>
+<br>
+<br>
+</span></u></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Attributes</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>user_ID</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>           – <span style='color:red'>protected</span>
+– The users unique identifier</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>user_type </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>      – <span style='color:red'>protected</span>
+– The user type array (ID, Name) </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>user_status</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>     – <span style='color:red'>protected</span>
+– The user status array(ID, Name)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>user_name</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>      – <span style='color:red'>protected</span>
+– The user’s full name</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>user_email</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>      – <span style='color:red'>protected</span>
+– The user’s email address</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>user_phone</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>    – <span style='color:red'>protected</span>
+– The user’s phone number.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>user_carrier</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>    – <span style='color:red'>protected</span>
+– The user’s phone carrier array(ID, Name).</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>userPermList  </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– <span style='color:red'>protected</span>
+– List of user’s permissions based on userType</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>userTypeList  </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– <span style='color:red'>protected</span>
+– List of possible user types</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>userStatusList </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– <span style='color:red'>protected</span>
+– List of possible user statuses</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>typePermList  </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– <span style='color:red'>protected</span>
+– Full list of user type permissions (all types, all perms)<br>
+<br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Methods</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>__construct()</span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> </span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>– This constructor will
+initialize attributes to their default values and if provided with a user ID
+will call the <span style='color:#5B9BD5'>Initialize()</span> method.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$userID </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– optional, The user’s unique identifier<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>ID() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Returns the user’s
+unique identifier<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Email() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Returns the user’s email
+address<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Phone() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Returns the user’s phone
+information (Phone#, Carrier ID, Carrier Name)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$index </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– optional, selects which piece of phone
+data to return<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Phone# </span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>|<span
+style='color:#70AD47'> Carrier ID </span>|<span style='color:#70AD47'> Carrier
+Name<br>
+<br>
+</span><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Type()</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Returns the user’s type/group (ID,
+Name)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$index</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – optional, selects which piece of
+type/group data to return<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:  </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>ID</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#70AD47'>Type/Group Name<br>
+</span><span style='color:#C00000'><br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Status()</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Returns the user’s status information
+(ID, Name)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$index</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – optional, selects which piece of status
+data to return<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:  </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>ID</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#70AD47'>Status Name<br>
+</span><span style='color:#C00000'><br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Name() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Returns the user’s name
+information</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$index</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – optional, selects which part of the
+full name to return, if the index is outside the max range it will return the
+last part of the name.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>User’s Full Name</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#70AD47'>Part of User’s Name<br>
+</span><span style='color:#C00000'><br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Login() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Logs the user into the
+system using the provided user credentials.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$userEmail </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The user’s email address</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$userPass </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The user’s raw password</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$remember </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Flag to remember the user for 24hrs.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Remember() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Validates a user’s
+uniquely generated user code and logs the user into the system. If the code key
+given is over 24hrs old it will expire and no longer be valid. The unique code
+key for remembering is <b>not equal</b> to the key created by <span
+style='color:#5B9BD5'>MakeyKey()</span>.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$cKey </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The user’s uniquely generated user code
+key.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Logout() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Logs a user out of the
+system, destroys session data, destroys cookie data. User will NOT be
+remembered.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'>void</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in'><b><u><span
+style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Courier New"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#C00000'> </span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>MakeKey() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Generates a unique user
+code key, only valid for *this user on *this system. The code key generated is <b>not
+equal </b>to the code key made for <span style='color:#5B9BD5'>Remember()</span>.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$email </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– optional, the user’s email address, if
+not given the current user object email attribute will be taken, failure if no
+email is available.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Url_Encoded Code Key</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Validate() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Validates a unique user
+code key generated by <span style='color:#5B9BD5'>MakeKey()</span>. Keys over
+24hrs old will not be considered valid.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$encoded_key </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– An url_encoded user code key
+generated by <span style='color:#5B9BD5'>MakeKey()</span><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Create() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Uses the details
+provided to create a new user in the system.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$email </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The user’s email address</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$password </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The user’s raw password</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$typeID </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The unique identifier for the type/group
+the user should be.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$data </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Extra attribute data array as (name
+=&gt; value) pairs.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>New User’s ID </span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>|
+<span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Update() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Updates the user’s stored
+information based on the data provided. If no changes are made, the method will
+return false, check <span style='color:#5B9BD5'>Error </span>attribute for “no
+changes made” error phrase to clarify failure due to error.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$data</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Data array of (name =&gt; value) pairs.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Kill() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Kills *this user, by deleting
+all traces of them from the database.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'>void</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Search() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>     This method searches
+the database in order to try and locate a specific or multiple possible users
+based on a given &quot;needle&quot;, paired with a filter option such as &quot;email&quot;
+etc.. (supports partial needles) [Cannot filter by User-Defined Attributes, yet]</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$filter</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The specific user attribute to use as a
+search focus to reduce result</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>Type </span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>– user’s type/group, ID
+or name accepted</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>First Name</span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> – user’s first name</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>Last Name</span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> – user’s last name</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>Status</span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> – the users status, ID
+or name accepted</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>Phone</span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> – the user’s phone
+number</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>Email</span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> – the user’s email
+address (default)<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$needle</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Word, phrase, number, or partial of
+any, the value to search for.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$BoE_flag </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Boolean flag to determine the placement
+of the wild symbol.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>False/0</span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> – Begins with <span
+style='color:#ED7D31'>$needle</span>, wild symbol <b>after</b> needle.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><b><span style='font-size:12.0pt;line-height:107%;font-family:
+"Times New Roman",serif'>True/1</span></b><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> – Ends with <span
+style='color:#ED7D31'>$needle</span>, wild symbol comes <b>before</b> needle<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Array of UserIDs</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>PermissionList(), PrivilegeList(), DibsList()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>PermList() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Returns an associative
+array of all permissions for all user types.    (typeID, typeName, permName,
+etc…)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'>void</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'> <br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Array of Permissions</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Permission(), Permissions(), Privileges(), Dibs()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Permitted() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> If given a specific
+permission name this method will return <span style='color:#70AD47'>true</span>
+if this user has permission or <span style='color:#C00000'>false</span> if they
+do not have permission. If no specific permission name is given, the entire
+permission list for *this user’s type is returned. If there is no <span
+style='color:#5B9BD5'>user_ID</span> or <span style='color:#5B9BD5'>user_typeID</span>
+present then all permissions are returned <span style='color:#C00000'>false</span>.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$permName</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name of a specific permission (case
+in-sensitive)<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Assoc. Array</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#70AD47'>True</span> | <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>NewPerm(), NewDibs()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>NewPermission() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Adds a new user
+permission to the system. All new permissions default to false for all users.
+You must give them permission where needed.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$permName</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name of the new permission, it must
+be unique and case is in-sensitive.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>AlterPerm() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Renames a permission
+name. ACP permission cannot be changed.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$permName</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name of the permission to alter</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$newName </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The new name to give the permission.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>DeletePerm(), KillPerm(), RemoveDibs(), DeleteDibs(), KillDibs()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RemovePerm() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Severs the connection to
+the database, if one exists</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$permName</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name of the permission to remove<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>PermUpdate() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Updates the permissions
+of a specified user type/group.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$userType</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The user type ID or type name to update
+permissions of.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$pdata </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Associative array of (permName =&gt;
+value) pairs to update.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False</span></span><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif;color:#A5A5A5'><br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>TypeList() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Gets a list of all available
+user types/groups. (ID, Name)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'>void</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'> <br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Array of Types</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>NewType() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Creates a new user
+type/group.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$typeName</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name to give the new type/group.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>New Type ID</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>AlterType() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Alter the name of a
+specified user type/group.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$type</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The type to be altered, ID or name
+accepted.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$newName </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The new type/group name to use.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>DeleteType(), KillType()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RemoveType() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Deletes a specified user
+type. Cannot remove default types.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$type</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name or ID of the type to be
+removed<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>StatusList() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Gets a list of all
+available user types/groups. (ID, Name)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'>void</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'> <br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Array of Statuses</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>NewStatus() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Creates a new user status.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$name</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name to give the new status<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>New Status ID</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>AlterStatus() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Alter the name of a
+specified user status.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$status</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The status to be altered, ID or name
+accepted.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$newName </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The new status name to use.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol;color:#5B9BD5'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>DeleteStatus(), KillStatus()</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RemoveStatus() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Deletes a specified user
+status. Cannot remove default statuses.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$type</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The name or ID of the status to be
+removed<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Message() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Sends an HTML email to *this
+user’s email address.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$file</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The HTML file to use for the message</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$vars </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The variables to inject into the file,
+name =&gt; value pairs.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False<br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>TxtMsg() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Sends a text message to
+the user’s phone, NOT IMPLEMENTED<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Unpack() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Checks for valid user
+information stored within the current session. If no valid user information is
+found within the session, then the system attempts to <span style='color:#5B9BD5'>Remember()
+</span>the user. If the <span style='color:#5B9BD5'>UnPack() </span>is
+successful, *this user object is populated with the users information.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Courier New"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'>void</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'> <br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False</span><span style='color:#70AD47'><br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Pack() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Packs up the current
+user object and stores it within the current session. If the object is not <span
+style='color:#5B9BD5'>Unpack()</span>’ed within 2hrs the object will expire and
+no longer be valid.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Courier New"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'>void</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'> <br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False</span><span style='color:#70AD47'><br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#A5A5A5'>Initialize() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> This method uses a <span
+style='color:#5B9BD5'>user_ID</span> to gather the associated user data from
+the database and initialize *this object with the users details. If no <span
+style='color:#ED7D31'>userID</span> is given then the <span style='color:#5B9BD5'>user_ID
+</span>attribute is used. Fails if no <span style='color:#5B9BD5'>user_ID</span>
+is available.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Courier New"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$userID </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– optional, the unique identifier for the
+user.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'> True</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#C00000'>False <br>
+<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#A5A5A5'>Scramble() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Hashes and/or Encrypts
+strings. Hashing is not reversible. Encryption is unique to each installation.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$string </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– string to be scrambled</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$cook</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Boolean, flag whether or not to hash
+the <span style='color:#ED7D31'>$string</span> before encryption</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$type </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– the type of algorithm to use for
+hashing, default = ‘whirlpool’ </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="http://php.net/manual/en/function.hash-algos.php"><span
+lang=EN>http://php.net/manual/en/function.hash-algos.php</span></a><strong><span
+lang=EN style='font-family:"Calibri",sans-serif'> </span></strong><strong><span
+lang=EN style='font-family:"Calibri",sans-serif;font-weight:normal'>for more
+details.</span></strong><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Scrambled String<br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#A5A5A5'>UnScramble() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Decrypts a scrambled
+string. If the original string was <span style='color:#ED7D31'>$cook’</span>ed
+then the hash will be returned, hashing is not reversible.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$scrambledString</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> – A string that has been <span
+style='color:#A5A5A5'>Scramble()</span>’ed<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#70AD47'>Org String</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+| <span style='color:#70AD47'>Org String’s Hash</span></span></p>
+
+</div>
+
+</body>
+
+</html>

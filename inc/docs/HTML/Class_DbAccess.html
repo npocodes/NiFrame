@@ -1,0 +1,1154 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:18.0pt;line-height:107%;font-family:"Times New Roman",serif'>DB
+Access Class – (dbAccess)<br>
+<br>
+<br>
+</span></u></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Attributes</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Linked</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>           – <span style='color:red'>private</span>
+– MySQL connection flag, holds Link Identifier if Alive</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Result </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>          – <span style='color:red'>private</span>
+– Holds query results as an Associative Array or </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>InjectID</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>        – <span style='color:red'>private</span>
+– Holds the last insert auto incremented ID</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>DB_SQL</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>      – <span style='color:red'>private</span>
+– Holds most recent SQL statement.<br>
+<br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Methods</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>__construct()</span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> </span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>– Initializes default
+attribute values<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Result() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Returns the results from
+the last query run as an associative array or as an array of associative
+arrays. </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Associative Array</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> | <span
+style='color:#70AD47'>Array( Assoc. Array )</span><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>LastQuery()</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> – Returns the most recently run SQL
+statement</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>String, SQL statement</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif;color:#C00000'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>InjectID()</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Returns the most recent insert auto
+incremented ID</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#ED7D31'> </span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ID</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif;color:#C00000'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>LinkID() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Returns the current Link
+Identifier</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Link Identifier</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif;color:#C00000'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Link() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Establishes a connection
+to the database</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>SelectDB() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Selects a database to
+use. If the database does not exist this method will attempt to create the
+database.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$db_name </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The name of the database to select<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>TableExists() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Checks whether or not a
+table exists within the selected database</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$tableName </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The name of the table to check for.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Snatch() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Performs a MySQL select
+statement based on the provided details and populates the <span
+style='color:#5B9BD5'>Result </span>attribute with the results of the select
+query. If the query was successful but no results were returned the <span
+style='color:#5B9BD5'>Error</span> attribute will be set to “0 results found”
+and this method will return false, since no data was actually snatched.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$tableName </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The name of the table to snatch
+from</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$field </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The field/column name or array of names
+to snatch, default = “*”</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$where </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The where clause or array of where
+clauses to apply</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$order </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The order by clause to apply</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$distinct </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– Boolean, distinct values flag</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$limit </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The limit of results to return<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Gather() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Performs a MySQL join
+statement based on the provided details and populates the <span
+style='color:#5B9BD5'>Result </span>attribute with the results of the join
+query. If the query was successful but no results were returned the <span
+style='color:#5B9BD5'>Error</span> attribute will be set to “0 results found”
+and this method will return false, since no data was actually gathered. This
+method only accepts multiple tables, if one table use <span style='color:#5B9BD5'>Snatch()
+</span>method.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$tables </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The names of the tables to snatch from,
+must be array!</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$linkColumn </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The field/column name that is common
+among all tables</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$where </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The where clause or array of where
+clauses to apply</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$fields </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The field/column name or array of names
+to gather, default = “*”</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$method </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The method to use for joining the table
+data, default = “LEFT”. {INNER, RIGHT, FULL}<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Scatter() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Performs a multiple
+MySQL insert or update queries, NOT WRITTEN<span style='color:#C00000'><br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Inject() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Performs a MySQL insert
+statement based on the provided details and populates the <span
+style='color:#5B9BD5'>Result </span>attribute with the number of affected rows.
+The insert ID is then stored into the InjectID attribute.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$table </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The name of the table to insert into</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$column </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The field/column name or array of names
+to insert values for</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$value </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The value or array of values to insert</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$flag </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The insert mode flag to switch between
+the different sorts of inserts, default = “normal”. {EMPTY, DELAYED, UPDATE}<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Refresh() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Performs a MySQL update
+statement based on the provided details and populates the <span
+style='color:#5B9BD5'>Result </span>attribute with the number of affected rows.
+If the query was successful but no rows were affected the <span
+style='color:#5B9BD5'>Error</span> attribute will be set to “0 rows affected”
+and this method will return false, since no data was actually updated.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$table </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The name of the table to update</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$set </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The field/column name or array of names
+to update values for</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$value </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The value or array of values to update
+with</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$where </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The where clause or array of where
+clauses to apply<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>NewTable() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Creates a new empty
+table using the provided table name and field/column descriptions.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$tableName </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The name of the table to create</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$fieldList </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The description of the field or
+array of descriptions to structure the table with.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RenameTable() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Renames the table or
+tables listed using the new name or names provided.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$tableName </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The name or array of names of tables
+to rename</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$newName </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The new name or array of new names to
+give the table/s<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>ModTable() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Modifies database table
+fields/columns in several different ways. </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$tableName </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– The name of the table to modify</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$what </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The method of modification.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>ADD
+– default, adds a new field to the table</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>TYPE
+– Changes a fields datatype</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>RENAME
+– Renames a field</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>DROP
+– Drops a field.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$colName </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– name or names of fields to modify. May
+only be array for “DROP” or “ADD” methods.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$type </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– the MySQL datatype to use for the given
+field. May only be array when using the “ADD” method.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$value </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– the default value of the field/column OR
+the newName if using the “RENAME” method. May only be array when using “ADD”
+method.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Kill() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Deletes tables/table
+rows &amp; databases, if only a name is given the method will return false in
+an effort to avoid accidental data wipe outs. Must set $where = null if setting
+a <span style='color:#ED7D31'>$drop</span> flag.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$T_DB </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The name of the table or database to
+kill</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$where </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– The where clause or array of where
+clauses to apply (rows only)<span style='color:#ED7D31'> </span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$drop</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The method of killing to use.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>“database”
+– flag to drop a database</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>“truncate”
+– flag to truncate a given table (resets increment, clears)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>“clear”
+– flag to clear a table of all rows (no increment reset)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:2.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>“drop”
+– flag to drop a table<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>RawQuery() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> This method is here for
+last resort. You must compile the SQL statements properly and clean the data
+before sending it. It is recommended to use the other methods in the class if
+possible. The <span style='color:#5B9BD5'>Error</span> attribute is populated
+with error information, if any exists.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$SQL</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – The user provided SQL statement to run<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Array(Boolean, #Affected Rows)</span><span style='font-size:
+12.0pt;line-height:107%;font-family:"Times New Roman",serif;color:#C00000'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Sever() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Severs the connection to
+the database, if one exists</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#A5A5A5'>Purify() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Converts raw input data
+into html special characters, strips tags, and real escapes strings, then
+returns the clean value.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:"Courier New"'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$value </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– the value to be purified<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Purified value</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif;color:#C00000'> <br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#A5A5A5'>Decrypt() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Decrypts only database values
+that have been encrypted by *this unique installation of the NiFrame system and
+returns the value.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$string </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– string to be decrypted<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Decrypted string</span></p>
+
+</div>
+
+</body>
+
+</html>

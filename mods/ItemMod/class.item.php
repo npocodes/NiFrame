@@ -1,11 +1,13 @@
 <?php
 /*
-  Purpose: Ni Framework (Cortex)
+  Purpose: NiFrame Inventory Module
   
    Author: Nathan M. Poole ( nathan@nativeinventions.com )
            http://nativeinventions.com/
            
      Date: Janurary 2015
+     
+     Last Update: 5-10-2017
      
      File: Item class file
            

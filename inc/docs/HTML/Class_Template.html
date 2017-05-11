@@ -1,0 +1,522 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:18.0pt;line-height:107%;font-family:"Times New Roman",serif'>Template
+Class – (template)</span></u></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Attributes</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>stylName</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>     – <span style='color:red'>private</span>
+– Holds name of current style to use</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>headPath</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>      – <span style='color:red'>private</span>
+– Holds path to HTML header/footer files to use.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>htmlPath</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>      – <span style='color:red'>private</span>
+– Holds the path to HTML files to use.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>fileList</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>           – <span style='color:red'>private</span>
+– List of files used to make up the full HTML template</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>varList</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>          – <span style='color:red'>private</span>
+– List of variables used in the files (Name =&gt; Value)</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>condList</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>       – <span style='color:red'>private</span>
+– List of HTML condition tags to apply to the HTML</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>HTML</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>           – <span style='color:red'>private</span>
+– Holds the compiling/compiled HTML.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal><b><u><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>Methods</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>__construct()</span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> </span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>– Initializes the name of
+the Style directory to use for the template and sets the headPath and htmlPath
+default values<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>SetPath() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Modifies the path of the
+HTML directory to a sub-directory and flags whether to use the new
+sub-directory to find the header/footer files or to use the root header/footer
+files in the main directory.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$path </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– the sub-directory path to use</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$rootHead </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– flag whether to use root header/footer
+or new sub-directories.<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>GetStyles()</span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'> – Retrieves a list of viable style
+names found within the “style” directory</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#FFC000'>void</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'><br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Array of Style Names</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> | <span
+style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>SetFiles()</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Sets file names to use during HTML
+compilation. If headless is true then no header/footer HTML files will be used.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$fileArray</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – string or array of file names,
+“myFile.html”</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$headless</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> – Boolean, if set to true no
+header/footer is used<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS: </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>SetVars() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Sets HTML varName/value
+pairs to be injected into the HTML during compilation</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$varList </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– string or array (varName =&gt; value)<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>SetConditions() </span><span style='font-size:14.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Sets HTML Condition Tags
+to be handled during the template compilation. See <span style='color:#5B9BD5'>FilterConditions()
+</span>method for more details on conditions.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$condList </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– string or array of condition
+tags/commands<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#5B9BD5'>Compile() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> Requires that FileList,
+Varlist, Conditions be set and then compiles the result. You may opt to return
+or display the compiled html. The default behavior is to display.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$returning </span><span style='font-size:12.0pt;line-height:
+107%;font-family:"Times New Roman",serif'>– Boolean flag to return or display
+the compiled HTML<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>True</span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'> | <span style='color:#70AD47'>HTML, if
+returning</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>False, on failure<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#A5A5A5'>Purge() </span><span style='font-size:14.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>–</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> This function handles
+the purging of PHP code and other misc. symbols. It also activates the HTML
+variables so they work.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$string </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– string of HTML<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>Purged HTML string</span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'> | <span
+style='color:#C00000'>False<br>
+<br>
+</span></span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#A5A5A5'>FilterConditions() </span><span style='font-size:14.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>–</span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif'>
+This Function handles the beef work for HTML conditioning. A [default]
+condition is removed from the HTML. [Modified] conditions are the opposite of
+the default in that they will repeat the HTML code rather than remove it. See <span
+style='color:#5B9BD5'>Conditions</span> document for more details on condition
+tags and modifiers.</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#70AD47'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>ACCEPTS:</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$string </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– string of HTML to be filtered</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#ED7D31'>$conds </span><span style='font-size:12.0pt;line-height:107%;
+font-family:"Times New Roman",serif'>– string or array of conditions<br>
+<br>
+</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:14.0pt;line-height:107%;font-family:"Courier New";color:#C00000'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#C00000'>RETURNS:</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.5in;text-indent:-.25in'><span
+style='font-size:12.0pt;line-height:107%;font-family:Wingdings'>§<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:107%;font-family:"Times New Roman",serif;
+color:#70AD47'>String of filtered HTML </span><span style='font-size:12.0pt;
+line-height:107%;font-family:"Times New Roman",serif'>| <span style='color:
+#C00000'>String of non-filtered HTML</span></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -11,11 +11,11 @@ functionality.
 ### Overview:
 
 NiFrame is a web application (or website) starter system. 
-Simply install NiFrame to your web server and MySQL database. The system is designed so that 
-features can be added with as little as a new "driver" file or as many class, driver, and HTML 
+Simply install NiFrame to your web server and follow the installation wizard. The system is designed so 
+that features can be added with as little as a new "driver" file or as many class, driver, and HTML 
 files as needed. HTML is separated from PHP so HTML files can be combined to form new pages or 
 "conditioned" to remove or add HTML as needed. Driver files can even be constructed or modified 
-to work with FLASH style GUIs or AJAX style HTML pages with very little effort. After installing 
+to work with FLASH style GUIs or AJAX(JQUERY) style HTML pages with very little effort. After installing 
 NiFrame the following system features and functionality are available to you: 
 
 
@@ -37,7 +37,7 @@ NiFrame the following system features and functionality are available to you:
   * Content Includes - Maintain a single content set while changing styles! ✓
   * Dynamic HTML Conditioning - Remove, Repeat, or even nested repeat HTML dynamically! ✓
   * Automatic form detection and Input Validation for HTML5 inspired types on all browsers! ✓
-  * Flash GUI Support - Use Flash as your user interface instead of an HTML template! ⚠
+  * Alternate GUI Support - Use Flash as your user interface instead of an HTML template! ⚠
 
 
 #### User System: 
@@ -61,14 +61,14 @@ NiFrame the following system features and functionality are available to you:
     + (A "thing" has attributes..items, users, etc...) 
 
 
-#### Inventory System: ⚠
+#### Inventory Module: ⚠
   * Product Inventory
   * Product Display and Search
   * Service Inventory
   * Service Display and Search
 
 
-#### Event System: ⚠
+#### Event Scheduling Module: ⚠
   * Event Calendar
   * Event Creation and Registration
   * User Availability Schedules
@@ -103,6 +103,6 @@ NiFrame the following system features and functionality are available to you:
 #### Tools Used:
 * Programming Languages: PHP v5, SQL, HTML5, CSS3, JavaScript
 * Server Platform: Hosted Server Running: Apache, PHP, and MySQL
-* Tools Used: Notepad++, FileZilla, phpMyAdmin, Adobe Photoshop, Windows 7
+* Tools Used: Notepad++, FileZilla, phpMyAdmin, Adobe Photoshop, Windows
 * Browser Support: Internet Explorer, Fire Fox, Chrome, Android (latest versions)
 
