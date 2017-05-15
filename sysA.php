@@ -1,13 +1,12 @@
 <?php
 /*
-  Purpose:  System Administration Driver File
-            Ni Framework - www.NativeInventions.com
+  Purpose:  System Administration Driver File - NiFrame
   
   FILE:     The System Administration driver file contains modes that allow
             users with ACP privileges to manage system settings such as:
             setting the default Time Zone, Time Format 12/24hr, Style, etc...
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     July 2014
 */
 //Include the common file

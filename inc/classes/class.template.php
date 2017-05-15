@@ -1,5 +1,17 @@
 <?php
 /*
+  Project:  NiFrame
+  
+  Author:   Nathan Poole - github/npocodes
+           
+  Date:     Jan 2014
+  
+  Updated:  A
+  
+  File:     This file is an error interface file use this class as a parent 
+            class to provide your class with error handling methods
+*/
+/*
 	[ Template Class ] [5/30/2012]
 	CORTEX by Native Inventions < www.NativeInventions.com >
 	Author: Nathan < nathan@nativeinventions.com >

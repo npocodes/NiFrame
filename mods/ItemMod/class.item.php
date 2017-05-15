@@ -1,15 +1,15 @@
 <?php
 /*
-  Purpose: NiFrame Inventory Module
+  Purpose: Item class file - NiFrame Inventory Module
   
-   Author: Nathan M. Poole ( nathan@nativeinventions.com )
-           http://nativeinventions.com/
+  Author: Nathan Poole - github/npocodes
            
-     Date: Janurary 2015
+  Date: Janurary 2015
      
-     Last Update: 5-10-2017
+  Updated: 5-10-2017
      
-     File: Item class file
+  File: This is the class file that describes the item objects attributes
+        and methods.
            
 	[ !! This Class Utilizes a configuration file !! ]
 */

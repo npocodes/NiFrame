@@ -1,19 +1,20 @@
 <?php
 /*
-  Project: Ni Framework
+  Project:  NiFrame
   
-   Author: Nathan M. Poole ( nathan@nativeinventions.com )
-           http://nativeinventions.com/
+  Author:   Nathan Poole - github/npocodes
            
-     Date: Feb 2015
+  Date:     Feb 2015
+  
+  Updated:  A
+  
+  File:     This file is an attribute class file. Use this class to "extend"
+            attributes to "things"" such as: users, items, anything that has
+            attributes...This class will provide handling the dynamic attributes.
      
-     File: This file is an attribute class file use this class to "extend"
-           attributes to "things"" such as: users, items, anything that has
-           attributes...This class will provide handling the dynamic attributes.
-     
-     Note-  It is assumed that the table structure follows: tableName = className, thing_ID = className_ID
-            ex: tableName = user, thing_ID = user_ID, where class name = "user"... or 
-            ex: tableName = item, thing_ID = item_ID, where class name = "item", etc...
+  Note-     It is assumed that the table structure follows: tableName = className, thing_ID = className_ID
+              ex: tableName = user, thing_ID = user_ID, where class name = "user"... or 
+              ex: tableName = item, thing_ID = item_ID, where class name = "item", etc...
 */
 //require_once('inc/classes/class.error.php');
 //require_once('inc/classes/class.dbAccess.php');

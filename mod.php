@@ -1,13 +1,12 @@
 <?php
 /*
-  Purpose:  Mod Package Driver File
-            Ni Framework - www.NativeInventions.com
+  Purpose:  Mod Package Driver File - NiFrame
   
   FILE:     The Mod Package driver file handles mod specific use-case
             scenarios (modes) that require Administrative permissions such as: 
             installing a new mod package, removing packages, viewing packages, etc...
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     February 2015
 */
 //Include the common file

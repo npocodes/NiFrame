@@ -1,12 +1,12 @@
 <?php
 /*
-  Purpose:  User Driver File - Ni Framework - www.NativeInventions.com
+  Purpose:  User Driver File - NiFrame
   
   FILE:     The user driver file handles user module specific use-case
             scenarios such as: A user: editing own profile, searching other users, etc...
             (See userA.php driver in the ACP for admin specific use-cases)
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     July 2014
 */
 //small change

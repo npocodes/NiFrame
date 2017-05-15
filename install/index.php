@@ -1,11 +1,14 @@
 <?php
 /*
-  Purpose:  Installer Start File - Ni Framework - www.NativeInventions.com
+  Purpose:  Installer Start File - NiFrame
   
-  FILE:     The Installer Start file begins the installation of the NiFramework
+  FILE:     The Installer Start file begins the installation of the NiFrame
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github.com/npocodes
+  
   Date:     July 2014
+  
+  Updated:  A
 */
 //Start/Resume the PHP session
 session_start();

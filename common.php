@@ -1,6 +1,6 @@
 <?php
 /*
-  Purpose:  Common Driver File - Ni Framework - www.NativeInventions.com
+  Purpose:  Common Driver File - NiFrame
   
   FILE:     The Common driver file is the main driver from which
             all other driver files are able to plug into the system.
@@ -9,7 +9,7 @@
             and allows new drivers to talk with the system seamlessly,
             essentially serving as the frameworks interface for drivers.
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     July 2014
 */
 //Start/Resume the PHP session

@@ -1,13 +1,14 @@
 <?php
 /*
-  Purpose:  Item Driver File - Ni Framework - www.NativeInventions.com
+  Purpose:  Item Driver File - NiFrame Inventory Module
   
   FILE:     The Item driver file handles Item module specific use-case
             scenarios such as: viewing an item profile, searching items, etc...
             (See itemA.php driver for admin specific use-cases: create, edit, etc...)
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     Janurary 2015
+  Updated:  
 */
 //Include the common file
 require_once('common.php');

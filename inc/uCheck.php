@@ -1,9 +1,8 @@
 <?php
 /*
-  Project: Ni Framework
+  Project: NiFrame
   
-  Author: Nathan M. Poole ( nathan@nativeinventions.com )
-         http://nativeinventions.com/
+  Author: Nathan Poole - github/npocodes
          
   File: The User Check driver file handles detection and
         unpacking of any user objects stored in the session.

@@ -1,11 +1,11 @@
 <?php
 /*
-  Purpose:  Login Driver File - Ni Framework - www.NativeInventions.com
+  Purpose:  Login Driver File - NiFrame
   
   FILE:     The Login driver file handles requests such as: forgot,
             reset, login, logout...
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     July 2014
 */
 //Include the common file

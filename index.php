@@ -1,13 +1,13 @@
 <?php
 /*
-  Purpose:  Index Driver File - Ni Framework - www.NativeInventions.com
+  Purpose:  Index Driver File - NiFrame
   
   FILE:     The Index driver file handles the request for the main site
             page, a.k.a. the Portal or Home page. This is usually the most
             basic of driver files so it may be a good file to copy when 
             making new Drivers!
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     July 2014
 */
 //Include the common file

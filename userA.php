@@ -1,7 +1,6 @@
 <?php
 /*
-  Purpose:  User Administration Driver File
-            Ni Framework - www.NativeInventions.com
+  Purpose:  User Administration Driver File - NiFrame
   
   FILE:     The User Administration driver file handles user specific use-case
             scenarios (modes) that require Administrative permissions such as: 
@@ -9,7 +8,7 @@
             
             (Shared modes like "User Edit" are in base driver 'user.php')
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     July 2014
 */
 //Include the common file

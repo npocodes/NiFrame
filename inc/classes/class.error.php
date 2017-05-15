@@ -1,14 +1,15 @@
 <?php
 /*
-  Project: Ni Framework (NiFrame)
+  Project:  NiFrame
   
-   Author: Nathan M. Poole ( nathan@nativeinventions.com )
-           http://nativeinventions.com/
+  Author:   Nathan Poole - github/npocodes
            
-     Date: Jan 2014
+  Date:     Jan 2014
+  
+  Updated:  A
      
-     File: This file is an error interface file use this class as a parent 
-           class to provide your class with error handling methods
+  File:     This file is an error interface file use this class as a parent 
+            class to provide your class with error handling methods
 */
 
 class error {

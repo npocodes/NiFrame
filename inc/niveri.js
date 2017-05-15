@@ -1,7 +1,7 @@
 /********************************************************
 *	Ni Verification File - v1.0
 *	Language: JavaScript
-*	Author: Nathan < nathan@nativeinventions.com >
+*	Author: Nathan < github/npocodes >
 *	Date:	6/11/2012	
 *	Description:
 *		This file can be used to verify form input and is based

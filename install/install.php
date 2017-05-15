@@ -1,15 +1,16 @@
 <?php
 /*
-  Project: Ni Framework
+  Project:  NiFrame (NiFramework)
   
-  Author: Nathan M. Poole ( nathan@nativeinventions.com )
-         http://nativeinventions.com/
+  Author:   Nathan Poole - github/npocodes
            
-  Date: April 2015
-     
-  File: This file processes the data gathered from  the user by the wizard. If the user has selected
-        an Automatic installation than only Database and Common information was obtained from the user.
-        All other values will be set to default values.
+  Date:     April 2015
+  
+  Updated:  A
+  
+  File:     This file processes the data gathered from  the user by the wizard. If the user has selected
+            an Automatic installation than only Database and Common information was obtained from the user.
+            All other values will be set to default values.
 */
 session_start();
 

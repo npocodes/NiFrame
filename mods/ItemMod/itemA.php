@@ -1,7 +1,6 @@
 <?php
 /*
-  Purpose:  Item Administration Driver File
-            Ni Framework - www.NativeInventions.com
+  Purpose:  Item Administration Driver File - NiFrame Inventory Module
   
   FILE:     The Item Administration driver file handles item specific use-case
             scenarios (modes) that require Administrative permissions such as: 
@@ -9,8 +8,9 @@
             
             (Shared modes like "User Edit" are in base driver 'user.php')
             
-  Author:   Nathan M. Poole - nathan@nativeinventions.com
+  Author:   Nathan Poole - github/npocodes
   Date:     Janurary 2015
+  Updated:
 */
 //Include the common file
 require_once('common.php');

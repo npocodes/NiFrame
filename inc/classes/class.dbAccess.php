@@ -1,12 +1,17 @@
 <?php
 /*
-	[ dbAccess Class ] [5/30/2012]
-	CORTEX by Native Inventions < www.NativeInventions.com >
-	Author: Nathan < nathan@nativeinventions.com >
-	
-	This class provides simple interactions with MySQL DB, as well as, 
-	better control over database connections. Read the commenting below
-	for more information.
+  Project:  NiFrame
+  
+  Author:   Nathan Poole - github/npocodes
+           
+  Date:     5/30/2012
+     
+  Updated:  Feb 2015
+  
+  File:     This dbAccess class provides simple interactions with MySQL DB, as well as, 
+            better control over database connections. Read the commenting below
+            for more information.
+
 	[ !! This class utilizes a configuration file !! ]
   
   !!WARNING!! - THIS CLASS UTILIZES A DEPRICATED(PHP 5.5) SET OF MYSQL 

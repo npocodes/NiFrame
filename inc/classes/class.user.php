@@ -1,13 +1,14 @@
 <?php
 /*
-  Purpose: Ni Framework (Cortex)
+  Purpose:  NiFrame
   
-   Author: Nathan M. Poole ( nathan@nativeinventions.com )
-           http://nativeinventions.com/
+  File:     User Class File
+  
+  Author:   Nathan Poole - github/npocodes
            
-     Date: July 2014
+  Date:     July 2014
      
-     File: User Class File
+  Updated:  A
            
 	[ !! This Class Utilizes a configuration file !! ]
 */
