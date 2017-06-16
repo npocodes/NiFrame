@@ -8,6 +8,7 @@
             
   Author:   Nathan Poole - github/npocodes
   Date:     July 2014
+  Updated:  6/16/2017
 */
 //small change
 //Include the common file
@@ -30,18 +31,12 @@ if(isset($_INPUT['edit']))
   {
     //Set the page name
     $T_VAR['PAGE_NAME'] = 'User Edit';
-
-    //Only Root User can edit root user
-    if((isset($_INPUT['uid']) && $_INPUT['uid'] == 1))
-    {
-      if($_USER->ID() != 1)
-      {
-        RETURN false;
-      }
-    }
     
     //Determine if self editing or if ADMIN editing another user (must be ADMIN to edit others)
     $eUser = ((isset($_INPUT['uid']) && $_INPUT['uid'] != 0) && $_USER->Permitted('ACP')) ? new user($_INPUT['uid']) : $_USER;
+    
+    //Only Root User can edit root user
+    $eUser = ((isset($_INPUT['uid']) && $_INPUT['uid'] == 1) && $_USER->ID() == 1) ? $eUser : $_USER;
     
     //Remove Display only elements if this is admin
     if($_USER->Permitted('ACP')){ $T_COND[] = 'DISPLAY'; }

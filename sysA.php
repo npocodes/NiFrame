@@ -37,6 +37,9 @@ if(isset($_INPUT['settings']))
     //Check for form submission
     if(isset($_INPUT['submit']))
     {
+      //Alter redirect back to settings page.
+      $T_VAR['REDIRECT'] = '3;url=sysA.php?settings';
+      
       //Check for Login Acceptance setting (logNE)
       if(isset($_INPUT['logNE']) && $_INPUT['logNE'] != LOG_NE)
       {
@@ -58,23 +61,56 @@ if(isset($_INPUT['settings']))
               {
                 //Nickname only
                 case 2:
-                  $T_VAR['MSG'] = 'Login Identifier now accepts <b>only</b> Nicknames.';
+                  $T_VAR['MSG'] = 'Login Identifier now accepts <b>only</b> Nicknames.<br>';
                 break;
                 
                 //Email Only
                 case 1:
-                  $T_VAR['MSG'] = 'Login Identifier now accepts <b>only<b> Emails.';
+                  $T_VAR['MSG'] = 'Login Identifier now accepts <b>only<b> Emails.<br>';
                 break;
                 
                 //Both Email + Nickname
                 default:
-                  $T_VAR['MSG'] = 'Login Identifier now accepts both Emails + Nicknames';
+                  $T_VAR['MSG'] = 'Login Identifier now accepts both Emails + Nicknames.<br>';
                 break;
               }
             }else{ $T_VAR['MSG'] = 'Failed to update login acceptance level!'; }              
           }else{ $T_VAR['MSG'] = 'Failed to write new login acceptance data!'; }
         }else{ $T_VAR['MSG'] = 'Unable to update login acceptance data!'; }
-      }
+      }//End Login Acceptance Option
+      
+      if(isset($_INPUT['recaptcha']) && $_INPUT['recaptcha'] != RECAPTCHA)
+      {
+        $fileData = file_get_contents('inc/const.php');
+        if($fileData !== false)
+        {
+          //Attempt to update the data
+          $replace = 'define("RECAPTCHA", "'.RECAPTCHA.'");';
+          $with = 'define("RECAPTCHA", "'.$_INPUT['recaptcha'].'");';
+          $newData = str_replace($replace, $with, $fileData);
+          if(file_put_contents('inc/const.php', $newData) !== false)
+          {
+            //Verify changes occurred
+            $reRead = file_get_contents('inc/const.php');
+            if($newData == $reRead)
+            {
+              //SUCCESS MSG!!
+              switch($_INPUT['recaptcha'])
+              {
+                //RECAPTCHA is disabled
+                case 1:
+                  $T_VAR['MSG'] .= ''.PHP_EOL.'reCAPTCHA is now enabled.<br>';
+                break;
+                
+                default:
+                  $T_VAR['MSG'] .= ''.PHP_EOL.'reCAPTCHA is now disabled.<br>';
+                break;
+              }
+            }else{ $T_VAR['MSG'] = 'Failed to update recaptcha data!'; }  
+          }else{ $T_VAR['MSG'] = 'Failed to write new recaptcha data!'; }
+        }else{ $T_VAR['MSG'] = 'Unable to update login acceptance data!'; }
+      }//End Recaptcha Enable/Disable option
+      
     }
     else
     {
@@ -82,6 +118,10 @@ if(isset($_INPUT['settings']))
       $T_VAR['SELECT_BOTH']   = (LOG_NE == 0) ? 'SELECTED' : '';
       $T_VAR['SELECT_EMAIL']  = (LOG_NE == 1) ? 'SELECTED' : '';
       $T_VAR['SELECT_NICK']   = (LOG_NE == 2) ? 'SELECTED' : '';
+      
+      //Check the currently set reCAPTCHA option on/off
+      $T_VAR['RECAPTCHA_OFF'] = (RECAPTCHA == 0) ? 'SELECTED' : '';
+      $T_VAR['RECAPTCHA_ON']  = (RECAPTCHA == 1) ? 'SELECTED' : '';
       
       //Display the settings form
       $T_FILE = 'settings.html';

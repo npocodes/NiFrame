@@ -2,7 +2,9 @@
 ###
 ###	~ COMMON STYLE SHEET ~
 ###
-### Colors: #7d1416 (red), #ded8bf(tan), #ffffff(white), #3c372d(black)
+### #03520f; Dark Green
+### #059d1c; Green
+### Silver;
 */
 
 /* ### Reset CSS values ### */
@@ -23,12 +25,23 @@
 	display:none;
 }
 
-/* Form Labels and Buttons */
-.btn { padding:5px; }
+/* Form Labels, Buttons and Blocks */
+.btn { padding:10px; font-size: larger; }
 .label{ font-weight:bold; }
+.inBlock{ 
+  background-color:#03520f;/* Dark Green */ 
+  width:50%; 
+  margin:auto; 
+  border:8px outset silver; 
+  border-radius: 20px;
+  padding: 15px;
+}
+.inBlock .inWrap { width:60%; margin:auto; }
+.inBlock .inWrap .label { float: left; }
+.inBlock .inWrap input { float: right; }
 
 body {
-	background-color:#1C1D1F;
+	background-color:#059d1c;/* Green */
 	color:#DCD8D8;
   font:16px/1.231 arial, helvetica, clean, sans-serif;
 	text-align:center;
@@ -72,13 +85,4 @@ body {
   width:100%;
   margin:auto;
 }
-
-/* Login Section */
-#login { text-align:center; }
-#login #formDiv {
-  width:26%;
-  margin:auto;
-}
-#login #tableDiv { width:100%; }
-#login table { text-align:right; }
 

@@ -8,7 +8,7 @@
            
   Date:     July 2014
      
-  Updated:  A
+  Updated:  6/16/2017
            
 	[ !! This Class Utilizes a configuration file !! ]
 */
@@ -640,9 +640,13 @@ class user extends attr {
       //Verify values are not empty
       if(!(empty($value)))
       {
-        $fieldList[] = $key;
-        $valueList[] = ($key == $CONFIG['UserPass_col'] && !(empty($value))) ? $this->Scramble($value, true) : $value;
-        //^ If the key is for the user password and the value is not empty, scramble & cook the value
+        //Skip root user userType changes
+        if(!($this->user_ID == 1 && $key == $CONFIG['UserTypeID_col']))
+        {
+          $fieldList[] = $key;
+          $valueList[] = ($key == $CONFIG['UserPass_col'] && !(empty($value))) ? $this->Scramble($value, true) : $value;
+          //^ If the key is for the user password and the value is not empty, scramble & cook the value
+        }
       }
     }
     
@@ -1679,7 +1683,7 @@ class user extends attr {
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
   //^ AttrList Override Method ^//
   //^^^^^^^^^^^^^^^^^^^^^^^^^^^^// 
-  public function AttrList()
+  public function AttrList($ID = 0)
   {
     if($this->user_ID != 0)
     {

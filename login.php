@@ -121,9 +121,10 @@ if($_USER->ID() == 0)
     if(isset($_INPUT['submit']))
     {
       //First before anything check ReCAPTCHA
+      //Unless its been disabled...
       require_once("inc/recaptchalib.php");
 			$Captcha = recaptcha_check_answer($CONFIG['SecretKey'], $_SERVER["REMOTE_ADDR"], $_INPUT['recaptcha_challenge_field'], $_INPUT['recaptcha_response_field']);
-			if($Captcha->is_valid)
+			if($Captcha->is_valid || !(RECAPTCHA))
       {
         //ReCAPTCHA VALID!
         //Verify email has been given
@@ -206,14 +207,18 @@ if($_USER->ID() == 0)
     { 
       // SHOW REGISTRATION FORM!
       
-      //Get reCAPTCHA lib
-      require_once('inc/recaptchalib.php');
-      
-      //Check for reCAPTCHA error codes and get reCAPTCHA html
-      $T_VAR['RECAPTCHA'] = (!(isset($_SESSION['reCAPTCHA_Error']))) ? recaptcha_get_html($CONFIG['PublicKey']) : recaptcha_get_html($CONFIG['PublicKey'], $_SESSION['reCAPTCHA_Error']);
-      
-      //Now that its been recorded... erase the stale reCAPTCHA
-      unset($_SESSION['reCAPTCHA_Error']);
+      //Verify reCAPTCHA is enabled
+      if(RECAPTCHA)
+      {
+        //Get reCAPTCHA lib
+        require_once('inc/recaptchalib.php');
+        
+        //Check for reCAPTCHA error codes and get reCAPTCHA html
+        $T_VAR['RECAPTCHA'] = (!(isset($_SESSION['reCAPTCHA_Error']))) ? recaptcha_get_html($CONFIG['PublicKey']) : recaptcha_get_html($CONFIG['PublicKey'], $_SESSION['reCAPTCHA_Error']);
+        
+        //Now that its been recorded... erase the stale reCAPTCHA
+        unset($_SESSION['reCAPTCHA_Error']);
+      }else{ $T_COND[] = 'RECAPTCHA'; }//Remove the HTML
       
       $T_FILE = 'register.html';//Registration form 
       $T_VAR['MSG'] = 'Joining is Free! Just provide a few details about yourself below to create your user account.';
@@ -242,7 +247,7 @@ if($_USER->ID() == 0)
       }else{ $T_COND[] = 'USER_ATTR_LIST'; }      
     }
     //END JOIN MODE
-  }  
+  }
   else if(isset($_INPUT['act']))
   {
     //ACTIVATION MODE!!

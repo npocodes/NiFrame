@@ -1,43 +1,64 @@
 
 <!-- CMNinfo HTML START //-->
 <div id='CMNinfo'>
-	<p>
-		Please provide the Common Information of your site.<br>
-		This information is used to create the Root user and for misc security purposes.<br>
-    All information is required.<br><br>
-	</p>
-	<span class='label'>Site Name:</span>
-	<input type='text' name='siteName' value='NiFrame' title='What do you call your website or application?'><br><br>
-  
-  <span style='text-decoration:underline;'><a href='http://www.google.com/recaptcha' target='_blank'>reCAPTCHA</a></span><br>
-	<span class='label'>Public Key:</span>
-	<input type='text' name='pubKey' title='Enter your public key for reCAPTCHA'><br><br>
-	
-	<span class='label'>Private Key:</span>
-	<input type='text' name='privKey' title='Enter your private key for reCAPTCHA'><br><br>
 
-	<span class='label'>EIVS Phrase:</span>
-	<input type='text' name='cmnEIVS' title='This phrase/word is used with encryptions and hashes to make them unique to your installation. This can not be changed without a re-install. (Encryption Initialization Vector String)'><br><br>
-	
-  <hr><br>
-	<span class='label'>First Name:</span>
-	<input type='text' alt='basic' name='firstName' value='John' title='First Name of the root-user.'><br><br>
- 
-	<span class='label'>Middle Name:</span>
-	<input type='text' alt='basic' name='midName' value='Jacob' title='Middle Name of the root-user.'><br><br>
+  <div class='inBlock'>
+    <div class='inWrap'>
+      <p>
+        Plese provide a name for this website. <br>
+        This is usually a shortened version of the name.<br>
+      </p><br>
+      
+      <span class='label'>Site Name:</span>
+      <input type='text' name='siteName' value='NiFrame' title='What do you call your website or application?'><br>
+    </div>
+  </div><br>
   
-  <span class='label'>Last Name:</span>
-	<input type='text' alt='basic' name='lastName' value='Smith' title='Last Name of the root-user.'><br><br>
-  
-  <span class='label'>Nickname(screen name):</span>
-	<input type='text' alt='basic' name='nickName' title='Nickname of the root-user.'><br><br>
-	
-	<span class='label'>Root/Contact Email:</span>
-	<input type='email' alt='email' name='rootEmail' title='This is root email (for login) and the contact email for the website. ie admin@yoursite.com'><br><br>
-  
-	<span class='label'>Root-User Password:</span>
-	<input type='password' name='rootPass'><br><br>
+  <div class='inBlock'>
+    <div class='inWrap'>
+      <p>
+        Please Provide your 
+      <span style='text-decoration:underline;'><a href='http://www.google.com/recaptcha' target='_blank'>reCAPTCHA</a></span>
+        information.<br>
+        This will be used for anti-spam/bot measures.<br>
+      </p><br>
+      
+      <span class='label'>Public Key:</span>
+      <input type='text' name='pubKey' title='Enter your public key for reCAPTCHA'><br><br>
+      
+      <span class='label'>Private Key:</span>
+      <input type='text' name='privKey' title='Enter your private key for reCAPTCHA'><br><br>
 
-  <hr><br>	
+      <span class='label'>EIVS Phrase:</span>
+      <input type='text' name='cmnEIVS' title='This phrase/word is used with encryptions and hashes to make them unique to your installation. This can not be changed without a re-install. (Encryption Initialization Vector String)'><br>
+    </div>
+  </div><br>
+  
+  <div class='inBlock'>
+    <div class='inWrap'>
+      <p>
+        Plese provide some personal information.<br>
+        This information will be used to create the root user.
+      </p><br>
+      
+      <span class='label'>First Name:</span>
+      <input type='text' alt='basic' name='firstName' value='John' title='First Name of the root-user.'><br><br>
+     
+      <span class='label'>Middle Name:</span>
+      <input type='text' alt='basic' name='midName' value='Jacob' title='Middle Name of the root-user.'><br><br>
+      
+      <span class='label'>Last Name:</span>
+      <input type='text' alt='basic' name='lastName' value='Smith' title='Last Name of the root-user.'><br><br>
+      
+      <span class='label'>Nickname(screen name):</span>
+      <input type='text' alt='basic' name='nickName' title='Nickname of the root-user.'><br><br>
+      
+      <span class='label'>Root/Contact Email:</span>
+      <input type='email' alt='email' name='rootEmail' title='This is root email (for login) and the contact email for the website. ie admin@yoursite.com'><br><br>
+      
+      <span class='label'>Root-User Password:</span>
+      <input type='password' name='rootPass'><br>
+    </div>
+  </div><br>
 </div>
 <!-- CMNinfo HTML END //-->

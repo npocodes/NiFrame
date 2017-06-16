@@ -55,37 +55,37 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
   ////////////////////
   //% Connect to the database
 	echo("Establishing Connection to the database...<br>");
-	$Linked = mysql_connect($_POST['DBserv'], $_POST['DBuser'], $_POST['DBpass']);
+	$Linked = mysqli_connect($_POST['DBserv'], $_POST['DBuser'], $_POST['DBpass']);
 	if($Linked)
 	{
 		echo("<span style='color:green;'>Successfully Established Database connection...</span><br><br>");
 	}
 	else
 	{
-		echo("<span style='color:red;'>Error unable to connect to database:</span> <span style='color:blue'>".mysql_error()."</span><br>");
+		echo("<span style='color:red;'>Error unable to connect to database:</span> <span style='color:blue'>".mysqli_error($Linked)."</span><br>");
 		echo("Exiting...");
 		exit();
 	}
 	
   //Select the Database to use
 	echo("Attempting to select your database...<br>");
-	$Selected = mysql_select_db($_POST['DBname']);
+	$Selected = mysqli_select_db($Linked, $_POST['DBname']);
 	if($Selected)
 	{
 		echo("<span style='color:green;'>Successfully selected the database...</span><br><br>");
 	}
 	else
 	{
-		echo("<span style='color:red;'>Error unable to select the database:</span> <span style='color:blue'>".mysql_error()."</span><br>");
+		echo("<span style='color:red;'>Error unable to select the database:</span> <span style='color:blue'>".mysqli_error($Linked)."</span><br>");
 		echo("Attempting to create the database...<br>");
-		$NEW_DB = mysql_query("CREATE DATABASE ".$_POST['DBname']);
-		if($NEW_DB)
+		$NEW_DB = mysqli_query($Linked, "CREATE DATABASE ".$_POST['DBname']);
+		if($NEW_DB !== false)
 		{
 			echo("<span style='color:green;'>Successfully created the database...</span><br><br>");
 		}
 		else
 		{
-			echo("<span style='color:red;'>Error unable to create the database:</span> <span style='color:blue'>".mysql_error()."</span><br>");
+			echo("<span style='color:red;'>Error unable to create the database:</span> <span style='color:blue'>".mysqli_error($Linked)."</span><br>");
 			echo("Exiting...<br><br>");
 			echo("Please take note that if you are using a hosted server that uses a c-panel, you must create the db through your control panel.<br>Then enter the name of the database you created during installation.");
 			exit();
@@ -117,7 +117,7 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
     //Create the User table
 		"DROP TABLE IF EXISTS `".$_POST['DBprefix']."user`;",
 		"CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."user` (`user_ID` bigint(20) NOT NULL AUTO_INCREMENT, `userType_ID` bigint(20) NOT NULL DEFAULT '3', `userStatus_ID` bigint(20) NOT NULL DEFAULT '0', `userFirstName` varchar(64) NOT NULL DEFAULT 'unknown', `userMidName` varchar(64) NOT NULL DEFAULT 'unknown', `userLastName` varchar(64) NOT NULL DEFAULT 'unknown', `userNickName` varchar(32) NOT NULL DEFAULT 'unknown', `userEmail` varchar(64) NOT NULL DEFAULT 'unknown', `userPhone` varchar(16) NOT NULL DEFAULT '(555)-555-5555', `carrier_ID` bigint(20) NOT NULL DEFAULT '0', `userTZ` varchar(64) NOT NULL DEFAULT 'UTC', `userPass` varchar(255) NOT NULL DEFAULT 'unknown', `userCode` varchar(255) NOT NULL DEFAULT 'unknown', PRIMARY KEY (`user_ID`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;",
-		"INSERT INTO `".$_POST['DBprefix']."user` (`userType_ID`, `userStatus_ID`, `userFirstName`, `userLastName`, `userNickName`, `userEmail`, `userPhone`, `carrier_ID`, `userTZ`, `userPass`, `userCode`) VALUES (1, 1, '".$_POST['firstName']."', '".$_POST['midName']."', '".$_POST['lastName']."', '".$_POST['nickName']."', '".$_POST['rootEmail']."', '(555)-555-5555', 0, 'UTC', '".$hashPass."', 'junk');",
+		"INSERT INTO `".$_POST['DBprefix']."user` (`userType_ID`, `userStatus_ID`, `userFirstName`, `userMidName`, `userLastName`, `userNickName`, `userEmail`, `userPhone`, `carrier_ID`, `userTZ`, `userPass`, `userCode`) VALUES (1, 1, '".$_POST['firstName']."', '".$_POST['midName']."', '".$_POST['lastName']."', '".$_POST['nickName']."', '".$_POST['rootEmail']."', '(555)-555-5555', 0, 'UTC', '".$hashPass."', 'junk');",
     //^^ Update Insert statement with form data!!! before using this code!
     
     //Create the User Type (Permission) table
@@ -151,7 +151,7 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
 	foreach($SQLFILE as $LINE)
 	{
 		$SQL = $LINE;
-		$Success = mysql_query($SQL);
+		$Success = mysqli_query($Linked, $SQL);
 		$Built++;
 		if($Success)
 		{
@@ -160,7 +160,7 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
 		}
 		else
 		{	
-			echo("<span style='color:red;'>Error while executing database query ".$Built.":</span> <span style='color:blue'>".mysql_error()."</span><br>");
+			echo("<span style='color:red;'>Error while executing database query ".$Built.":</span> <span style='color:blue'>".mysqli_error($Linked)."</span><br>");
 		}
 	}
 
@@ -170,11 +170,13 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
 	}
 	else
 	{
-		echo("<span style='color:red;'>Error creating database tables:</span> <span style='color:blue'>".mysql_error()."</span><br>");
+		echo("<span style='color:red;'>Error creating database tables:</span> <span style='color:blue'>".mysqli_error($Linked)."</span><br>");
 		echo("Exiting...");
 		exit();
 	}
-	
+	mysqli_close($Linked);
+  
+  
   ////////////////////
   //%%^^ STEP 5 ^^%%//
   ////////////////////
@@ -356,7 +358,12 @@ CarrierSMS_col = carrierSMS
     ////////////////////
     //% Create the Constants File
 		echo("Attempting to generate constants...<br>");
-
+    
+    //Check for missing reCAPTCHA data
+    //if missing, set reCAPTCHA feature to disabled.
+    $recaptcha_value = ((isset($_POST['privKey']) && $_POST['privKey'] != '') && (isset($_POST['pubKey']) && $_POST['pubKey'] != '')) ? 1 : 0;
+    
+    
 		//Create the raw constant file data
 $RAWCONST = ('
 <?php
@@ -381,6 +388,11 @@ define("USER", 3);
 // 1 = Only Email accepted
 // 2 = Only Nickname accepted
 define("LOG_NE", "1");
+
+//Define recaptcha on/off
+// 0 = recaptcha disabled
+// 1 = recaptcha enabled
+define("RECAPTCHA", "'.$recaptcha_value.'");
 
 //EIVS (Encryption Initialization Vector String)
 //!!DO NOT CHANGE THIS CONSTANT OR ITS VALUE!!

@@ -6,24 +6,23 @@
            
   Date:     5/30/2012
      
-  Updated:  Feb 2015
+  Updated:  6/13/2017
   
   File:     This dbAccess class provides simple interactions with MySQL DB, as well as, 
-            better control over database connections. Read the commenting below
-            for more information.
+            better control over input purity and table/field names. Read the commenting 
+            below for more information.
 
 	[ !! This class utilizes a configuration file !! ]
   
-  !!WARNING!! - THIS CLASS UTILIZES A DEPRICATED(PHP 5.5) SET OF MYSQL 
-                PHP FUNCTIONS AND MUST BE UPDATED TO USE THE NEW SET
-                http://php.net/manual/en/function.mysql-query.php
+  !!WARNING!! - This class has been recently updated to use new mysqli 
+                php functions. It has not yet been fully tested.
 */
 //require_once('inc/classes/class.error.php');
 
 class dbAccess extends error {
 	
 	//Declare Misc Variables
-	private $Linked;	  //MySQL connection flag [Holds Link Identifier if connection is Alive]
+	private $Linked;	  //MySQL Link Identifier Object [if link has been attempted]
 	private $Result;	  //Holds query results
 	private $InjectID;	//Holds last insert auto incremented ID
   private $DB_SQL;	  //Holds most recent SQL statement.(nifty for debugging)!
@@ -64,9 +63,10 @@ class dbAccess extends error {
 	//#^^ GET LINK IDENTIFIER ^^#//
 	public function LinkID(){return $this->Linked;}
 	
-	
+	//UPDATED!!
 	//%^^ MySQL Connect Method ^^%//
 	/*
+    
 		Establishes a connection to the DB
 		RETURNS: true/false
 	*/
@@ -80,11 +80,16 @@ class dbAccess extends error {
 		if(!$this->Linked)
 		{
 			//Connect to DB
-			$this->Linked = mysql_connect($this->Decrypt($CONFIG['DB_Host']), $this->Decrypt($CONFIG['DB_User']), $this->Decrypt($CONFIG['DB_Pass']), true);
-			
+			$this->Linked = mysqli_connect($this->Decrypt($CONFIG['DB_Host']), 
+                                     $this->Decrypt($CONFIG['DB_User']), 
+                                     $this->Decrypt($CONFIG['DB_Pass']), 
+                                     $this->Decrypt($CONFIG['DB_Name'])
+                                    );
 			//Check if connected
-			if($this->Linked != false)
+			if($this->Linked)
 			{
+        // mysqli_get_host_info($this->Linked)
+        
 				//Autoselect the default DB name given the in configuration file
 				//this can be switched later by the user if wish to use the same function
 				if($this->SelectDB())
@@ -96,7 +101,7 @@ class dbAccess extends error {
       {
         $this->error = 'Database link failure';
         $this->LogError('Database link failure -- dbAccess::Link()');
-        $this->LogError(mysql_error());
+        $this->LogError(mysqli_connect_errno()." ".mysqli_connect_error());
       }
 		}
 		else
@@ -108,9 +113,9 @@ class dbAccess extends error {
     RETURN false;
 	}//END Link
 	
-  
+  //UPDATED!!
 	//%^^ MySQL Select Database Method ^^%//
-	/*	
+	/*
 		Selects a database. If the database
 		does not exist this method will attempt
 		to create the database.
@@ -127,7 +132,7 @@ class dbAccess extends error {
     $DB_NAME = ($DB_NAME == null) ? $this->Decrypt($CONFIG['DB_Name']) : $DB_NAME;
 		
 		//# Select the Database
-		$DB_Select = @mysql_select_db($DB_NAME, $this->Linked);
+		$DB_Select = @mysqli_select_db($this->Linked, $DB_NAME);
 		if($DB_Select)
 		{
 			//Database found and selected.
@@ -136,7 +141,7 @@ class dbAccess extends error {
 		else
 		{
 			//# Try to create the Database
-			$NEW_DB = @mysql_query("CREATE DATABASE ".$DB_NAME, $this->Linked);
+			$NEW_DB = @mysqli_query($this->Linked, "CREATE DATABASE ".$DB_NAME);
 			if($NEW_DB)
 			{
 				//Database created successfully
@@ -145,7 +150,7 @@ class dbAccess extends error {
 				$DB_Select = null;
 				
 				//# Select the DB
-				$DB_Select = @mysql_select_db($DB_NAME, $this->Linked);
+				$DB_Select = @mysqli_select_db($this->Linked, $DB_NAME);
 				if($DB_Select)
 				{
 					//Database found and selected.
@@ -155,18 +160,19 @@ class dbAccess extends error {
 				{
 					//Failed to select DB
           $this->error = 'Failed to select database!';
-					$this->LogError('Failed to select database! -- dbAccess::SelectDB()'.PHP_EOL.mysql_error());
+					$this->LogError('Failed to select database! -- dbAccess::SelectDB()');
+          $this->LogError(mysqli_error($this->Linked));
 					return false;
 				}
 			}
 			
 			//Failed to create DB
-			$this->error = mysql_error();
+			$this->error = mysqli_error($this->Linked);
 			return false;
 		}
 	}
 	
-  
+  //UPDATED!!
   //%^^ MySQL Table Exists Method ^^%//
   public function TableExists($table)
   {
@@ -180,9 +186,9 @@ class dbAccess extends error {
 		$this->DB_SQL = $SQL;
     
 		//Run the QUERY
-		$Query = mysql_query($SQL, $this->Linked);
+		$Query = mysqli_query($this->Linked, $SQL);
     
-    if(mysql_num_rows($Query) > 0)
+    if(mysqli_num_rows($Query) > 0)
     {
       RETURN true;
     }
@@ -191,7 +197,7 @@ class dbAccess extends error {
     RETURN false;
   }
 
-  
+  //UPDATED!!
 	//%^^ MySQL Select Method ^^%//
 	/*
 		ACCEPTS : TABLENAME | FIELD | WHERE (clause) | ORDERBY | DISTINCT (clause)
@@ -385,16 +391,16 @@ class dbAccess extends error {
 		$this->DB_SQL = $SQL;
     
 		//Run the QUERY
-		$Query = @mysql_query($SQL, $this->Linked);
-		if($Query)
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query !== false)
 		{
 			//Count Results
-			$NumResults = mysql_num_rows($Query);
+			$NumResults = mysqli_num_rows($Query);
 			if($NumResults >= 1)
 			{
 				for($i = 0; $i < $NumResults; $i++)
 				{
-					$temp = mysql_fetch_array($Query);
+					$temp = mysqli_fetch_array($Query);
 					$key = array_keys($temp);
 				
 					for($z = 0; $z < count($key); $z++)
@@ -426,12 +432,12 @@ class dbAccess extends error {
 		}
 		else
 		{   
-			$this->LogError($this->error = mysql_error($this->Linked));
+			$this->LogError($this->error = mysqli_error($this->Linked));
 			RETURN false;
 		}
 	}//END Snatch
 	
-  
+  //UPDATED!!
 	//%^^ MySQL [select] JOIN Method ^^%//
 	/*
 		ACCEPTS	:
@@ -679,16 +685,16 @@ class dbAccess extends error {
 		$this->DB_SQL = $SQL;
 		
 		//Run the QUERY
-		$Query = @mysql_query($SQL, $this->Linked);
-		if($Query)
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query !== false)
 		{
 			//Count Results
-			$NumResults = mysql_num_rows($Query);
+			$NumResults = mysqli_num_rows($Query);
 			if($NumResults >= 1)
 			{
 				for($i = 0; $i < $NumResults; $i++)
 				{
-					$temp = mysql_fetch_array($Query);
+					$temp = mysqli_fetch_array($Query);
 					$key = array_keys($temp);
 				
 					for($z = 0; $z < count($key); $z++)
@@ -720,7 +726,7 @@ class dbAccess extends error {
 		}
 		else
 		{
-			$this->error = " Query Failed: ".mysql_error($this->Linked);
+			$this->error = " Query Failed: ".mysqli_error($this->Linked);
 			RETURN false;
 		}
 	}
@@ -737,7 +743,7 @@ class dbAccess extends error {
   */
   //--------------------------------------------------
   
-  
+  //UPDATED!!
 	//%^^ MySQL Insert Method ^^%//
 	/*
 		RETURNS : true/false
@@ -853,20 +859,20 @@ class dbAccess extends error {
 		$this->DB_SQL = $SQL;
 		
 		//Run the Query
-		$Query = @mysql_query($SQL, $this->Linked);// or die ($this->error = mysql_error());
-		if($Query)
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query !== false)
 		{
 			//Store Result Information
-			$this->Result = mysql_affected_rows($this->Linked);
+			$this->Result = mysqli_affected_rows($Query);
 			
 			//Store the ID given to the new insert
-			$this->InjectID = mysql_insert_id($this->Linked);
+			$this->InjectID = mysqli_insert_id($this->Linked);
 			
 			RETURN true;
 		}
 		else
 		{
-			$this->LogError($this->error = mysql_error());
+			$this->LogError($this->error = mysqli_error($this->Linked));
 			RETURN false;
 		}
 	}
@@ -1008,11 +1014,11 @@ class dbAccess extends error {
 		$this->DB_SQL = $SQL;
 		
 		//Run the Query
-		$Query = @mysql_query($SQL, $this->Linked);
-		if($Query)
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query !== false)
 		{
 			//Check for affected rows
-			$AfctRows = mysql_affected_rows($this->Linked);
+			$AfctRows = mysqli_affected_rows($this->Linked);
 			if($AfctRows > 0)
 			{
 				$this->Result = $AfctRows;
@@ -1026,7 +1032,7 @@ class dbAccess extends error {
 		}
 		else
 		{
-			$this->LogError($this->error = mysql_error($this->Linked));
+			$this->LogError($this->error = mysqli_error($this->Linked));
 			RETURN false;
 		}
 	}
@@ -1075,19 +1081,19 @@ class dbAccess extends error {
 		$this->DB_SQL = $SQL;
 		
 		//Run the query
-		$Query = @mysql_query($SQL, $this->Linked);
-		if($Query)
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query !== false)
 		{
 			RETURN true;
 		}
 		else
 		{
-			$this->LogError($this->error .= "Unable to create new table<br>".mysql_error($this->Linked));
+			$this->LogError($this->error .= "Unable to create new table<br>".mysqli_error($this->Linked));
 			RETURN false;
 		}
 	}
 	
-  
+  //UPDATED!!
 	//%^^ MySQL Rename Table Method ^^%//
 	/*
 		Modifys database Table names
@@ -1129,13 +1135,20 @@ class dbAccess extends error {
 			$SQL = "RENAME TABLE ".$CONFIG['DB_Prefix'].$tableName." TO ".$CONFIG['DB_Prefix'].$newTableName;
 		}
 		
-		$Query = @mysql_query($SQL, $this->Linked());
-		if(!($Query)){$this->error = mysql_error($this->Linked);}
-		echo("TableRename: ".$Query);
-		exit();
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query === false)
+    {
+      $this->LogError($this->error = mysqli_error($this->Linked));
+      RETURN false;
+    }
+    else
+    {
+      //Success!
+      RETURN true;
+    }
 	}
 	
-  
+  //UPDATED!!
 	//%^^ MySQL MOD Table Method
 	/*
 		Modifies database Table Columns/Fields
@@ -1220,19 +1233,19 @@ class dbAccess extends error {
 		//for debugging references.
 		$this->DB_SQL = $SQL;
 		
-		$Query = @mysql_query($SQL, $this->Linked);
-		if($Query)
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query !== false)
 		{
 			RETURN true;
 		}
 		else
 		{
-			$this->LogError($this->error = "Failed to Mod table ".$CONFIG['DB_Prefix'].$tableName.PHP_EOL.mysql_error($this->Linked));
+			$this->LogError($this->error = "Failed to Mod table ".$CONFIG['DB_Prefix'].$tableName.PHP_EOL.mysqli_error($this->Linked));
 			RETURN false;
 		}
 	}
 	
-  
+  //UPDATED!!
 	//%^^ MySQL Delete Method ^^%//
 	/*
 		[Brief] - Deletes Tables/Table Rows & Databases
@@ -1388,10 +1401,10 @@ class dbAccess extends error {
 		//for debugging references.
 		$this->DB_SQL = $SQL;
 		
-		$Query = @mysql_query($SQL, $this->Linked);
-		if($Query)
+		$Query = @mysqli_query($this->Linked, $SQL);
+		if($Query !== false)
 		{	
-			$AfctRows = mysql_affected_rows($this->Linked);
+			$AfctRows = mysqli_affected_rows($Query);
 			if($AfctRows > 0)
 			{
 				$this->LogError($this->error = $AfctRows.' rows affected');
@@ -1415,13 +1428,13 @@ class dbAccess extends error {
 		else
 		{
       $this->LogError("Drop Table Failure!?!");
-			$this->LogError($this->error = mysql_error($this->Linked));
+			$this->LogError($this->error = mysqli_error($this->Linked));
       $this->LogError($this->LastQuery());
 			RETURN false;
 		}
 	}
 	
-  
+  //UPDATED!!
 	//%^^ MySQL RAW QUERY ^^%//
 	/*
 		This method is here for last resort purposes if one of the other methods in this class cannot
@@ -1437,18 +1450,18 @@ class dbAccess extends error {
 		//Store SQL query in object place holder
 		//for debugging references.
 		$this->DB_SQL = $SQL;
-		$Query = @mysql_query($SQL, $this->Linked);
+		$Query = @mysqli_query($this->Linked, $SQL);
 		
 		//Create the return array
-		$RetArray = array($Query, mysql_affected_rows($this->Linked));
+		$RetArray = array($Query, mysqli_affected_rows($Query));
 		
 		//Populate errors
-		$this->error = mysql_error($this->Linked);
+		$this->error = mysqli_error($this->Linked);
 		
 		RETURN $RetArray;
 	}
 	
-  
+  //UPDATED!!
 	//%^^ MySQL Disconnect Method ^^%//
 	/*
 		RETURNS: true/false
@@ -1462,7 +1475,7 @@ class dbAccess extends error {
 		if($this->Linked !== false)
 		{	
 			//Disconnect
-			$Severed = @mysql_close($this->Linked);// or die($this->error = mysql_error());
+			$Severed = @mysqli_close($this->Linked);
 			if($Severed)
 			{
 				//Link Severed-
@@ -1471,13 +1484,13 @@ class dbAccess extends error {
 			}
 			else
 			{
-				$this->error = mysql_error();
+				$this->error = mysqli_error($this->Linked);
 				return false;
 			}
 		}
 	}//END Sever
 	
-  
+  //UPDATED!!
 	//#^^ Input Cleaning Function ^^#//
 	/*
 		Cleans raw input, if link id is supplied the data will be
@@ -1502,7 +1515,7 @@ class dbAccess extends error {
 	
 		//PHP manual highly recommends this function
 		//for any value being entered into a database
-		$tempvar = mysql_real_escape_string($value, $this->Linked);
+		$tempvar = mysqli_real_escape_string($this->Linked, $value);
 		$value = $tempvar;	
 		
 		RETURN $value;
