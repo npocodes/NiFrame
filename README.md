@@ -34,8 +34,8 @@ NiFrame the following system features and functionality are available to you:
 #### Style (Template) System:
   * HTML File Merging - Combine HTML files to create different pages! ✓
   * Variable Injection - Change page data based on user and/or situation! ✓
-  * Content Includes - Maintain a single content set while changing styles! ✓
-  * Dynamic HTML Conditioning - Remove, Repeat, or even nested repeat HTML dynamically! ✓
+  * Content Includes - Maintain a single content set or swap content while changing styles! ✓
+  * Dynamic HTML Conditioning - Remove, Repeat and/or Nested Repeat HTML with dynamic values!! ✓
   * Automatic form detection and Input Validation for HTML5 inspired types on all browsers! ✓
   * Alternate GUI Support - Use Flash as your user interface instead of an HTML template! ⚠
 
@@ -79,6 +79,7 @@ NiFrame the following system features and functionality are available to you:
 #### Administrative Control Panel (ACP):
   * System Settings: ⚒ 
     + Default Time: 12hr | 24hr formats, Time Zones ⚒
+    + Disable - Enable reCAPTCHA feature ✓
     + Select | De-select | Remove Styles ✓
       - (change entire website layout, look and content with 1 click!) 
 
