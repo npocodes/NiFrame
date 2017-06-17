@@ -1,14 +1,14 @@
 <?php
 /*
-  Purpose:  Installer Start File - NiFrame
-  
-  FILE:     The Installer Start file begins the installation of the NiFrame
-            
-  Author:   Nathan Poole - github.com/npocodes
-  
-  Date:     July 2014
-  
-  Updated:  A
+Purpose:  Installer Start File - NiFrame
+
+FILE:     The Installer Start file begins the installation of the NiFrame
+          
+Author:   Nathan Poole - github.com/npocodes
+
+Date:     July 2014
+
+Updated:  6/16/2017
 */
 //Start/Resume the PHP session
 session_start();
@@ -20,11 +20,11 @@ if(!(file_exists("../inc/config.ini")) || !(file_exists("../inc/const.ini")))
   //Try to delete both files just to start fresh.
   @unlink("../inc/config.ini");
   @unlink("../inc/const.ini");
-  
+
   //Confirm with the wizard that this file
   //has been run by setting a session variable
   $_SESSION['install'] = true;
-  
+
   //Begin the Installer Guide
   header("Location: wizard.php");
   die();
