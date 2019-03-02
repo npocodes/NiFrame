@@ -16,10 +16,10 @@
               ex: tableName = user, thing_ID = user_ID, where class name = "user"... or 
               ex: tableName = item, thing_ID = item_ID, where class name = "item", etc...
 */
-//require_once('inc/classes/class.error.php');
+//require_once('inc/classes/class.nerror.php');
 //require_once('inc/classes/class.dbAccess.php');
 
-class attr extends error {
+class attr extends nerror {
   
   private $attrE; //Flag saying whether attrs exist yet
   protected $attrList; //List of unique name=>value pairs
@@ -29,7 +29,7 @@ class attr extends error {
 	//!!!!!!!!!!!!!!!!!!!//
 	//!!! CONSTRUCTOR !!!//
 	//!!!!!!!!!!!!!!!!!!!//
-  function attr($ID = 0)
+  function __construct($ID = 0)
   { 
  		//Get Required Configuration Variables
     $CONFIG = @parse_ini_file(CONFIG_PATH);

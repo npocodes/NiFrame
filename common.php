@@ -11,6 +11,7 @@
             
   Author:   Nathan Poole - github/npocodes
   Date:     July 2014
+  Updated:  1-30-2019
 */
 //Start/Resume the PHP session
 session_start();
@@ -113,7 +114,7 @@ else
   }
 
   //Import our class files
-  require_once('inc/classes/class.error.php');
+  require_once('inc/classes/class.nerror.php');
   require_once('inc/classes/class.template.php');
   require_once('inc/classes/class.dbAccess.php');
   require_once('inc/classes/class.attr.php');

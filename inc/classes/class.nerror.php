@@ -6,13 +6,13 @@
            
   Date:     Jan 2014
   
-  Updated:  A
+  Updated:  1-30-2019
      
   File:     This file is an error interface file use this class as a parent 
             class to provide your class with error handling methods
 */
 
-class error {
+class nerror {
 
   //Error dump string
   protected $error;

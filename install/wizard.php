@@ -10,7 +10,7 @@ along to the install file.
 */
 //Get the error class.
 //Get the template class so we can make HTML pages.
-require_once("../inc/classes/class.error.php");
+require_once("../inc/classes/class.nerror.php");
 require_once("../inc/classes/class.template.php");
 
 //Declare the VARLIST

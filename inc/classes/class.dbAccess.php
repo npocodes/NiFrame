@@ -19,7 +19,7 @@
 */
 //require_once('inc/classes/class.error.php');
 
-class dbAccess extends error {
+class dbAccess extends nerror {
 	
 	//Declare Misc Variables
 	private $Linked;	  //MySQL Link Identifier Object [if link has been attempted]
@@ -37,7 +37,7 @@ class dbAccess extends error {
 		
 		RETURNS: void
 	*/
-	function dbAccess()
+	function __construct()
 	{
 		//Initialize properties
 		$this->DB_SQL = null;
@@ -863,7 +863,7 @@ class dbAccess extends error {
 		if($Query !== false)
 		{
 			//Store Result Information
-			$this->Result = mysqli_affected_rows($Query);
+			$this->Result = mysqli_affected_rows($this->Linked);
 			
 			//Store the ID given to the new insert
 			$this->InjectID = mysqli_insert_id($this->Linked);
@@ -899,10 +899,10 @@ class dbAccess extends error {
 		
 		//Check if $set is an array
 		//and if it has values
-		$setCount = count($set);
-		$setValueCount = count($setValue);
 		if(is_array($set) && is_array($setValue))
 		{
+      $setCount = count($set);
+      $setValueCount = count($setValue);
 			//Loop through set conditions
 			for($i = 0; $i < $setCount; $i++)
 			{
@@ -1525,14 +1525,18 @@ class dbAccess extends error {
 	/*
 	private function encrypt($string) 
 	{ 
-		$encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5(EIVS), $string, MCRYPT_MODE_CBC, md5(md5(EIVS))));
+		//DEPCREATED
+    //$encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5(EIVS), $string, MCRYPT_MODE_CBC, md5(md5(EIVS))));
+    
+    $encrypted = base64_encode(openssl_encrypt($string, 'aes-256-cbc', crypt(EKEY, 'ni'), $options=0, hex2bin(EIVS)));
 		return $encrypted;
 	}
 	*/
 	
 	private function Decrypt($encrypted) 
 	{ 
-		$decrypted = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5(EIVS), base64_decode($encrypted), MCRYPT_MODE_CBC, md5(md5(EIVS))), "\0");
+		$decrypted = rtrim(openssl_decrypt(base64_decode($encrypted), 'aes-256-cbc', crypt(EKEY, 'ni'), $options=0, hex2bin(EIVS)), "\0");
+    
 		RETURN $decrypted;
 	}
   

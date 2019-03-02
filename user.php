@@ -26,20 +26,54 @@ $T_VAR['MSG'] = '';
 //Check for [Update(edit)] Mode
 if(isset($_INPUT['edit']))
 {
-  //Verify User is not a guest
+  //Verify current User is not a guest
   if($_USER->ID() != 0)
   {
     //Set the page name
     $T_VAR['PAGE_NAME'] = 'User Edit';
     
     //Determine if self editing or if ADMIN editing another user (must be ADMIN to edit others)
-    $eUser = ((isset($_INPUT['uid']) && $_INPUT['uid'] != 0) && $_USER->Permitted('ACP')) ? new user($_INPUT['uid']) : $_USER;
-    
-    //Only Root User can edit root user
-    $eUser = ((isset($_INPUT['uid']) && $_INPUT['uid'] == 1) && $_USER->ID() == 1) ? $eUser : $_USER;
-    
-    //Remove Display only elements if this is admin
-    if($_USER->Permitted('ACP')){ $T_COND[] = 'DISPLAY'; }
+    //Is there a user id? Is the user id not zero? Does current user have permission? If not, force self edit
+    if(isset($_INPUT['uid']) && $_INPUT['uid'] !=0)
+    {
+      //We have been given a user ID for the user we wish to edit
+      //Is current user permitted to edit others? 
+      if($_USER->Permitted('ACP'))
+      {
+        //Current user is an admin
+        //Remove display only elements
+        $T_COND[] = 'DISPLAY';
+        
+        //Stop admins from editing root user unless they are root user.
+        if($_INPUT['uid'] != 1)
+        {
+          //UID does not equal root user..
+          //allow the edit
+          $eUser = new user($_INPUT['uid']);
+        }
+        else
+        {
+          //Force them to edit themselves.
+          $eUser = $_USER;
+        }
+      }
+      else
+      {
+        //Not admin, cannot edit others.
+        $eUser = $_USER;
+      }
+    }
+    else
+    {
+      //If user is admin remove display only elements
+      if($_USER->Permitted('ACP'))
+      {
+        $T_COND[] = 'DISPLAY';
+      }
+      
+      //Self edit
+      $eUser = $_USER;
+    }
     
     //Check for form submission
     if(isset($_INPUT['submit']))

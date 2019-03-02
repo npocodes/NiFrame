@@ -8,7 +8,7 @@
            
   Date:     July 2014
      
-  Updated:  6/16/2017
+  Updated:  2/01/2019
            
 	[ !! This Class Utilizes a configuration file !! ]
 */
@@ -53,7 +53,7 @@ class user extends attr {
     This constructor will initialize attributes to their default values and if provided with a 
     user ID will retrieve the associated user information and update the attributes to match.
   */
-  function user($userID = 0) 
+  function __construct($userID = 0) 
   {
     //Initialize all default values...
     parent::__construct();
@@ -1801,17 +1801,24 @@ class user extends attr {
 		//If cook is set to true then hash the string
 		$scrambled = ($cook) ? hash($type, $string) : $string;
 		
-		//Encrypt the scrambled string
-		$scrambled = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5(EIVS), $scrambled, MCRYPT_MODE_CBC, md5(md5(EIVS))));
+		//Encrypt the scrambled string - DEPRECATED!
+		//$scrambled = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5(EIVS), $scrambled, MCRYPT_MODE_CBC, md5(md5(EIVS))));
 		
-		RETURN $scrambled;
+    //Encrypt the scrabled string
+    $scrambled = base64_encode(openssl_encrypt($scrambled, 'aes-256-cbc', crypt(EKEY, 'ni'), $options=0, hex2bin(EIVS)));
+		
+    RETURN $scrambled;
 	}
 	//END Scramble Function
 	
   //Un-Scrambles a scrambled string
   final protected function UnScramble($scrambled)
   {
-    $unScrambled = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5(EIVS), base64_decode($scrambled), MCRYPT_MODE_CBC, md5(md5(EIVS))), "\0");
+    //DEPRECATED!
+    //$unScrambled = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5(EIVS), base64_decode($scrambled), MCRYPT_MODE_CBC, md5(md5(EIVS))), "\0");
+    
+    $unScrambled = rtrim(openssl_decrypt(base64_decode($scrambled), 'aes-256-cbc', crypt(EKEY, 'ni'), $options=0, hex2bin(EIVS)), "\0");
+    
     RETURN $unScrambled;
   }
   //End Un-Scramble Function 

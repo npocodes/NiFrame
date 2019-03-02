@@ -7,6 +7,7 @@
             
   Author:   Nathan Poole - github/npocodes
   Date:     July 2014
+  Updated:  Feb 01 2019
 */
 //Include the common file
 require_once('common.php');
@@ -115,18 +116,30 @@ if($_USER->ID() == 0)
     $T_FILE = 'message.html';
     
     //Set default Redirect
-    $T_VAR['REDIRECT'] = '3;url=login.php?join';
+    $T_VAR['REDIRECT'] = '5;url=login.php?join';
     
     //Check for form submission
     if(isset($_INPUT['submit']))
     {
       //First before anything check ReCAPTCHA
       //Unless its been disabled...
-      require_once("inc/recaptchalib.php");
-			$Captcha = recaptcha_check_answer($CONFIG['SecretKey'], $_SERVER["REMOTE_ADDR"], $_INPUT['recaptcha_challenge_field'], $_INPUT['recaptcha_response_field']);
-			if($Captcha->is_valid || !(RECAPTCHA))
+      if(RECAPTCHA)
       {
-        //ReCAPTCHA VALID!
+        //RECAPTCHA is enabled, check reCAPTCHA
+        require_once("inc/recaptchalib.php");
+        $Captcha = recaptcha_check_answer($CONFIG['SecretKey'], $_SERVER["REMOTE_ADDR"], $_INPUT['recaptcha_challenge_field'], $_INPUT['recaptcha_response_field']);
+        $validCaptcha = $Captcha->is_valid;
+      }
+      else
+      {
+        //RECAPTCHA is disabled...
+        //proceed as if its valid
+        $validCaptcha = true;
+      }
+      
+      if($validCaptcha)
+      {
+        //ReCAPTCHA VALID or disabled...
         //Verify email has been given
         if(isset($_INPUT[$CONFIG['UserEmail_col']]) && !(empty($_INPUT[$CONFIG['UserEmail_col']])))
         {

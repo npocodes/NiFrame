@@ -6,7 +6,7 @@
            
   Date:     Jan 2014
   
-  Updated:  A
+  Updated:  1-30-2019
   
   File:     This file is an error interface file use this class as a parent 
             class to provide your class with error handling methods
@@ -24,7 +24,7 @@
 */
 //require_once('inc/classes/class.error.php');
 
-class template extends error {
+class template extends nerror {
 	
 	private $stylName;  //The name of the style used(no typo!)
   private $headPath;  //Hold the path to HTML head/foot files
@@ -388,9 +388,9 @@ class template extends error {
         $this->VarList['PAGELOADTIME'] = "Page generated in $TimeRound seconds.";
       }else{ $this->VarList['PAGELOADTIME'] = ''; }
       
-			//Extract Variables
+			//Extract Variables (force array)
 			$extracted = extract($this->VarList, EXTR_SKIP);
-			if(count($extracted) >= 1)
+			if($extracted >= 1)
 			{
 				//Page Variables Extracted
 				//Evaluate Remaining
@@ -465,7 +465,7 @@ class template extends error {
       
 			//Extract Variables
 			$extracted = extract($this->VarList, EXTR_SKIP);
-			if(count($extracted) >= 1)
+			if($extracted >= 1)
 			{
 				//Page Variables Extracted
 				//Evaluate Remaining
