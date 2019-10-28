@@ -172,7 +172,7 @@ class dbAccess extends nerror {
 		}
 	}
 	
-  //UPDATED!!
+
   //%^^ MySQL Table Exists Method ^^%//
   public function TableExists($table)
   {
@@ -197,7 +197,7 @@ class dbAccess extends nerror {
     RETURN false;
   }
 
-  //UPDATED!!
+
 	//%^^ MySQL Select Method ^^%//
 	/*
 		ACCEPTS : TABLENAME | FIELD | WHERE (clause) | ORDERBY | DISTINCT (clause)
@@ -290,7 +290,7 @@ class dbAccess extends nerror {
 					
 					//Standard or between clause?
           $match = array();
-					if((preg_match('/>=/', $where[$i], $match) || preg_match('/<=/', $where[$i], $match)) || (preg_match('/=/', $where[$i], $match) || (preg_match('/>/', $where[$i], $match) || preg_match('/</', $where[$i], $match))))
+					if((preg_match('/>=/', $where[$i], $match) || preg_match('/<=/', $where[$i], $match)) || (preg_match('/=/', $where[$i], $match) || preg_match('/<>/', $where[$i], $match)) || (preg_match('/>/', $where[$i], $match) || preg_match('/</', $where[$i], $match)))
 					{
 						//echo("found comparison operator in '".$where[$i]."'<br>");
 						
@@ -426,13 +426,15 @@ class dbAccess extends nerror {
 			}
 			else
 			{
+				//Query was successful but no results found
 				$this->error = "$NumResults results found";
 				RETURN false;
 			}
 		}
 		else
 		{   
-			$this->LogError($this->error = mysqli_error($this->Linked));
+			$this->error = "Query Failure: ".mysqli_error($this->Linked);
+			$this->LogError($this->error);
 			RETURN false;
 		}
 	}//END Snatch
@@ -1213,7 +1215,7 @@ class dbAccess extends nerror {
           {
             //Equalize the input data, just in case
             $type[$i] = (is_array($type) && !(empty($type[$i]))) ? $type[$i] : "varchar(32)";
-            $value[$i] = (is_array($value) && !(empty($value[$i]))) ? $value[$i] : "none";
+            $value[$i] = (is_array($value) && $value[$i] != '') ? $value[$i] : "none";
             
             $default = (strtolower($type[$i]) == 'text') ? '' : " DEFAULT '".$value[$i]."'";
             //Add the new ADD clause to the SQL statement
@@ -1263,6 +1265,7 @@ class dbAccess extends nerror {
                       -> drop     - flag to drop a table
 		
 		[RETURNS] - True | False
+		Result is populated with #of rows affected if relevant
 	*/
 	public function Kill($T_DB, $where = null, $drop = null)
 	{
@@ -1404,23 +1407,24 @@ class dbAccess extends nerror {
 		$Query = @mysqli_query($this->Linked, $SQL);
 		if($Query !== false)
 		{	
-			$AfctRows = mysqli_affected_rows($Query);
+			$AfctRows = mysqli_affected_rows($this->Linked);
 			if($AfctRows > 0)
 			{
-				$this->LogError($this->error = $AfctRows.' rows affected');
+				//Query was successful
+				$this->Result = $AfctRows.' rows affected';//Record Effected Rows
 				RETURN true;
 			}
 			else
 			{
-				//Return False unless this was a drop
-				//query then it was successful
+				//Return False unless this was a drop query then it was successful
 				if($didDrop)
 				{
 					RETURN true;
 				}
 				else
 				{
-					$this->LogError($this->error = $AfctRows.' rows affected');
+					//Query was successful but zero rows were affected
+					$this->Result = $AfctRows.' rows affected';//Record Effected Rows
 					RETURN false;
 				}
 			}

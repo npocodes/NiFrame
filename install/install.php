@@ -6,9 +6,9 @@ Author:   Nathan Poole - github/npocodes
    
 Date:     April 2015
 
-Updated:  1-30-2019
+Updated:  10-2019
 
-File:     This file processes the data gathered from  the user by the wizard. If the user has selected
+File:     This file processes the data gathered from the user by the wizard. If the user has selected
           an Automatic installation than only Database and Common information was obtained from the user.
           All other values will be set to default values.
 */
@@ -100,7 +100,7 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
   from a slightly modded dump file but it wont allow
   us to add table prefix to the table names this way
 
-  $SQLFILE = file("cortex_vanilla.sql");
+  $SQLFILE = file("niframe_vanilla.sql");
   */
   //we'll set it up manually for now..
   //later we will actually read the dump files
@@ -124,14 +124,14 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
   $SQLFILE = array(		
   //Create the User table
   "DROP TABLE IF EXISTS `".$_POST['DBprefix']."user`;",
-  "CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."user` (`user_ID` bigint(20) NOT NULL AUTO_INCREMENT, `userType_ID` bigint(20) NOT NULL DEFAULT '3', `userStatus_ID` bigint(20) NOT NULL DEFAULT '0', `userFirstName` varchar(64) NOT NULL DEFAULT 'unknown', `userMidName` varchar(64) NOT NULL DEFAULT 'unknown', `userLastName` varchar(64) NOT NULL DEFAULT 'unknown', `userNickName` varchar(32) NOT NULL DEFAULT 'unknown', `userEmail` varchar(64) NOT NULL DEFAULT 'unknown', `userPhone` varchar(16) NOT NULL DEFAULT '(555)-555-5555', `carrier_ID` bigint(20) NOT NULL DEFAULT '0', `userTZ` varchar(64) NOT NULL DEFAULT 'UTC', `userPass` varchar(256) NOT NULL DEFAULT 'unknown', `userCode` varchar(256) NOT NULL DEFAULT 'unknown', PRIMARY KEY (`user_ID`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;",
-  "INSERT INTO `".$_POST['DBprefix']."user` (`userType_ID`, `userStatus_ID`, `userFirstName`, `userMidName`, `userLastName`, `userNickName`, `userEmail`, `userPhone`, `carrier_ID`, `userTZ`, `userPass`, `userCode`) VALUES (1, 1, '".$_POST['firstName']."', '".$_POST['midName']."', '".$_POST['lastName']."', '".$_POST['nickName']."', '".$_POST['rootEmail']."', '(555)-555-5555', 0, 'UTC', '".$hashPass."', 'junk');",
+  "CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."user` (`user_ID` bigint(20) NOT NULL AUTO_INCREMENT, `userType_ID` bigint(20) NOT NULL DEFAULT '3', `userStatus_ID` bigint(20) NOT NULL DEFAULT '0', `userFirstName` varchar(64) NOT NULL DEFAULT 'unknown', `userMidName` varchar(64) NOT NULL DEFAULT 'unknown', `userLastName` varchar(64) NOT NULL DEFAULT 'unknown', `userNickName` varchar(32) NOT NULL DEFAULT 'unknown', `userAvatar` text, `userEmail` varchar(64) NOT NULL DEFAULT 'unknown', `userPhone` varchar(16) NOT NULL DEFAULT '(555)-555-5555', `carrier_ID` bigint(20) NOT NULL DEFAULT '0', `userTZ` varchar(64) NOT NULL DEFAULT 'UTC', `userPass` varchar(256) NOT NULL DEFAULT 'unknown', `userCode` varchar(256) NOT NULL DEFAULT 'unknown', `joinDate` bigint(20) NOT NULL DEFAULT '0', `lastLogin` bigint(20) NOT NULL DEFAULT '0', PRIMARY KEY (`user_ID`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;",
+  "INSERT INTO `".$_POST['DBprefix']."user` (`userType_ID`, `userStatus_ID`, `userFirstName`, `userMidName`, `userLastName`, `userNickName`, `userEmail`, `userPhone`, `carrier_ID`, `userTZ`, `userPass`, `userCode`, `joinDate`, `lastLogin`) VALUES (1, 1, '".$_POST['firstName']."', '".$_POST['midName']."', '".$_POST['lastName']."', '".$_POST['nickName']."', '".$_POST['rootEmail']."', '(555)-555-5555', 0, 'UTC', '".$hashPass."', 'junk', ".time().", ".time().");",
   //^^ Update Insert statement with form data!!! before using this code!
 
   //Create the User Type (Permission) table
   "DROP TABLE IF EXISTS `".$_POST['DBprefix']."userType`;",
   "CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."userType` (`userType_ID` bigint(20) NOT NULL AUTO_INCREMENT, `userTypeName` varchar(32) NOT NULL DEFAULT 'NoTitle' COMMENT 'Name of the User Type/Group', `acp` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'NiFrame Admin Permission', PRIMARY KEY (`userType_ID`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='User Types/Groups and Permissions' AUTO_INCREMENT=1 ;",
-  "INSERT INTO `".$_POST['DBprefix']."userType` (`userTypeName`, `acp`) VALUES ('Administrator', 1), ('Staff', 0), ('User', 0);",
+  "INSERT INTO `".$_POST['DBprefix']."userType` (`userTypeName`, `acp`) VALUES ('Admin', 1), ('Staff', 0), ('User', 0);",
 
   //Create the User Status table
   "DROP TABLE IF EXISTS `".$_POST['DBprefix']."userStatus`;",
@@ -142,7 +142,31 @@ if(isset($_SESSION['install']) && $_SESSION['install'] === true)
   "DROP TABLE IF EXISTS `".$_POST['DBprefix']."phoneCarrier`;",
   "CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."phoneCarrier` (`carrier_ID` bigint(20) NOT NULL AUTO_INCREMENT, `carrierName` varchar(32) NOT NULL DEFAULT 'NoTitle' COMMENT 'Name of the Phone Carrier company', `carrierSMS` varchar(64) NOT NULL DEFAULT 'unknown' COMMENT 'Phone Carrier SMS address', PRIMARY KEY (`carrier_ID`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='Phone Carrier+SMS Reference' AUTO_INCREMENT=1 ;",
 
-  //EoT
+	//Create the Location table
+	"DROP TABLE IF EXISTS `".$_POST['DBprefix']."location`;",
+	"CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."location` (`locationID` bigint(20) NOT NULL AUTO_INCREMENT, `addressID` bigint(20) NOT NULL COMMENT 'Address ID Number', `buildingID` bigint(20) NOT NULL COMMENT 'Building ID Number', `roomID` bigint(20) NOT NULL COMMENT 'Room ID Number', `locationName` varchar(65) COLLATE utf8_unicode_ci NOT NULL, PRIMARY KEY (`locationID`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;",
+  
+	//Create the Address table
+	"DROP TABLE IF EXISTS `".$_POST['DBprefix']."address`;",
+	"CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."address` (`city` varchar(65) COLLATE utf8_unicode_ci NOT NULL COMMENT 'City Name', `state` varchar(65) COLLATE utf8_unicode_ci NOT NULL COMMENT 'State Abbreviation', `country` varchar(65) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Country Name', `zipcode` int(11) NOT NULL, `street` varchar(65) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Street Name', `address` int(11) NOT NULL COMMENT 'Street Address Number', `addressID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Address ID Number', PRIMARY KEY (`addressID`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;",
+	
+	//Create the Building table
+	"DROP TABLE IF EXISTS `".$_POST['DBprefix']."building`;",
+	"CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."building` (`buildingName` varchar(65) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Name of Building', `buildingID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Building ID Number', `addressID` bigint(20) NOT NULL, PRIMARY KEY (`buildingID`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;",
+
+	//Create the Room table
+	"DROP TABLE IF EXISTS `".$_POST['DBprefix']."room`;",
+	"CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."room` (`roomName` varchar(65) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Name of Room', `roomID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Room ID Number', `buildingID` bigint(20) NOT NULL COMMENT 'Building ID Number', `capacity` int(11) NOT NULL COMMENT 'Max Number of People', PRIMARY KEY (`roomID`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;",
+
+	//Create the Amenity table
+	"DROP TABLE IF EXISTS `".$_POST['DBprefix']."amenity`;",
+	"CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."amenity` (`amenityID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Amenity ID Number', `amenityName` varchar(65) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Amenity Name', PRIMARY KEY (`amenityID`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;",
+	
+	//Create the Amenity List table
+	"DROP TABLE IF EXISTS `".$_POST['DBprefix']."amenityList`;",
+	"CREATE TABLE IF NOT EXISTS `".$_POST['DBprefix']."amenityList` (`amenityListID` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Unique Record ID Number', `amenityID` bigint(20) NOT NULL COMMENT 'Amenity ID Number', `buildingID` bigint(20) NOT NULL COMMENT 'Building ID Number', `roomID` bigint(20) NOT NULL COMMENT 'Room ID Number', PRIMARY KEY (`amenityListID`)) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;",
+	
+	//EoT
   //All other tables will be created by class methods or mod installs.
   //Or people...
   );
@@ -284,6 +308,9 @@ UserLastName_col = userLastName
 ;//User Nick Name Column (Screen/Display Name)
 UserNickName_col = userNickName
 ;
+;//User Avatar/Emblem Column (URL)
+UserAvatar_col = userAvatar
+;
 ;//User Email Column
 UserEmail_col = userEmail
 ;
@@ -304,6 +331,12 @@ UserStatus_col = userStatus_ID
 ;
 ;//User Code Column
 UserCode_col = userCode
+;
+;//User Join Date Column
+UserJoin_col = joinDate
+;
+;//User Last Login Column
+UserLastLogin_col = lastLogin
 ;
 ;
 ;//User Type [Table]
@@ -341,6 +374,107 @@ CarrierName_col = carrierName
 ;
 ;//Phone Carrier SMS Column
 CarrierSMS_col = carrierSMS
+;
+;
+;//## LOCATION TABLES AND COLUMNS ##//
+[Location]
+;//Location [Table]
+Location_Table = location
+;
+;//Location ID Column
+LocationID_col = locationID
+;
+;//Location Name Column
+LocationName_col = locationName
+;
+;//Location Address Column
+LocationAddress_col = addressID
+;
+;//Location Building Column
+LocationBuilding_col = buildingID
+;
+;//Location Room Column
+LocationRoom_col = roomID
+;
+;
+;//Address [Table]
+Address_Table = address
+;
+;//Address ID Column
+AddressID_col = addressID
+;
+;//Address Country Column
+AddressCountry_col = country
+;
+;//Address State Column
+AddressState_col = state
+;
+;//Address City Column
+AddressCity_col = city
+;
+;//Address Street Column
+AddressStreet_col = street
+;
+;//Address Number Column
+AddressNumber_col = address
+;
+;//Address ZipCode Column
+AddressZip_col = zipcode
+;
+;
+;//Building [Table]
+Building_Table = building
+;
+;//Building ID Column
+BuildingID_col = buildingID
+;
+;//Building Name Column
+BuildingName_col = buildingName
+;
+;//Building Address Column?
+BuildingAddress_col = addressID
+;
+;
+;//Room [Table]
+Room_Table = room
+;
+;//Room ID Column
+RoomID_col = roomID
+;
+;//Room Name Column
+RoomName_col = roomName
+;
+;//Room Building Column
+RoomBuilding_col = buildingID
+;
+;//Room Capacity Column
+RoomCapacity_col = capacity
+;
+;
+;//Amenity [Table]
+Amenity_Table = amenity
+;
+;//Amenity ID Column
+AmenityID_col = amenityID
+;
+;//Amenity Name Column
+AmenityName_col = amenityName
+;
+;
+;//Amenity List [Table]
+AmenityList_Table = amenityList
+;
+;//AmenityList ID Column
+AmenityListID_col = amenityListID
+;
+;//AmenityList Amenity Column
+AmenityListAmenity_col = amenityID
+;
+;//AmenityList Building Column
+AmenityListBuilding_col = buildingID
+;
+;//AmenityList Room Column
+AmenityListRoom_col = roomID
 ;
 ;
 ;END of Configuration
@@ -410,6 +544,9 @@ define("LOG_NE", "0");
 // 0 = recaptcha disabled
 // 1 = recaptcha enabled
 define("RECAPTCHA", "'.$recaptcha_value.'");
+
+//Server TimeZone Selection
+define("SERVER_TIMEZONE", "UTC");
 
 //EIVS (Encryption Initialization Vector String)
 //EKEY (Encryption Key)
@@ -482,7 +619,7 @@ define("EKEY", "'.$ekey.'");
       //Invoke the method
       //rrmdir("../install");
       
-      echo "Redirecting to homepage...<br>"
+      echo("Redirecting to homepage...<br>");
       //echo("<meta http-equiv='refresh' content='20;url=http://".$SCRIPTPATH."'><br><br>");
 
       session_destroy();

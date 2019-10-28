@@ -79,6 +79,9 @@ if(isset($_INPUT['add']))
   }
   else
   {
+		//Set default message
+		$T_VAR['MSG'] = 'Create New User';
+		
     //Get list of user Types
     $typeList = $_USER->TypeList();
     
@@ -162,6 +165,9 @@ if(isset($_INPUT['addPerm']))
   {
     //Show the Add Permission Form.
     $T_FILE = 'userAddPerm.html';
+
+		//Set default message
+		$T_VAR['MSG'] = 'Create New Permission';
     
     $permList = $_USER->Permitted();
     if($permList !== false)
@@ -348,6 +354,9 @@ if(isset($_INPUT['addType']))
   {
     //Show the Add Type Form.
     $T_FILE = 'userAddType.html';
+		
+		//Set default message
+		$T_VAR['MSG'] = 'Create User Type';
     
     $typeList = $_USER->TypeList();
     if($typeList !== false)
@@ -387,12 +396,12 @@ if(isset($_INPUT['delType']))
         //Success!!
         $T_VAR['MSG'] = "User Type(Group) has been removed successfully.";
         
-      }//else Kill Failure
-    }//else DB Link Failure
-  }else{ $T_VAR['MSG'] = (isset($_INPUT['uType'])) ? "The User Type ID provided cannot be removed!" : "You must provide a User Type ID!"; }
+      }else{ $T_VAR['MSG'] = "User Type(Group) could not be killed!"; }
+    }else{ $T_VAR['MSG'] = "User Type(Group) could not be killed, no data link!"; }
+  }else{ $T_VAR['MSG'] = (isset($_INPUT['uType']) && !(empty($_INPUT['uType']))) ? "The User Type ID provided cannot be removed!" : "You must provide a User Type ID!"; }
   
   //Finally set the message REDIRECT
-  $T_VAR['REDIRECT'] = '3;url=userA.php?typePerm';
+  $T_VAR['REDIRECT'] = '3;url=userA.php?addType';
 }
 
 
@@ -424,7 +433,10 @@ if(isset($_INPUT['addStatus']))
   {
     //Show the Add Status Form.
     $T_FILE = 'userAddStatus.html';
-    
+		
+		//Set default message
+		$T_VAR['MSG'] = 'Create User Status';    
+		
     $statusList = $_USER->StatusList();
     if($statusList !== false)
     {
@@ -479,7 +491,10 @@ if(isset($_INPUT['addAttr']))
   {
     //Show the Add Status Form.
     $T_FILE = 'userAddAttr.html';
-    
+		
+		//Set default message
+		$T_VAR['MSG'] = 'Create User Attribute';
+		
     //Retrieve the Attribute Index
     $attrIndex = $_USER->AttrIndex();
 
@@ -501,9 +516,13 @@ if(isset($_INPUT['addAttr']))
 }
 
 
+//REMOVE ATTR!!
+//EDIT ATTR!!
+
 //Build the template (LAST LINE OF ALL MAIN DRIVERS)
 //In this file we alter the style path to "acp" sub-directory
 //And attach true to the path string to signal using root header/footer
 //Removing ",true" will make the template use header/footer from "acp" dir
-BuildTemplate($T_FILE, $T_VAR, $T_COND, false, 'acp,true');
+//which is useful for creating alternate menu for administration links.
+BuildTemplate($T_FILE, $T_VAR, $T_COND, false, 'acp');
 ?>

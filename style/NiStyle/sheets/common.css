@@ -23,47 +23,131 @@
 	display:none;
 }
 
-/* Form Labels and Buttons */
-.btn { padding:5px; }
-.label{ font-weight:bold; }
+/* -------------- */
+/* COMMON CLASSES */
+/* -------------- */
 
+/* Inputs */
+textarea { width:100%; height:100px; }
+.txtbox, select { min-width: 150px; font-size:24px; }
+
+/* Labels and Buttons */
+.btn { padding:5px; min-width:auto; font-size:20px; }
+.label { font-weight:bold; }
+.subtxt { font-size:18px; }
+.tinytxt { font-size:16px; }
+
+/* Links */
+a { color:teal; }
+
+/*Float left/right */
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.clearfix::after {
+	content: "";
+	clear:both;
+	display:table;
+}
+
+.red { color:#830513; }/*Darker red*/
+.green { color:green; }
+.strike-out { text-decoration: line-through; }
+
+.g-recaptcha{ width:50%; margin:auto; }
+
+/* ----------------- */
+/* MAIN LAYOUT PARTS */
+/* ----------------- */
+
+/* Main Body */
 body {
 	background-color:#1C1D1F;
+  font:24px/1.231 arial, helvetica, clean, sans-serif;
 	color:#DCD8D8;
-  font:16px/1.231 arial, helvetica, clean, sans-serif;
 	text-align:center;
 	margin:auto;
+}
+
+/* The Header Section [wrap] */
+#header {
+	width:100%;
+	min-width: 900px;
+	height: 200px;
+	background-image:url('../imgs/background.png');
+	background-repeat:no-repeat;
+	background-position:center center;
+	/*background-attachment:fixed;*/
+	/*background-color:red;*/
 }
 
 #wrap {
 	text-align:center;
 	margin:auto;
-  width:1293px;
+	min-width: 900px;
+	/*background-color:orange;*/
 }
 
-/* The Header Section [wrap] */
-#header {
-  width:100%;
-  height:199px;
-  padding-top:20px;
-	background-image:url('../imgs/header.png');
-  background-repeat:no-repeat;
-  background-position:center center;
+
+/* Navigation MENU */
+#NavMenu { position:relative; }
+#NavMenu li { 
+	display:inline-block; 
+	list-style-type:none; 
+	margin:0px; 
+	padding:0px;
+}
+#NavMenu ul { 
+	margin:0; 
+	padding:0; 
+}
+#NavMenu li .main-menu .sub-menu { display:none; }
+#NavMenu li .main-menu:hover .sub-menu { 
+	display:block; 
+	position:absolute; 
+	z-index:42; 
+}
+#NavMenu li .main-menu a:hover, #NavMenu li .main-menu span.dumbLink:hover { background-color:silver; color:black; }
+#NavMenu li .sub-menu a:hover, #NavMenu li .sub-menu span.dumbLink:hover { background-color:silver; color:black; }
+#NavMenu li a, #NavMenu li span.dumbLink { 
+	background-color:#1C1D1F; 
+	color:white; 
+	border:thin solid green; 
+	display:block; 
+	padding:5px; 
+	text-decoration:none;
+}
+#NavMenu li span.dumbLink { cursor:pointer; }
+
+#NavMenu .cpLink {
+	border:thin solid green;
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+	width:250px;
+	margin:auto;
 }
 
 /* Page Body Section [wrap] */
 #pageBody { 
-  padding:5px;
-  padding-top:20px;
+	padding:5px;
+	padding-top:20px;
+	width:900px;
+	/*background-color:orange;*/
+	margin:auto;
 }
 
 /* The Footer Section [wrap] */
 #foot{
 	width:100%;
-  height:199px;
+	height:199px;
+	/*
 	background-image:url('../imgs/footer.png');
-  background-repeat:no-repeat;
-  background-position:center center;
+	background-repeat:no-repeat;
+	background-position:center center;
+	*/
 }
 
 /* Copy Right Section [foot] */
@@ -73,12 +157,171 @@ body {
   margin:auto;
 }
 
-/* Login Section */
-#login { text-align:center; }
-#login #formDiv {
-  width:26%;
-  margin:auto;
-}
-#login #tableDiv { width:100%; }
-#login table { text-align:right; }
+/* -------------- */
+/* SPECIFIC PAGES */
+/* -------------- */
 
+/* Window Outline */
+#window { 
+	width:100%; 
+	/*background-color:red;*/
+	margin:auto;
+}
+#window #top { 
+	width:100%; 
+	height:98px; 
+	/*background-color: blue;*/
+	background-image:url('../imgs/window_top.png');
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
+#window #center { 
+	width:100%;
+	margin:auto;
+	background-image:url('../imgs/window_center.png');
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
+#window #btm { 
+	width:100%; 
+	height:100px; 
+	/*background-color: green;*/
+	background-image:url('../imgs/window_btm.png');
+	background-repeat:no-repeat;
+	background-size:100% 100%;	
+}
+
+/* Login */
+#login { 
+	width:95%;
+	margin:auto;
+	text-align:center;
+}
+#login table { text-align:right; margin:auto; }
+
+/* INDEX / HOME */
+#index {
+	padding:5px;
+	text-align:left;
+	width:95%;/* minus 5% for window outline */
+	margin:auto;
+}
+#index ul, li { margin-left: 25px;}
+#index div {margin:auto; width:50%;}
+
+/* Register */
+#register { width:90%; margin:auto; }
+#register #msg { width:70%; margin:auto; }
+#register #registerForm { width:60%; margin:auto; text-align:right; }
+
+/* Search User */
+#searchUser { width:90%; margin:auto; }
+#searchUser #searchForm { }
+#searchUser #searchFilters { }
+#searchUser #searchFilters table { width:80%; margin:auto; font-size: 18px; text-align:center; }
+#searchUser #userList { width:99%; overflow-x:auto; }
+#searchUser #userList table { width:99%; font-size:18px; }
+#searchUser #userList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+
+
+/* ----------- */
+/* ADMIN PAGES */
+/* ----------- */
+
+/* Settings */
+#settings { width:80%; margin:auto; }
+#settingsForm{ text-align:right; }
+
+/* Add(Create) User */
+#addUser { width:90%; margin:auto; }
+#addUser #msg {}
+#addUser #addUserForm { width:60%; margin:auto; text-align:right; }
+
+/* Edit User */
+#editUser { width:70%; margin:auto; text-align:right; }
+#editUserForm {  }
+
+/* View User */
+#viewUser { width:70%; margin:auto; }
+#viewUserInfo { text-align:right; }
+
+/* Add User Type */
+#addUserType { width:90%; margin:auto; }
+#addUserType #userTypeForm { width:60%; margin:auto; text-align:right; }
+#addUserType #userTypeList { width:60%; margin:auto; }
+#addUserType #userTypeList table { width:100%; }
+#addUserType #userTypeList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+
+/* Add User Attribute */
+#addAttr { width:90%; margin:auto; }
+#addAtter #msg {}
+#addAttr #attrForm { width:60%; margin:auto; text-align:right; }
+#addAttr #attrList { }
+#addAttr #attrList table { width:100%; }
+#addAttr #attrList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+
+/* Add User Permission */
+#addPerm { width:90%; margin:auto; }
+#addPerm #permForm { width:60%; margin:auto; text-align:right; }
+#addPerm #permList { width:60%; margin:auto; }
+#addPerm #permList table { width:100%; }
+#addPerm #permList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+
+/* Type Permissions */
+#typePerm { width:90%; margin:auto; }
+#typePerm #msg {}
+#typePerm #typePermList { width:60%; margin:auto; }
+#typePerm #typePermList table { width:100%; }
+#typePerm #typePermList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+
+/* Add Location */
+#addLoc { width:100%; margin:auto; }
+#addLoc #msg {}
+#addLoc #locForm { width:80%; margin:auto; text-align:right; }
+#addLoc #locList { }
+#addLoc #locList table { width:100%; font-size:18px; }
+#addLoc #locList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+#addLoc #locList table .txtbox { font-size:18px; min-width:0; }
+
+/* Add Address */
+#addAddress { width:90%; margin:auto; }
+#addAddress #msg {}
+#addAddress #addressForm { width:80%;	margin:auto; text-align:right; }
+#addAddress #addressList { overflow:auto; }
+#addAddress #addressList table { width:100%; }
+#addAddress #addressList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+#addAddress #addressList table .txtbox { font-size:18px; min-width:0; }
+
+
+/* Add Building */
+#addBuilding { width:90%; margin:auto; }
+#addBuilding #msg {}
+#addBuilding #buildingForm { width:60%; margin:auto; text-align:right; }
+#addBuilding #buildingList { width:60%; margin:auto; }
+#addBuilding #buildingList table { width:100%; }
+#addBuilding #buildingList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+
+/* Add Room */
+#addRoom { width:90%; margin:auto; }
+#addRoom #msg {}
+#addRoom #roomForm { width:60%; margin:auto; text-align:right; }
+#addRoom #roomList { width:100%; margin:auto; }
+#addRoom #roomList table { width:100%; }
+#addRoom #roomList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+#addRoom #roomList table .txtbox { min-width:0; }
+
+/*Create Amenity */
+#createAmenity { width:90%; margin:auto; }
+#createAmenity #msg {}
+#createAmenity #amenityForm { }
+#createAmenity #amenityList { width:70%; margin:auto; }
+#createAmenity #amenityList table { width:100%; }
+#createAmenity #amenityList table th { border-top:thin solid silver; border-bottom:thin solid silver; }
+
+/* Add Amenity */
+#addAmenity { width:90%; margin:auto; }
+#addAmenity #msg {}
+#addAmenity #amenityForm { width:60%; margin:auto; text-align:right; }
+#addAmenity #amenityList { width:60%; margin:auto; }
+#addAmenity #amenityList table { width:100%; }
+#addAmenity #amenityList table th { border-top:thin solid silver; border-bottom:thin solid silver; }

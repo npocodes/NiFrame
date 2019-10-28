@@ -818,5 +818,5 @@ if(isset($_INPUT['search']))
 //In this file we alter the style path to "acp" sub-directory
 //And attach true to the path string to signal using root header/footer
 //Removing ",true" will make the template use header/footer from "acp" dir
-BuildTemplate($T_FILE, $T_VAR, $T_COND, false, 'acp,true');
+BuildTemplate($T_FILE, $T_VAR, $T_COND, false, 'acp');
 ?>

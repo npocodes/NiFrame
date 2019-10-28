@@ -1,109 +1,83 @@
 
-<!-- uEdit HTML START //-->
-<div id='uEdit' style='width:25%;margin:auto;'>
-<style>
-table td {padding:5px;}
-</style>
+<!-- userEdit HTML START //-->
+<div id='editUser'>
 	<p id='Msg'>{%MSG}</p>
-	<div>
-  <form action='user.php?edit&uid={%USER_ID}' method='POST'>
-    <table>
-      <tr>
-		    <td class='left'><span class='label'>User Name:&nbsp;</span></td>
-        <td class='right'><span>{%USER_NAME}</span></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>First Name:&nbsp;</span></td>
-        <!-- ACP //-->
-        <td class='right'><input type='basic' alt='basic' name='{%UserFirstName_col}' value='{%USER_FIRST_NAME}'>
-        <!-- FIN ACP //-->
-        <!-- DISPLAY //--><td class='right'><span>{%USER_FIRST_NAME}</span></td><!-- FIN DISPLAY //-->
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Middle Name:&nbsp;</span></td>
-        <!-- ACP //-->
-        <td class='right'><input type='basic' alt='basic' name='{%UserMidName_col}' value='{%USER_MID_NAME}'>
-        <!-- FIN ACP //-->
-        <!-- DISPLAY //--><td class='right'><span>{%USER_MID_NAME}</span></td><!-- FIN DISPLAY //-->
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Last Name:&nbsp;</span></td>
-        <!-- ACP //-->
-        <td class='right'><input type='basic' alt='basic' name='{%UserLastName_col}' value='{%USER_LAST_NAME}'><br>
-        <!-- FIN ACP //-->
-        <!-- DISPLAY //--><td class='right'><span>{%USER_LAST_NAME}</span></td><!-- FIN DISPLAY //-->
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Nick Name:&nbsp;</span></td>
-        <!-- ACP //-->
-        <td class='right'><input type='basic' alt='basic' name='{%UserNickName_col}' value='{%USER_NICK_NAME}'><br>
-        <!-- FIN ACP //-->
-        <!-- DISPLAY //--><td class='right'><span>{%USER_NICK_NAME}</span></td><!-- FIN DISPLAY //-->
-      </tr>
-      <tr>
-    		<td class='left'><span class='label'>User Status:&nbsp; </span></td>
-        <!-- ACP //-->
-        <td class='right'>
-          <select name='{%UserStatus_col}'>
-            <option value='0'>In-Active</option>
-            <!-- !USER_STATUS_OPTIONS //--><option value='{%USER_STATUS_IDS[%N]}' {%USER_STATUS_SELECTED[%N]}>{%USER_STATUS_NAMES[%N]}</option><!-- FIN !USER_STATUS_OPTIONS //--> 
-          </select>
-        </td>
-        <!-- FIN ACP //-->
-    		<!-- DISPLAY //--><td class='right'><span>{%USER_STATUS_NAME}</span><br><!-- FIN DISPLAY //-->
-		  </tr>
-      <tr>
-    		<td class='left'><span class='label'>Password:&nbsp;&nbsp;&nbsp; </span></td>
-    		<td class='right'><input class='txtbx' type='password' name='{%UserPass_col}'></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Confirm:&nbsp; </span></td>
-    		<td class='right'><input class='txtbx' type='password' id='confPass' name='confPass'></td>
-		  </tr>
-      <tr>
-		    <td class='left'><span class='label'>User Type:&nbsp; </span></td>
-        <!-- ACP //-->
-        <td class='right'>
-          <select name='{%UserType_col}'>
-            <option value='0'>Select a Type</option>
-            <!-- !USER_TYPE_OPTIONS //-->
-            <option value='{%USER_TYPE_IDS[%N]}' {%USER_TYPE_SELECTED[%N]}>{%USER_TYPE_NAMES[%N]}</option><!-- FIN !USER_TYPE_OPTIONS //-->
-          </select><br>
-        </td>
-        <!-- FIN ACP //-->
-    		<!-- DISPLAY //--><td class='right'><span>{%USER_TYPE_NAME}</span></td><!-- FIN DISPLAY //-->
-		  </tr>
-      <tr>
-    		<td class='left'><span class='label'>User Email:&nbsp; </span></td>
-        <!-- ACP //-->
-        <td class='right'><input type='email' alt='email' name='{%UserEmail_col}' value='{%USER_EMAIL}'><br>
-        <!-- FIN ACP //-->
-        <!-- DISPLAY //--><td class='right'><span>{%USER_EMAIL}</span></td><!-- FIN DISPLAY //-->
-      </tr>
-      <tr>
-    		<td class='left'><span class='label'>User Phone:&nbsp; </span></td>
-        <!-- ACP //-->
-        <td class='right'><input type='tel' alt='tel' name='{%UserPhone_col}' value='{%USER_PHONE}'><br></td>
-        <!-- FIN ACP //-->
-        <!-- DISPLAY //--><td class='right'><span>{%USER_PHONE}</span></td><!-- FIN DISPLAY //-->
-      </tr>
-      <!-- USER_ATTR_LIST //-->
-      <!-- !USER_ATTRS //-->
-      <tr>
-    		<td class='left'><span class='label'>{%USER_ATTR_LABEL[%N]}:&nbsp; </span></td>
-        <!-- ACP //-->
-        <td class='right'><input type='{%USER_ATTR_VTYPE[%N]}' alt='{%USER_ATTR_VTYPE[%N]}' name='{%USER_ATTR_NAME[%N]}' value='{%USER_ATTR_VALUE[%N]}'><br></td>
-        <!-- FIN ACP //-->
-        <!-- DISPLAY //--><td class='right'><span>{%USER_ATTR_VALUE[%N]}</span></td><!-- FIN DISPLAY //-->
-      </tr>
-      <!-- FIN !USER_ATTRS //-->
-      <!-- FIN USER_ATTR_LIST //-->
-      <tr>
-        <td></td>
-		    <td><input class='btn' type='submit' name='submit' value='Save'></td>
-      </tr>
-    </table>
-	</form>
+	<div id='editUserForm'>
+		<form action='user.php?edit&uid={%USER_ID}' method='POST'>
+			<div id='imgThumb'>
+				<img id='userImgThumb' width='100px;' height='100px;' src='{%USER_AVATAR}'><br>
+				<span id='userImgError' class='subtxt'>No File Selected</span>
+			</div><br>
+			
+			<span class='label left'>Avatar:&nbsp; </span>
+			<input type='hidden' id='userImgValue' name='{%UserAvatar_col}' value=''>
+			<input class='btn' type='file' id='userImg'><br>
+			<span class='subtxt left' style='font-size:smaller;'>Max File Size: 200kb - JPG PNG BMP GIF</span>
+			<br><br>
+		
+			<span class='label left'>User Name:&nbsp;</span>
+			<span>{%USER_NAME}</span><br>
+			
+			<span class='label left'>First Name:&nbsp;</span>
+			<input class='txtbox' type='basic' alt='basic' name='{%UserFirstName_col}' value='{%USER_FIRST_NAME}'>
+			<br>
+			
+			<span class='label left'>Middle Name:&nbsp;</span>
+			<input class='txtbox' type='basic' alt='basic' name='{%UserMidName_col}' value='{%USER_MID_NAME}'>
+			<br>
+			
+			<span class='label left'>Last Name:&nbsp;</span>
+			<input class='txtbox' type='basic' alt='basic' name='{%UserLastName_col}' value='{%USER_LAST_NAME}'>
+			<br>
+			
+			<span class='label left'>Nickname:&nbsp;</span>
+			<input class='txtbox' type='basic' alt='basic' id='nickname' name='{%UserNickName_col}' value='{%USER_NICK_NAME}'>
+			<br>
+			
+			<span class='label left'>User Status:&nbsp; </span>
+			<!-- ACP //--><select name='{%UserStatus_col}'>
+				<option value='0'>In-Active</option>
+				<!-- !USER_STATUS_OPTIONS //--><option value='{%USER_STATUS_IDS[%N]}' {%USER_STATUS_SELECTED[%N]}>{%USER_STATUS_NAMES[%N]}</option><!-- FIN !USER_STATUS_OPTIONS //-->
+				</select>
+			<!-- FIN ACP //-->
+			<!-- DISPLAY //--><span>{%USER_STATUS_NAME}</span><!-- FIN DISPLAY //-->
+			<br>
+			
+			<span class='label left'>Password:&nbsp;&nbsp;&nbsp; </span>
+			<input class='txtbox' type='password' autocomplete='new-password' name='{%UserPass_col}'><br>
+			
+			<span class='label left'>Confirm:&nbsp; </span>
+			<input class='txtbox' type='password' id='confPass' name='confPass'><br>
+			
+			<span class='label left'>User Type:&nbsp; </span>
+			<!-- ACP //--><select name='{%UserType_col}'>
+				<option value='0'>Select a Type</option>
+				<!-- !USER_TYPE_OPTIONS //--><option value='{%USER_TYPE_IDS[%N]}' {%USER_TYPE_SELECTED[%N]}>{%USER_TYPE_NAMES[%N]}</option><!-- FIN !USER_TYPE_OPTIONS //-->
+				</select>
+			<!-- FIN ACP //-->
+			<!-- DISPLAY //--><span>{%USER_TYPE_NAME}</span><!-- FIN DISPLAY //-->
+			<br>
+			
+			<span class='label left'>User Email:&nbsp; </span>
+			<input class='txtbox' type='email' alt='email' id='email' name='{%UserEmail_col}' value='{%USER_EMAIL}'>
+			<br>
+			
+			<span class='label left'>User Phone:&nbsp; </span>
+			<input class='txtbox' type='tel' alt='tel' name='{%UserPhone_col}' value='{%USER_PHONE}'>
+			<br>
+
+			<!-- USER_ATTR_LIST //-->
+			<!-- !USER_ATTRS //-->
+			<span class='label left'>{%USER_ATTR_LABEL[%N]}:&nbsp; </span>
+			<!-- ACP //--><input type='{%USER_ATTR_VTYPE[%N]}' alt='{%USER_ATTR_VTYPE[%N]}' name='{%USER_ATTR_NAME[%N]}' value='{%USER_ATTR_VALUE[%N]}'><!-- FIN ACP //-->
+			<!-- DISPLAY //--><span>{%USER_ATTR_VALUE[%N]}</span><!-- FIN DISPLAY //-->
+			<br>
+			<!-- FIN !USER_ATTRS //-->
+			<!-- FIN USER_ATTR_LIST //-->
+			<br>
+			
+			<input class='btn' type='submit' name='submit' value='Save'>
+		</form>
   </div>
 </div>
-<!-- uEdit HTML END //-->
+<!-- userEdit HTML END //-->

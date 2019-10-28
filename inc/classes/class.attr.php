@@ -51,6 +51,26 @@ class attr extends nerror {
   }//END CONSTRUCTOR
   
   
+	//Get Attr Unique Value By Attr Name
+	public function GetAttr($name, $ID)
+	{
+		$attrList = $this->AttrList($ID);
+		if(!($attrList))
+		{
+			RETURN false;//No List
+		}
+		
+		foreach($attrList as $key => $value)
+		{
+			if($key === $name)
+			{
+				RETURN $value;//Found
+			}
+		}
+		RETURN false;//Not Found
+	}
+	
+	
   /////////////////////////
   //# Add New Attribute #//
   /////////////////////////
@@ -92,7 +112,7 @@ class attr extends nerror {
       //Fill with default values if values are missing
       $label[$i] = (isset($label[$i]) && !(empty($label[$i]))) ? $label[$i] : 'Unknown';
       $rank[$i] = (isset($rank[$i]) && !(empty($rank[$i]))) ? $rank[$i] : 0;
-      $default[$i] = (isset($default[$i]) && !(empty($default[$i]))) ? $default[$i] : 'none';
+      $default[$i] = (isset($default[$i]) && $default[$i] != '') ? $default[$i] : 'none';
       $vType[$i] = (isset($vType[$i]) && !(empty($vType[$i]))) ? $vType[$i] : 'text';
       
       //Add attribute data to values list for Attr_Index Table
@@ -224,7 +244,7 @@ class attr extends nerror {
               RETURN true;
               
             }else{ $this->LogError("Failed to Inject Attr Index Data - attr::AddAttr()"); }
-          }else{ $this->LogError("Failed to create ".$className." Attr Values Table - attr::AddAttr()"); }
+          }else{ $this->LogError("Failed to create ".$className." Attr Values Table - attr::AddAttr()".$DB->LastQuery()); }
         }else{ $this->LogError("Failed to create ".$className." Attr Index - attr::AddAttr()"); }
       }
       else
@@ -258,7 +278,7 @@ class attr extends nerror {
             $DB->Sever();
             RETURN true;
           }
-        }else{ $this->LogError("ModTable failure - attr::AddAttr()"); }
+        }else{ $this->LogError("ModTable failure - attr::AddAttr()".$DB->LastQuery()); }
       }//End TableCheck
       $DB->Sever();
     }else{ $this->LogError("Failed to Link to Database - attr:AddAttr()"); }
@@ -642,7 +662,7 @@ class attr extends nerror {
         }else{ if($DB->Error() != '0 results found'){ $this->LogError("Snatch Failure - attr:AttrList()"); } }
         $DB->Sever();
       }else{ $this->LogError("Database Link Failure - attr:AttrList()"); }
-    }else{ $this->error = "No Attributes Exist"; }
+    }else{ $this->LogError($this->error = "No Attributes Exist"); }
     
     //Failure
     RETURN false;
@@ -704,8 +724,16 @@ class attr extends nerror {
       if($DB->TableExists($className.'_attr_index'))
       {
         //Retrieve the Attribute Index Data
-        if($DB->Snatch($className.'_attr_index'))
+				$snatched = $DB->Snatch($className.'_attr_index');
+        if(!($snatched))
         {
+					if($DB->Error() != '0 results found')
+					{
+						$this->LogError("Snatch Failure ".$DB->Error()." - attr::AttrIndex()");
+					}
+				}
+				else
+				{
           //Found Thing Attributes!
           $result = $DB->Result();
           
@@ -734,14 +762,14 @@ class attr extends nerror {
           $DB->Sever();
           RETURN $retList; 
           
-        }else{ $this->LogError("Snatch Failure - attr::AttrIndex()"); }
+        }
       }//else{ $this->LogError("Index Table Does not Exist - attr::AttrIndex()"); }
       
       //No Extra Attributes Exist Yet...
       $this->attrE = 0;
       $DB->Sever();
       
-    }else{ $this->LogError("Database Link Failure - attr::attr()"); }
+    }else{ $this->LogError("Database Link Failure - attr::AttrIndex()"); }
     
     //Failure
     RETURN false;

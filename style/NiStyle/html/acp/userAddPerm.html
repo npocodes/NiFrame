@@ -1,38 +1,30 @@
 
 <!-- addPerm HTML START //-->
 <div id='addPerm'>
-	<p id='Msg'>{%MSG}</p>
-	<form action='userA.php?addPerm' method='POST'>
-	<div>
-		<span class='label'>Permission Name:&nbsp; </span>
-		<input class='txtbx' type='text' name='uPermName'>
-		<input class='btn' type='submit' name='submit' value='Create'>
-	</div>
+	<p id='msg'>{%MSG}</p><br>
+	<div id='permForm'>
+		<form action='userA.php?addPerm' method='POST'>
+			<span class='label left'>Permission Name:&nbsp; </span>
+			<input class='txtbox' type='text' name='uPermName'><br><br>
+			<input class='btn' type='submit' name='submit' value='Create'>
+		</form>
+	</div><br><br>
   <!-- PERM_LIST //-->
-  <br>
-  <div style='width:25%;margin:auto;'>
-    <style>
-      .left {text-align:right;}
-      .right {text-align:left;}
-    </style>
-    <table border=1 style='width:100%;'>
+	
+  <div id='permList'>
+    <table>
       <tr>
         <th>Permission Name</th>
-        <th>Actions</th>
+        <th colspan='2'>Actions</th>
       </tr>
       <!-- !USER_PERMS //-->
       <tr>
         <td>{%PERM_NAME[%N]}</td>
-        <td>
-          <a href='userA.php?editPerm&pName={%PERM_NAME[%N]}'>Edit</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href='userA.php?delPerm&pName={%PERM_NAME[%N]}'>Delete</a>
-        </td>
+        <td><form action='userA.php?delPerm&pName={%PERM_NAME[%N]}'><input class='btn' type='submit' value='X'></form></td>
       </tr>
       <!-- FIN !USER_PERMS //-->
     </table>
   </div>
   <!-- FIN PERM_LIST //-->
-	</form>
 </div>
 <!-- addPerm HTML END //-->

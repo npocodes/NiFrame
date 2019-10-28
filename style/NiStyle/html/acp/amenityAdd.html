@@ -1,0 +1,41 @@
+
+<!-- AMENITY_LIST //-->
+<!-- addAmenity HTML START //-->
+<div id='addAmenity'>
+	<p id='msg'>{%ADDRESS_FULL}<br>{%BUILDING_NAME} Building<br><br>Add Amenity to {%ROOM_NAME}</p><br>
+	<div id='amenityForm'>
+		<form action='locA.php?addAmenity&rid={%ROOM_ID}' method='POST'>
+			<span class='label'>Amenity:&nbsp; </span>
+			<select name='amid'>
+				<option value='0'>Choose Amenity</option>
+				<!-- !AMENITIES //-->
+				<option value='{%AMENITY_ID[%N]}'>{%AMENITY_NAME[%N]}</option>
+				<!-- FIN !AMENITIES //-->
+			</select>
+			
+			<input class='btn' type='submit' name='submit' value='Add Amenity'>
+		</form>
+	</div>
+  <!-- ROOM_AMENITY_LIST //-->
+  <br>
+  <div id='amenityList'>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+				<th>Options</th>
+      </tr>
+      <!-- !ROOM_AMENITIES //-->
+      <tr>
+        <td>{%ROOM_AMENITY_ID[%N]}</td>
+        <td>{%ROOM_AMENITY_NAME[%N]}</td>
+				<td style='width:50px;'><form action='locA.php?removeAmenity&amid={%ROOM_AMENITY_ID[%N]}&rid={%ROOM_ID}' method='POST'><input class='btn' type='submit' value='X'></form></td>
+      </tr>
+      <!-- FIN !ROOM_AMENITIES //-->
+    </table>
+		</form>
+  </div>
+  <!-- FIN ROOM_AMENITY_LIST //-->
+</div>
+<!-- addAmenity HTML END //-->
+<!-- FIN AMENITY_LIST //-->

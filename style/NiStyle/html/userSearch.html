@@ -1,8 +1,9 @@
 
 <!-- userSearch HTML START //-->
-<div id='userSearch'>
-  <div id='searchFilters'>
-    <form name='searchForm' action='user.php?search' method='POST'>
+<div id='searchUser'>
+	<p id='msg'>User Search</p><br>
+  <div id='searchForm'>
+    <form action='user.php?search' method='POST'>
       <select name='boe'>
         <option value='0'>Begins with</option>
         <option value='1'>Ends with</option>
@@ -10,67 +11,44 @@
       <input type='text' name='needle'>
       <input class='btn' type='submit' value='Search'><br><br>
       <span class='label'>Search By: (choose 1)</span><br>
-      <div style='width:380px;margin:auto;'>
-        <table style='text-align:right;'>
+      <div id='searchFilters'>
+			<hr>
+        <table>
           <tr>
-            <td>
-              First Name <input type='radio' name='filter' value='firstName'>
-            </td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td>
-              Last Name <input type='radio' name='filter' value='lastName'>
-            </td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td>
-              User Type <input type='radio' name='filter' value='type'>
-            </td>
+            <td>First Name</td>
+            <td><input type='radio' name='filter' value='firstName'></td>
+            <td>Last Name</td>
+						<td><input type='radio' name='filter' value='lastName'></td>
+            <td>User Type</td>
+						<td><input type='radio' name='filter' value='type'></td>
           </tr>
           <tr>
-            <td colspan='5'></td>
-          </tr>
-          <tr>
-            <td>
-              Email Address <input type='radio' name='filter' value='email' CHECKED>
-            </td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td>
-              User Status <input type='radio' name='filter' value='status'>
-            </td>
-            <td>&nbsp;&nbsp;&nbsp;</td>
-            <td>
-              Phone # <input type='radio' name='filter' value='phone'>
-            </td>
+            <td>Email Address</td>
+						<td><input type='radio' name='filter' value='email' CHECKED></td>
+            <td>User Status</td>
+						<td><input type='radio' name='filter' value='status'></td>
+            <td>Phone #</td>
+						<td><input type='radio' name='filter' value='phone'></td>
           </tr>
         </table>
+				<hr>
       </div>
     </form>
   </div><br>
-
-  <style>
-    div#userList { margin:auto; }
-    #userList table#results { width:100%; table-layout:fixed; }
-    #userList td { padding:0px 5px 0px 5px; overflow:hidden; white-space:nowrap; }
-    #userList td.short { width:25px; }
-    #userList td.med { width:100px; }
-    #userList td.long { width:150px; }
-    #userList td.xlong { width:215px; }
-    #userList table#actions { width:100%; }
-  </style>
+	
   <div id='userList'>
     <!-- NO_RESULT //-->
     <p>{%MSG}</p>
     <!-- FIN NO_RESULT //-->
     <!-- RESULT //-->
-    <table id='results' border='1'>
+    <table>
       <tr>
-        <!-- ACP //--><td class='short'>ID</td><!-- FIN ACP //-->
-        <td class='long'>Name</td>
-        <td class='med'>NickName</td>
-        <td class='med'>Type</td>
-        <td class='med'>Status</td>
-        <td class='xlong'>E-Mail Address</td>
-        <td class='med'>Phone</td>
-        <td class='long'>Actions</td>
+        <!-- ACP //--><th class='short'>ID</th><!-- FIN ACP //-->
+        <th class='long'>Name</th>
+        <th class='med'>NickName</th>
+        <th class='med'>Type</th>
+        <th class='xlong'>E-Mail Address</th>
+        <th class='long' colspan='3'>Actions</th>
       </tr>
       {%USER_LIST}
     </table>

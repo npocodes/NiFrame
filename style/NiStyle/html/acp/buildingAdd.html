@@ -1,0 +1,36 @@
+
+<!-- addBuilding HTML START //-->
+<div id='addBuilding'>
+	<p id='msg'>{%MSG}</p><br>
+	<div id='buildingForm'>
+		<form action='locA.php?addBuilding&aid={%ADDRESS_ID}' method='POST'>
+			<span class='label left'>Name:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%BuildingName_col}' required><br><br>
+			
+			<input class='btn' type='submit' name='submit' value='Add Building'>
+		</form>
+	</div>
+  <!-- BUILDING_LIST //-->
+  <br>
+  <div id='buildingList'>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+				<th colspan='3'>Options</th>
+      </tr>
+      <!-- !BUILDINGS //-->
+      <tr>
+        <td><form action='locA.php?editBuilding&aid={%ADDRESS_ID}&bid={%BUILDING_ID[%N]}' method='POST'>{%BUILDING_ID[%N]}</td>
+        <td><input class='txtbox' type='text' name='{%BuildingName_col}' value='{%BUILDING_NAME[%N]}'></td>
+				<td><input class='btn' type='submit' name='submit' value='Update'></form></td>
+				<td><form action='locA.php?addRoom&aid={%ADDRESS_ID}&bid={%BUILDING_ID[%N]}' method='POST'><input class='btn' type='submit' value='Manage'></form></td>
+				<td><form action='locA.php?delBuilding&aid={%ADDRESS_ID}&bid={%BUILDING_ID[%N]}' method='POST'><input class='btn' type='submit' value='X'></form></td>
+      </tr>
+      <!-- FIN !BUILDINGS //-->
+    </table>
+		</form>
+  </div>
+  <!-- FIN BUILDING_LIST //-->
+</div>
+<!-- addBuilding HTML END //-->

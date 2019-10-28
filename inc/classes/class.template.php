@@ -394,7 +394,12 @@ class template extends nerror {
 			{
 				//Page Variables Extracted
 				//Evaluate Remaining
-				eval("\$HTML = \"$this->HTML\";");
+				try{
+					eval("\$HTML = \"$this->HTML\";");
+				}catch(ParseError $e){
+					echo($e->getMessage()." -- eval'd code on line ".$e->getLine());
+					LogError($this->HTML);
+				}
 				
 				//Check if Returning/Displaying
 				if($RETURNING)
@@ -470,7 +475,12 @@ class template extends nerror {
 				//Page Variables Extracted
 				//Evaluate Remaining
         $HTML = '';
-				eval("\$HTML = \"$this->HTML\";");
+				try{
+					eval("\$HTML = \"$this->HTML\";");
+				}catch(ParseError $e){
+					echo($e->getMessage()." -- eval'd code on line ".$e->getLine());
+					LogError($this->HTML);
+				}
 				
 				//Check if Returning/Displaying
 				if($RETURNING)

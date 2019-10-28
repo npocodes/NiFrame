@@ -1,19 +1,26 @@
 
 <!-- settings HTML START //-->
-<div id='settings' style='width:50%;margin:auto;'>
-  <div>
+<div id='settings'>
+  <div id='settingsForm'>
     <form action='sysA.php?settings' method='POST'>
-      <span class='label'>Set Login Acceptance Level: </span>
+      <span class='label left'>Set Login Acceptance Level: </span>
         <select name='logNE'>
           <option value='0' {%SELECT_BOTH}>Both Email + Nickname</option>
           <option value='1' {%SELECT_EMAIL}>Email Only</option>
           <option value='2' {%SELECT_NICK}>Nickname Only</option>
         </select>
       <br><br>
-      <span class='label'>Disable/Enable reCAPTCHA: </span> 
+      <span class='label left'>Disable/Enable reCAPTCHA: </span> 
         <select name='recaptcha'>
           <option value='0' {%RECAPTCHA_OFF}>Disabled</option>
           <option value='1' {%RECAPTCHA_ON}>Enabled</option>
+        </select>
+      <br><br>
+			<span class='label left'>Server Timezone: </span> 
+        <select name='tZone'>
+				<!-- !TZONES //-->
+        <option value='{%TZONE_NAME[%N]}' {%TZONE_SELECTED[%N]}>{%TZONE_NAME[%N]} (UTC{%TZONE_OFFSET[%N]})</option>
+				<!-- FIN !TZONES //-->
         </select>
       <br><br>
       <input type='submit' class='btn' name='submit' value='Update'>

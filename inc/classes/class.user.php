@@ -31,11 +31,14 @@ class user extends attr {
   protected $user_ID;         //The users ID
   protected $user_type;       //User Type: (ID, Name)
   protected $user_status;     //User Status: (ID, Name)
-  protected $user_name;       //Users Full Name (Comprised of First and Last Name)
-  protected $user_nick;       //User's Nickname (Screen/Display Name)
-  protected $user_email;      //Users Email Address
-  protected $user_phone;      //Users Phone Number
-  protected $user_carrier;    //Users Phone Service Carrier: (ID, Name)
+  protected $user_name;       //User Full Name (Comprised of First and Last Name)
+  protected $user_nick;       //User Nickname (Screen/Display Name)
+	protected $user_avatar;			//User Avatar (URL)
+  protected $user_email;      //User Email Address
+  protected $user_phone;      //User Phone Number
+  protected $user_carrier;    //User Phone Service Carrier: (ID, Name)
+	protected $user_joined;			//User Join date (timestamp)
+	protected $user_lastLogin;	//User Last Login (timestamp)
   protected $userPermList;    //List of user's permissions based on userType  
   protected $userTypeList;    //List of possible user types
   protected $userStatusList;  //List of possible user statuses
@@ -64,9 +67,12 @@ class user extends attr {
     $this->user_status = array(0, 'unknown');   //User Status: (ID, Name)
     $this->user_name = 'unknown';               //Users Full Name (First Middle Last)
     $this->user_nick = 'unknown';               //Users Nick Name (Screen name)
+		$this->user_avatar = '#';										//Users Avatar (URL)
     $this->user_email = 'unknown';              //Users Email Address
     $this->user_phone = 0;                      //Users Phone Number
     $this->user_carrier = array(0, 'unknown');  //User Phone Carrier: (ID, Name)
+		$this->user_joined = 0;											//User Join Date (timestamp)
+		$this->user_lastLogin = 0;									//User Last Login (timestamp)
     $this->userPermList = array();              //List of user's permissions 
                                                 //ex: Array(PermName, true | false)
     
@@ -83,16 +89,20 @@ class user extends attr {
     }
   }
   //End Constructor Method
+	
   
   ///////////////////
   /// GET Methods ///
   ///////////////////
   public function ID(){ RETURN $this->user_ID; }
   public function Email(){ RETURN $this->user_email; }
+	public function Avatar(){ RETURN $this->user_avatar; }
   public function Phone($i = null){ RETURN ($i == null || $i < 1) ? $this->user_phone : $this->user_carrier[($i-1)]; }//(Phone#, CarrierID, CarrierName)
   public function Type($index = 0){ RETURN $this->user_type[$index]; }
   public function Status($index = 0){ RETURN $this->user_status[$index]; }
-  
+  public function JoinDate(){ RETURN $this->user_joined; }//{Timestamp}
+	public function LastLogin(){ RETURN $this->user_lastLogin; }//{Timestamp}
+	
   
   ///////////////////
   /// Name Method ///
@@ -142,17 +152,12 @@ class user extends attr {
   public function DisplayName(){ RETURN $this->Nick(); }
 
   
-  //~~~~~~~~~~~~~~~~//
-  //~ Login Method ~//
-  //~~~~~~~~~~~~~~~~//
+  //----------------//
+  //- Login Method -//
+  //----------------//
   /*
     This method logs the user into the system by hashing the pass provided by the user
     and matching it to the hash stored in the database associated with the userEmail provided.
-    
-      //UPDATE NEEDED: make login work with NickName, or Email.
-      //Both NickName and Email are required unique values in DB.
-      //Provide ability to choose which are accepted for login.
-      //Configuration setting, changeable via the ACP?
   */
   final public function Login($userNE, $userPass, $remember = false)
   {
@@ -251,11 +256,22 @@ class user extends attr {
                   //and a hacker obtains the rawKey, it still cannot be used to login
                   //through the remember method since remember expects the key to be encrypted.
                   $whereLoc = $CONFIG['UserID_col'].'='.$this->user_ID;
-                  if(!($DB->Refresh($CONFIG['User_Table'], $CONFIG['UserCode_col'], $rawKey, $whereLoc)))
+									$fieldList = array($CONFIG['UserCode_col'], $CONFIG['UserLastLogin_col']);
+									$valueList = array($rawKey, time());
+                  if(!($DB->Refresh($CONFIG['User_Table'], $fieldList, $valueList, $whereLoc)))
                   {
                     $this->LogError($DB->Error());
                   }
                 }//End Check Remember
+								else
+								{
+									//Record the login timestamp
+									$whereLoc = $CONFIG['UserID_col'].'='.$this->user_ID;
+									if(!($DB->Refresh($CONFIG['User_Table'], $CONFIG['UserLastLogin_col'], time(), $whereLoc)))
+									{
+										$this->LogError($DB->Error());
+									}
+								}
                 
                 //Sever DB Link
                 $DB->Sever();
@@ -311,9 +327,9 @@ class user extends attr {
   //END Login
 
   
-  //~~~~~~~~~~~~~~~~~~~//
-  //~ Remember Method ~//
-  //~~~~~~~~~~~~~~~~~~~//
+  //-------------------//
+  //- Remember Method -//
+  //-------------------//
   /*
     This method uses a unique userCode stored within a cookie on the users
     machine to validate them by matching the unique code to the userCode stored
@@ -369,7 +385,9 @@ class user extends attr {
             
             //Store the key for later
             $whereLoc = $CONFIG['UserID_col'].'='.$this->user_ID;
-            if(!($DB->Refresh($CONFIG['User_Table'], $CONFIG['UserCode_col'], $rawKey, $whereLoc)))
+						$fieldList = array($CONFIG['UserCode_col']. $CONFIG['UserLastLogin_col']);
+						$valueList = array($rawKey, time());
+            if(!($DB->Refresh($CONFIG['User_Table'], $fieldList, $valueList, $whereLoc)))
             {
               $this->LogError($DB->Error());
             }
@@ -396,9 +414,9 @@ class user extends attr {
   //END Remember
   
   
-  //~~~~~~~~~~~~~~~~~//
-  //~ Logout Method ~//
-  //~~~~~~~~~~~~~~~~~//
+  //-----------------//
+  //- Logout Method -//
+  //-----------------//
   /*
     This method logs the user out of the system 
     by deleting the users session data and any cookies.
@@ -460,9 +478,9 @@ class user extends attr {
   //END Logout
 
   
-  //~~~~~~~~~~~~~~~~~~~//
-  //~ Make Key Method ~//
-  //~~~~~~~~~~~~~~~~~~~//
+  //-------------------//
+  //- Make Key Method -//
+  //-------------------//
   //Generates User key
   final public function MakeKey($email = 'unknown')
   {
@@ -511,9 +529,9 @@ class user extends attr {
   }
   
  
-  //~~~~~~~~~~~~~~~~~~~//
-  //~ Validate Method ~//
-  //~~~~~~~~~~~~~~~~~~~//
+  //-------------------//
+  //- Validate Method -//
+  //-------------------//
   //validates User Key
   final public function Validate($encoded_uKey)
   {
@@ -557,12 +575,13 @@ class user extends attr {
   }
   
 
-  //!!!!!!!!!!!!!!!!!//
-  //! Create Method !//
-  //!!!!!!!!!!!!!!!!!//
+  //-----------------//
+  //- Create Method -//
+  //-----------------//
   /*
     This method uses the provided data to create a new user.
-    E-mail, password, and userTypeID are required.
+    E-mail, password, and userTypeID are required. Email and Nickname
+		are subject to uniqueness verification.
     RETURNS: userID or false
   */ 
   public function Create($email, $password, $userTypeID, $data)
@@ -585,9 +604,54 @@ class user extends attr {
         RETURN false;
       }
       
+			//If Given, Verify the nick name given doesn't already exist
+			if(isset($data[$CONFIG['UserNickName_col']]))
+			{
+				$whereLoc = $CONFIG['UserNickName_col'].'='.$data[$CONFIG['UserNickName_col']];
+				if($DB->Snatch($CONFIG['User_Table'], $CONFIG['UserNickName_col'], $whereLoc))
+				{
+					//Nickname Exists
+					$this->error = $data[$CONFIG['UserNickName_col']].' already exists!';
+					$DB->Sever();
+					RETURN false;
+				}
+			}
+			
+			//If Given, Move the avatar img to the users img directory and
+			//delete all other files in temp dir, alter value to match.
+			if(isset($data[$CONFIG['UserAvatar_col']]))
+			{
+				//Make sure the file exists
+				if(file_exists($data[$CONFIG['UserAvatar_col']]))
+				{
+					//Rebuild the filename
+					$farray = explode('/', $data[$CONFIG['UserAvatar_col']]);
+					$filename = end($farray);//The name of the file
+					$ext = end(explode('.', $filename));//The file extension
+					$newName = uniqid(rand());
+					$newURL = "imgs/users/".$newName.".".$ext;
+					
+					//Move to the users avatar directory
+					rename($data[$CONFIG['UserAvatar_col']], $newURL);
+					
+					//Set the new URL value to be put in the DB
+					$data[$CONFIG['UserAvatar_col']] = $newURL;
+					
+					//Empty the temp dir of all files matching the session_id prefix
+					$fileList = glob('imgs/users/temp/'.session_id().'_*');
+					foreach($fileList as $trashFile)
+					{
+						if(is_file($trashFile))
+						{
+							unlink($trashFile);
+						}
+					}
+				}
+			}
+
       //Format the user data into field/value pairs
-      $fieldList = array($CONFIG['UserEmail_col'], $CONFIG['UserPass_col'], $CONFIG['UserType_col']);
-      $valueList = array($email, $this->Scramble($password, true), $userTypeID);
+      $fieldList = array($CONFIG['UserEmail_col'], $CONFIG['UserPass_col'], $CONFIG['UserType_col'], $CONFIG['UserJoin_col']);
+      $valueList = array($email, $this->Scramble($password, true), $userTypeID, time());
       if($data != null)
       {
         foreach($data as $key => $value)
@@ -596,7 +660,7 @@ class user extends attr {
           $valueList[] = $value;
         }
       }
-      
+
       //Attempt to Inject the new user into the database
       if($DB->Inject($CONFIG['User_Table'], $fieldList, $valueList))
       {
@@ -611,12 +675,14 @@ class user extends attr {
   }  
   
   
-  //!!!!!!!!!!!!!!!!!//
-  //! Update Method !//
-  //!!!!!!!!!!!!!!!!!//
+  //-----------------//
+  //- Update Method -//
+  //-----------------//
   /*
     This method uses the provided data formatted in fieldName => value pairs
-    to update the data associated to this user in the database.
+    to update the data associated to this user in the database. Email and Nickname
+		updates are subject to uniqueness verification.
+		//Check for new avatar and delete old
   */ 
   public function Update($data)
   {
@@ -630,9 +696,40 @@ class user extends attr {
     //be specific to the user class.
     $data = $this->UpdateValues($data, $this->user_ID);
     if($data === false){ RETURN false;}//A problem occurred
-    
-    //Split keyed array into
-    //fields and values
+		
+		//If Given, Move the avatar img to the users img directory and
+		//delete all other files in temp dir, alter value to match.
+		if(isset($data[$CONFIG['UserAvatar_col']]))
+		{
+			//Make sure the file exists
+			if(file_exists($data[$CONFIG['UserAvatar_col']]))
+			{
+				//Rebuild the filename
+				$farray = explode('/', $data[$CONFIG['UserAvatar_col']]);
+				$filename = end($farray);//The name of the file
+				$ext = end(explode('.', $filename));//The file extension
+				$newName = uniqid(rand());
+				$newURL = "imgs/users/".$newName.".".$ext;
+				
+				//Move to the users avatar directory
+				rename($data[$CONFIG['UserAvatar_col']], $newURL);
+				
+				//Set the new URL value to be put in the DB
+				$data[$CONFIG['UserAvatar_col']] = $newURL;
+				
+				//Empty the temp dir of all files matching the session_id prefix
+				$fileList = glob('imgs/users/temp/'.session_id().'_*');
+				foreach($fileList as $trashFile)
+				{
+					if(is_file($trashFile))
+					{
+						unlink($trashFile);
+					}
+				}
+			}
+		}
+		
+    //Split keyed array into fields and values
     $fieldList = array();
     $valueList = array();
     foreach($data as $key => $value)
@@ -654,6 +751,38 @@ class user extends attr {
     $DB = new dbAccess();
     if($DB->Link())
     {
+			//If Given, verify email does not already exist
+			if(isset($data[$CONFIG['UserEmail_col']]))
+			{
+				$whereLoc = array(
+					$CONFIG['UserEmail_col'].'='.$data[$CONFIG['UserEmail_col']],
+					$CONFIG['UserID_col'].'!='.$this->user_ID
+				);
+				if($DB->Snatch($CONFIG['User_Table'], $CONFIG['UserEmail_col'], $whereLoc))
+				{
+					//Email provided already exists for a different user!
+					$this->error = $data[$CONFIG['UserEmail_col']]. ' already exists for another user'.
+					$DB->Sever();
+					RETURN false;
+				}
+			}
+			
+			//If Given, verify nickname does not already exist
+			if(isset($data[$CONFIG['UserNickName_col']]))
+			{
+				$whereLoc = array(
+					$CONFIG['UserNickName_col'].'='.$data[$CONFIG['UserNickName_col']],
+					$CONFIG['UserID_col'].'!='.$this->user_ID
+				);
+				if($DB->Snatch($CONFIG['User_Table'], $CONFIG['UserNickName_col'], $whereLoc))
+				{
+					//Email provided already exists for a different user!
+					$this->error = $data[$CONFIG['UserNickName_col']]. ' already exists for another user'.
+					$DB->Sever();
+					RETURN false;
+				}
+			}			
+			
       //Isolate the specific user
       $whereLoc = $CONFIG['UserID_col'].'='.$this->user_ID;
       
@@ -687,12 +816,13 @@ class user extends attr {
   //END Update method
   
   
-  //!!!!!!!!!!!!!!!//
-  //! Kill Method !//
-  //!!!!!!!!!!!!!!!//
+  //---------------//
+  //- Kill Method -//
+  //---------------//
   /*
     This method kills *this user by removing the 
     associated record from the database.
+		//Also needs to remove the users avatar!
   */
   public function Kill()
   {
@@ -703,6 +833,12 @@ class user extends attr {
     //Kill off any possible user Attrs
     $this->KillValues($this->user_ID);
     
+		//Try to delete the users avatar
+		if(file_exists($this->user_avatar))
+		{
+			unlink($this->user_avatar);
+		}
+		
     //Create link to the database
     $DB = new dbAccess();
     if($DB->Link())
@@ -725,9 +861,9 @@ class user extends attr {
   //END Kill method
 
   
-  //!!!!!!!!!!!!!!!!!//
-  //! Search method !//
-  //!!!!!!!!!!!!!!!!!//
+  //-----------------//
+  //- Search method -//
+  //-----------------//
   /*
     This method searches the database in order to try and locate
     a specific or multiple possible users based on a given "needle",
@@ -902,9 +1038,9 @@ class user extends attr {
   //END Search method
   
   
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@//
-  //@ Permission List Method @//
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@//
+  //--------------------------//
+  //- Permission List Method -//
+  //--------------------------//
   /*
      RETURNS: The entire table of permissions 
               for each available UserType.
@@ -948,9 +1084,9 @@ class user extends attr {
   public function DibsList(){ RETURN $this->PermList(); }
   
   
-  //@@@@@@@@@@@@@@@@@@@@//
-  //@ Permitted Method @//
-  //@@@@@@@@@@@@@@@@@@@@//
+  //--------------------//
+  //- Permitted Method -//
+  //--------------------//
   /*
     ACCEPTS: $permName - name of a specific permission (case is in-sensitive)
     RETURNS: true | false | array of permission data
@@ -1019,9 +1155,9 @@ class user extends attr {
   public function Permission($permName = null){ RETURN $this->Permitted($permName); }
   
   
-  //@@@@@@@@@@@@@@@@@@@@@@@@@//
-  //@ New Permission Method @//
-  //@@@@@@@@@@@@@@@@@@@@@@@@@// 
+  //-------------------------//
+  //- New Permission Method -//
+  //-------------------------// 
   //Creates new user permission
   public function NewPermission($pName)
   {
@@ -1059,9 +1195,9 @@ class user extends attr {
   public function NewDibs($pName){ RETURN $this->NewPermission($pName); }
 
   
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-  //@ Alter Permission Method @//
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@//
+  //---------------------------//
+  //- Alter Permission Method -//
+  //---------------------------//
   //Changes the name of the permission
   public function AlterPerm($pName, $newName)
   {
@@ -1096,9 +1232,9 @@ class user extends attr {
   }
  
  
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-  //@ Remove Permission Method @//
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
+  //----------------------------//
+  //- Remove Permission Method -//
+  //----------------------------//
   //Removes user permission
   public function RemovePerm($pName)
   {
@@ -1136,9 +1272,9 @@ class user extends attr {
   public function KillDibs($pName)  { RETURN $this->RemovePerm($pName); }
   
   
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-  //@ Permission Update Method @//
-  //@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
+  //----------------------------//
+  //- Permission Update Method -//
+  //----------------------------//
   /*
     This method updates the permission table
     in order to add or remove access to a specific
@@ -1199,9 +1335,9 @@ class user extends attr {
   }
   
   
-  //####################//
-  //# Type List Method #//
-  //####################// 
+  //--------------------//
+  //- Type List Method -//
+  //--------------------// 
   //Get list of available types - (ID, Name)
   public function TypeList()
   {
@@ -1247,9 +1383,9 @@ class user extends attr {
   }
   
   
-  //###################//
-  //# New Type Method #//
-  //###################// 
+  //-------------------//
+  //- New Type Method -//
+  //-------------------// 
   //Creates new user type
   public function NewType($name)
   {
@@ -1281,10 +1417,10 @@ class user extends attr {
   }
 
   
-  //#####################//
-  //# Alter Type Method #//
-  //#####################// 
-  //Change user Type Name
+  //---------------------//
+  //- Alter Type Method -//
+  //---------------------// 
+  //Changes name of user Type
   public function AlterType($typeD, $newName)
   {
     //Get Required Configuration Variables
@@ -1319,9 +1455,9 @@ class user extends attr {
   }
   
   
-  //######################//
-  //# Remove Type Method #//
-  //######################// 
+  //----------------------//
+  //- Remove Type Method -//
+  //----------------------// 
   //Remove user type
   public function RemoveType($typeD)
   {
@@ -1360,9 +1496,9 @@ class user extends attr {
   public function DeleteType($typeData){ RETURN $this->RemoveType($typeData); }
   
   
-  //$$$$$$$$$$$$$$$$$$$$$$//
-  //$ Status List Method $//
-  //$$$$$$$$$$$$$$$$$$$$$$//   
+  //----------------------//
+  //- Status List Method -//
+  //----------------------//   
   //Get list of available statuses
   public function StatusList()
   {
@@ -1407,9 +1543,9 @@ class user extends attr {
   }
   
  
-  //$$$$$$$$$$$$$$$$$$$$$//
-  //$ New Status Method $//
-  //$$$$$$$$$$$$$$$$$$$$$// 
+  //---------------------//
+  //- New Status Method -//
+  //---------------------// 
   //Creates new user status
   public function NewStatus($name)
   {
@@ -1441,9 +1577,9 @@ class user extends attr {
   }
   
   
-  //$$$$$$$$$$$$$$$$$$$$$$$//
-  //$ Alter Status Method $//
-  //$$$$$$$$$$$$$$$$$$$$$$$//
+  //-----------------------//
+  //- Alter Status Method -//
+  //-----------------------//
   //Change user Status Name
   public function AlterStatus($statusD, $newName)
   {
@@ -1479,9 +1615,9 @@ class user extends attr {
   }
   
   
-  //$$$$$$$$$$$$$$$$$$$$$$$$//
-  //$ Remove Status Method $//
-  //$$$$$$$$$$$$$$$$$$$$$$$$//
+  //------------------------//
+  //- Remove Status Method -//
+  //------------------------//
   //Remove user Status
   public function RemoveStatus($statusD)
   {
@@ -1522,12 +1658,19 @@ class user extends attr {
   public function DeleteStatus($statusData){ RETURN $this->RemoveStatus($statusData); }
   
  
-  //%%%%%%%%%%%%%%%%%%//
-  //% Message Method %//
-  //%%%%%%%%%%%%%%%%%%//
+  //------------------//
+  //- Message Method -//
+  //------------------//
   /*
     Sends an email to *this user's email address.
     Cannot be used by guest users.
+		ACCEPTS:
+			$mFile = single or array of html files to use for the email
+			$mVars = single or array of template variables to be plugged into HTML
+			$mConds = condition tags to be used in creating the email HTML template
+			$subject = The message subject to be used for the email
+		
+		RETURNS: TRUE | FALSE
   */
   public function Message($mFile, $mVars = null, $mConds = null, $subject = null)
   {
@@ -1579,9 +1722,9 @@ class user extends attr {
   }//END Message Method
   
   
-  //%%%%%%%%%%%%%%%%%%//
-  //% TextMsg Method %//
-  //%%%%%%%%%%%%%%%%%%//
+  //------------------//
+  //- TextMsg Method -//
+  //------------------//
   /*
     Sends a TextMsg to *this users phone
   */  
@@ -1591,9 +1734,9 @@ class user extends attr {
   }
 
   
-  //^^^^^^^^^^^^^^^^^//
-	//^ UnPack Method ^//
-  //^^^^^^^^^^^^^^^^^//
+  //-----------------//
+	//- UnPack Method -//
+  //-----------------//
 	/*
 		This function checks for user information stored in the session.
 		If that is not available it will also check for a cookie key and 
@@ -1650,9 +1793,9 @@ class user extends attr {
 	}//End UnPack Method
   
   
-  //^^^^^^^^^^^^^^^//
-  //^ Pack Method ^//
-  //^^^^^^^^^^^^^^^//
+  //---------------//
+  //- Pack Method -//
+  //---------------//
 	/*
 		This method will serialize this object and place 
     it into the session to be unpacked later.
@@ -1680,9 +1823,9 @@ class user extends attr {
 	}//End Pack Method
 
   
-  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
-  //^ AttrList Override Method ^//
-  //^^^^^^^^^^^^^^^^^^^^^^^^^^^^// 
+  //----------------------------//
+  //- AttrList Override Method -//
+  //----------------------------// 
   public function AttrList($ID = 0)
   {
     if($this->user_ID != 0)
@@ -1695,10 +1838,20 @@ class user extends attr {
     RETURN false;
   }
   
+	//Get Attribute By Name?
+	public function GetAttr($name, $ID = 0)
+	{
+		if($this->user_ID != 0)
+		{
+			RETURN parent::GetAttr($name, $this->user_ID);
+		}
+		
+		RETURN false;
+	}
   
-  //^^^^^^^^^^^^^^^^^^^^^//
-  //^ Initialize Method ^//
-  //^^^^^^^^^^^^^^^^^^^^^//
+  //---------------------//
+  //- Initialize Method -//
+  //---------------------//
   /*
     This method uses the provided user_ID to gather the associated user data 
     from the database and initialize the object instance with the users details.
@@ -1729,11 +1882,14 @@ class user extends attr {
           //Initialize Object with DB data
           $this->user_name      = $data[$CONFIG['UserFirstName_col']].' '.$data[$CONFIG['UserMidName_col']].' '.$data[$CONFIG['UserLastName_col']];//User FullName
           $this->user_nick      = $data[$CONFIG['UserNickName_col']];//User's Nick Name
+					$this->user_avatar		= (empty($data[$CONFIG['UserAvatar_col']])) ? 'imgs/no_thumb.jpg' : $data[$CONFIG['UserAvatar_col']];//User's Avatar (URL)
           $this->user_email     = $data[$CONFIG['UserEmail_col']];//User Email Address
           $this->user_phone     = $data[$CONFIG['UserPhone_col']];//User Phone Number
           $this->user_carrier[0]= $data[$CONFIG['UserCarrier_col']];//User Mobile Phone Carrier
           $this->user_type[0]   = $data[$CONFIG['UserType_col']];//User Type ID
           $this->user_status[0] = $data[$CONFIG['UserStatus_col']];//User Status ID
+					$this->user_joined 		= $data[$CONFIG['UserJoin_col']];//User Join Date (timestamp)
+					$this->user_lastLogin = $data[$CONFIG['UserLastLogin_col']];//User Last Login (timestamp)
           
           //Check for additional Attributes
           //$attrList = $this->AttrList();
@@ -1781,9 +1937,9 @@ class user extends attr {
   //END Initialize
   
   
-	//&&&&&&&&&&&&&&&&&&&&&&//
-	//& Scramble Functions &//
-	//&&&&&&&&&&&&&&&&&&&&&&//
+	//----------------------//
+	//- Scramble Functions -//
+	//----------------------//
 	/*
 		$string - string to be scrambled
 		$cook - flag to intensify scrambling with hashing

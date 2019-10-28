@@ -102,6 +102,7 @@ if(isset($_INPUT['edit']))
       $T_VAR['USER_ID']      = $eUser->ID();
       $T_VAR['USER_NAME']    = $eUser->Name();
       $T_VAR['USER_NICK_NAME'] = $eUser->NickName();
+			$T_VAR['USER_AVATAR'] = $eUser->Avatar();
       $T_VAR['USER_EMAIL']   = $eUser->Email();
       $T_VAR['USER_PHONE']   = $eUser->Phone();
       $T_VAR['USER_TYPE_ID']   = $eUser->Type();
@@ -215,6 +216,8 @@ if(isset($_INPUT['view']))
       $T_VAR['USER_ID'] = $user->ID();
       $T_VAR['USER_NAME'] = $user->Name();
       $T_VAR['USER_EMAIL'] = $user->Email();
+			$T_VAR['USER_AVATAR'] = $user->Avatar();
+			$T_VAR['USER_NICKNAME'] = $user->Nickname();
       $T_VAR['USER_PHONE'] = $user->Phone();
       $T_VAR['USER_FIRST_NAME'] = $user->Name(0);
       $T_VAR['USER_LAST_NAME'] = $user->Name(1);

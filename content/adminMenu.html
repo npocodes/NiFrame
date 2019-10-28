@@ -1,0 +1,49 @@
+    <div class='cpLink'>
+			<a href='index.php'>Return to site index</a>
+		</div>
+		<ul>
+      <!-- LOGIN //--><!-- ACP //--><li>
+        <div class='main-menu'>
+          <a href='sysA.php?settings' style='border-top-left-radius:5px;'>General</a>
+        </div>
+      </li><li>
+        <div class='main-menu'>
+          <span class='dumbLink'>Locations</span>
+          
+          <div class='sub-menu'>
+            <a href='locA.php?add'>Manage Locations</a>
+						<a href='locA.php?addAddress'>Manage Addresses</a>
+						<a href='locA.php?createAmenity'>Manage Amenities</a>
+          </div>
+        </div>
+      </li><li>
+        <div class='main-menu'>
+          <span class='dumbLink'>Manage Users</span>
+          
+          <div class='sub-menu'>
+            <a href='user.php?search'>Search Users</a>
+            <a href='userA.php?add'>Create User</a>
+            <a href='userA.php?addAttr'>Create User Attributes</a>
+            <a href='userA.php?addType'>Create User Types</a>
+            <a href='userA.php?addPerm'>Create Permissions</a>
+            <a href='userA.php?typePerm'>Manage Type Permissions</a>
+          </div>
+        </div>
+      </li><!-- LINK_TPL //--><li>
+        <div class='main-menu'>
+          <span class='dumbLink'>{%MAIN_LABEL}</span>
+          <div class='sub-menu'>
+<!-- SUB_LINK_TPL //-->            <a href='{%SUB_LINK}'>{%SUB_LABEL}</a><!-- FIN SUB_LINK_TPL //-->
+          </div>
+        </div>
+      </li><!-- FIN LINK_TPL //--><li>
+        <div class='main-menu'>
+          <span class='dumbLink' style='border-top-right-radius:5px;'>System</span>
+          
+          <div class='sub-menu'>
+            <a href='sysA.php?styles'>Manage Styles</a>
+            <a href='mod.php?search'>Mod Packages</a>
+          </div>
+        </div>
+      </li><!-- FIN ACP //--><!-- FIN LOGIN //-->
+    </ul>

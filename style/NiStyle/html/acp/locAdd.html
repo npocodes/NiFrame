@@ -1,0 +1,70 @@
+
+<!-- addLocation HTML START //-->
+<div id='addLoc'>
+	<p id='msg'>{%MSG}</p><br>
+	<div id='locForm'>
+		<form action='locA.php?add' autocomplete="off" method='POST'>
+			<span class='label left'>Name:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%LocationName_col}' value='{%NAME}' required><br><br>
+			
+			<!-- ADDRESS_LIST //-->
+			<span class='label left'>Address:&nbsp; </span>
+			<select name='aid' onchange='this.form.submit()' required>
+				<option>Choose Address</option>
+				<!-- !ADDRESSES //-->
+				<option value='{%ADDRESS_ID[%N]}' {%SELECTED_A[%N]}>{%ADDRESS_FULL[%N]}</option>
+				<!-- FIN !ADDRESSES //-->
+			</select><br><br>
+			<!-- FIN ADDRESS_LIST //-->
+			
+			<!-- BUILDING_LIST //-->
+			<span class='label left'>Building:&nbsp; </span>
+			<select name='bid' onchange='this.form.submit();'>
+				<option value='0'>Choose Building</option>
+				<!-- !BUILDINGS //-->
+				<option value='{%BUILDING_ID[%N]}' {%SELECTED_B[%N]}>{%BUILDING_NAME[%N]}</option>
+				<!-- FIN !BUILDINGS //-->
+			</select><br><br>
+			<!-- FIN BUILDING_LIST //-->
+			
+			<!-- ROOM_LIST //-->
+			<span class='label left'>Room:&nbsp; </span>
+			<select name='rid'>
+				<option value='0'>Choose Room</option>
+				<!-- !ROOMS //-->
+				<option value='{%ROOM_ID[%N]}'>{%ROOM_NAME[%N]} - Cap:{%ROOM_CAPACITY[%N]}</option>
+				<!-- FIN !ROOMS //-->
+			</select><br><br>
+			<!-- FIN ROOM_LIST //-->
+			
+			<input class='btn' type='submit' name='submitBtn' value='Add Location'>
+		</form>	
+	</div><br>
+	
+  <!-- LOCATION_LIST //-->
+  <div id='locList'>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Building</th>
+				<th>Room</th>
+				<th colspan='3'>Options</th>
+      </tr>
+      <!-- !LOCATIONS //-->
+      <tr>
+        <td><form action='locA.php?edit&lid={%LOCATION_ID[%N]}' method='POST'>{%LOCATION_ID[%N]}</td>
+        <td><input class='txtbox' type='text' name='{%LocationName_col}' value='{%LOCATION_NAME[%N]}'></td>
+				<td>{%LOCATION_ADDRESS[%N]}</td>
+				<td>{%LOCATION_BUILDING[%N]}</td>
+				<td>{%LOCATION_ROOM[%N]}</td>
+				<td><input class='btn' type='submit' name='submit' value='Update'></form></td>
+				<td><form action='locA.php?del&lid={%LOCATION_ID[%N]}' method='POST'><input class='btn' type='submit' value='X'></form></td>
+      </tr>
+      <!-- FIN !LOCATIONS //-->
+    </table>
+  </div>
+  <!-- FIN LOCATION_LIST //-->
+</div>
+<!-- addLocation HTML END //-->

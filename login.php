@@ -7,7 +7,7 @@
             
   Author:   Nathan Poole - github/npocodes
   Date:     July 2014
-  Updated:  Feb 01 2019
+  Updated:  Aug 2019
 */
 //Include the common file
 require_once('common.php');
@@ -125,10 +125,16 @@ if($_USER->ID() == 0)
       //Unless its been disabled...
       if(RECAPTCHA)
       {
-        //RECAPTCHA is enabled, check reCAPTCHA
-        require_once("inc/recaptchalib.php");
-        $Captcha = recaptcha_check_answer($CONFIG['SecretKey'], $_SERVER["REMOTE_ADDR"], $_INPUT['recaptcha_challenge_field'], $_INPUT['recaptcha_response_field']);
-        $validCaptcha = $Captcha->is_valid;
+				//RECAPTCHA is enabled, check reCAPTCHA v2
+				$verifySite = 'https://www.google.com/recaptcha/api/siteverify';
+				$verifyData['secret'] = $CONFIG['SecretKey'];
+				$verifyData['response'] = $_INPUT['g-recaptcha-response'];
+				$verifyOpts['http']['method'] = 'POST';
+				$verifyOpts['http']['content'] = http_build_query($verifyData);
+				$verifyContext = stream_context_create($verifyOpts);
+				$verify = file_get_contents($verifySite, false, $verifyContext);
+				$captcha_valid = json_decode($verify);
+				$validCaptcha = $captcha_valid->success;
       }
       else
       {
@@ -153,8 +159,7 @@ if($_USER->ID() == 0)
               'confPass',
               $CONFIG['UserEmail_col'],
               $CONFIG['UserPass_col'],
-              'recaptcha_challenge_field',
-              'recaptcha_response_field'
+              'g-recaptcha-response'
             );
             
             //Cycle each input element
@@ -181,9 +186,11 @@ if($_USER->ID() == 0)
               $uKey = $NewUser->MakeKey($NewUser->Email());
               if($uKey !== false)
               {
-                //Create message template variables
+                //Choose what HTML file to use for the message
                 $mFile = 'verify.html';//Message() method automatically
                 //looks in the "email" directory for these files.
+								
+								//Create message template variables
                 $mVar['SCRIPT_PATH'] = $SCRIPT_PATH;
                 $mVar['SITE_NAME'] = $CONFIG['SiteName'];
                 $mVar['USER_NAME'] = $NewUser->Name();
@@ -196,7 +203,8 @@ if($_USER->ID() == 0)
                 if($NewUser->Message($mFile, $mVar, null, 'Account Activation'))
                 {
                   //Report success to the user.
-                  $T_VAR['MSG'] = 'User created successfully!';
+                  $T_VAR['MSG'] = 'User created successfully!<br>';
+									$T_VAR['MSG'] .= 'An activation link has been sent to your email.';
                 }
                 else
                 {
@@ -213,25 +221,12 @@ if($_USER->ID() == 0)
         $T_VAR['MSG'] = 'The ReCAPTCHA entered was in-valid, try again.';
         
         //Store the recaptcha error
-				$_SESSION['reCAPTCHA_Error'] = $Captcha->error;
+				$_SESSION['reCAPTCHA_Error'] = $captcha_valid->error-codes;
       }
     }
     else
     { 
       // SHOW REGISTRATION FORM!
-      
-      //Verify reCAPTCHA is enabled
-      if(RECAPTCHA)
-      {
-        //Get reCAPTCHA lib
-        require_once('inc/recaptchalib.php');
-        
-        //Check for reCAPTCHA error codes and get reCAPTCHA html
-        $T_VAR['RECAPTCHA'] = (!(isset($_SESSION['reCAPTCHA_Error']))) ? recaptcha_get_html($CONFIG['PublicKey']) : recaptcha_get_html($CONFIG['PublicKey'], $_SESSION['reCAPTCHA_Error']);
-        
-        //Now that its been recorded... erase the stale reCAPTCHA
-        unset($_SESSION['reCAPTCHA_Error']);
-      }else{ $T_COND[] = 'RECAPTCHA'; }//Remove the HTML
       
       $T_FILE = 'register.html';//Registration form 
       $T_VAR['MSG'] = 'Joining is Free! Just provide a few details about yourself below to create your user account.';
@@ -239,6 +234,7 @@ if($_USER->ID() == 0)
       //Attempt to add in user-defined attributes, if available
       //Retrieve any possible User-Defined User Attributes
       $attrIndex = $_USER->AttrIndex();
+			$attrCount = 0;
       if(!($attrIndex === false))
       {
         foreach($attrIndex as $attr)
@@ -251,11 +247,12 @@ if($_USER->ID() == 0)
             $T_VAR['USER_ATTR_NAME'][] = $attr['name'];
             $T_VAR['USER_ATTR_LABEL'][] = $attr['label'];
             $T_VAR['USER_ATTR_VTYPE'][] = $attr['vType'];
+						$attrCount++;
           }
         }
         
         //Set the HTML repeat COND for the attr HTML
-        $T_COND[] = '!USER_ATTRS'.count($T_VAR['USER_ATTR_NAME']);
+        $T_COND[] = '!USER_ATTRS'.$attrCount;
         
       }else{ $T_COND[] = 'USER_ATTR_LIST'; }      
     }

@@ -1,0 +1,35 @@
+
+<!-- createAmenity HTML START //-->
+<div id='createAmenity'>
+	<p id='msg'>Create Amenity</p><br>
+	<div id='amenityForm'>
+		<form action='locA.php?createAmenity' method='POST'>
+			<span class='label'>Name:&nbsp; </span>
+			<input class='txtbox' type='basic' name='{%AmenityName_col}' required>
+			
+			<input class='btn' type='submit' name='submit' value='Create Amenity'>
+		</form>
+	</div>
+  <!-- AMENITY_LIST //-->
+  <br>
+  <div id='amenityList'>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+				<th colspan='2'>Options</th>
+      </tr>
+      <!-- !AMENITIES //-->
+      <tr>
+        <td><form action='locA.php?editAmenity&amid={%AMENITY_ID[%N]}' method='POST'>{%AMENITY_ID[%N]}</td>
+        <td><input class='txtbox' type='text' name='{%AmenityName_col}' value='{%AMENITY_NAME[%N]}'></td>
+				<td><input class='btn' type='submit' name='submit' value='Update'></form></td>
+				<td><form action='locA.php?delAmenity&amid={%AMENITY_ID[%N]}' method='POST'><input class='btn' type='submit' value='X'></form></td>
+      </tr>
+      <!-- FIN !AMENITIES //-->
+    </table>
+		</form>
+  </div>
+  <!-- FIN AMENITY_LIST //-->
+</div>
+<!-- createAmenity HTML END //-->

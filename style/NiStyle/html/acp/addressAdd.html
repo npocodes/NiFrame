@@ -1,0 +1,60 @@
+
+<!-- addAddress HTML START //-->
+<div id='addAddress'>
+	<p id='msg'>{%MSG}</p><br>
+	<form action='locA.php?addAddress' method='POST'>
+		<div id='addressForm'>
+			<span class='label left'>Number:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%AddressNumber_col}' required><br><br>
+			
+			<span class='label left'>Street:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%AddressStreet_col}' required><br><br>
+			
+			<span class='label left'>City:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%AddressCity_col}' required><br><br>
+			
+			<span class='label left'>State:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%AddressState_col}' required><br><br>
+			
+			<span class='label left'>Zipcode:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%AddressZip_col}'><br><br>
+			
+			<span class='label left'>Country:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%AddressCountry_col}'><br><br>
+			
+			<input class='btn' type='submit' name='submit' value='Add Address'>
+		</div>
+	</form>
+  <!-- ADDRESS_LIST //-->
+  <br>
+  <div id='addressList'>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Number</th>
+        <th>Street</th>
+        <th>City</th>
+				<th>State</th>
+				<th>Zipcode</th>
+				<th>Country</th>
+				<th colspan='3'>Options</th>
+      </tr>
+      <!-- !ADDRESSES //-->
+      <tr>
+        <td><form action='locA.php?editAddress&aid={%ADDRESS_ID[%N]}' method='POST'>{%ADDRESS_ID[%N]}</td>
+        <td><input class='txtbox' style='width:50px;' type='text' name='{%AddressNumber_col}' value='{%ADDRESS_NUM[%N]}'></td>
+				<td><input class='txtbox' style='width:100px;' type='text' name='{%AddressStreet_col}' value='{%ADDRESS_STREET[%N]}'></td>
+				<td><input class='txtbox' style='width:100px;' type='text' name='{%AddressCity_col}' value='{%ADDRESS_CITY[%N]}'></td>
+				<td><input class='txtbox' style='width:25px;' type='text' name='{%AddressState_col}' value='{%ADDRESS_STATE[%N]}'></td>
+				<td><input class='txtbox' style='width:50px;' type='text' name='{%AddressZip_col}' value='{%ADDRESS_ZIP[%N]}'></td>
+				<td><input class='txtbox' style='width:100px;' type='text' name='{%AddressCountry_col}' value='{%ADDRESS_COUNTRY[%N]}'></td>
+				<td><input class='btn' type='submit' name='submit' value='Update'></form></td>
+				<td><form action='locA.php?addBuilding&aid={%ADDRESS_ID[%N]}' method='POST'><input class='btn' type='submit' value='Manage'></form></td>
+				<td><form action='locA.php?delAddress&aid={%ADDRESS_ID[%N]}' method='POST'><input class='btn' type='submit' value='X'></form></td>
+      </tr>
+      <!-- FIN !ADDRESSES //-->
+    </table>
+  </div>
+  <!-- FIN ADDRESS_LIST //-->
+</div>
+<!-- addAddress HTML END //-->

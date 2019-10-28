@@ -111,6 +111,28 @@ if(isset($_INPUT['settings']))
         }else{ $T_VAR['MSG'] = 'Unable to update login acceptance data!'; }
       }//End Recaptcha Enable/Disable option
       
+			if(isset($_INPUT['tZone']) && $_INPUT['tZone'] != SERVER_TIMEZONE)
+			{
+				$fileData = file_get_contents('inc/const.php');
+        if($fileData !== false)
+        {
+          //Attempt to update the data
+          $replace = 'define("SERVER_TIMEZONE", "'.SERVER_TIMEZONE.'");';
+          $with = 'define("SERVER_TIMEZONE", "'.$_INPUT['tZone'].'");';
+          $newData = str_replace($replace, $with, $fileData);
+          if(file_put_contents('inc/const.php', $newData) !== false)
+          {
+            //Verify changes occurred
+            $reRead = file_get_contents('inc/const.php');
+            if($newData == $reRead)
+            {
+              //SUCCESS MSG!!
+							$T_VAR['MSG'] .= ''.PHP_EOL.'server timezone is now '.$_INPUT['tZone'].'<br>';
+							
+            }else{ $T_VAR['MSG'] = 'Failed to update timezone data!'; }  
+          }else{ $T_VAR['MSG'] = 'Failed to write new timezone data!'; }
+        }else{ $T_VAR['MSG'] = 'Unable to update timezone data!'; }
+			}
     }
     else
     {
@@ -123,6 +145,23 @@ if(isset($_INPUT['settings']))
       $T_VAR['RECAPTCHA_OFF'] = (RECAPTCHA == 0) ? 'SELECTED' : '';
       $T_VAR['RECAPTCHA_ON']  = (RECAPTCHA == 1) ? 'SELECTED' : '';
       
+			//Get Timezone options and calculate UTC offsets
+			$utcZ = new DateTimeZone('UTC');
+			$utc = new DateTime('now', $utcZ);
+			$tzoneList = timezone_identifiers_list();
+			foreach($tzoneList as $timezone)
+			{
+				$offset_sec = timezone_offset_get(timezone_open($timezone), $utc);
+				$offset_hr = $offset_sec / (60 * 60);
+				$offset_hr = (string)$offset_hr;//String conversion
+				$offset_hr = (strpos($offset_hr, '-') === FALSE) ? '+'.$offset_hr : $offset_hr;
+
+				$T_VAR['TZONE_NAME'][] = $timezone;
+				$T_VAR['TZONE_OFFSET'][] = $offset_hr;
+				$T_VAR['TZONE_SELECTED'][] = (SERVER_TIMEZONE == $timezone) ? 'SELECTED' : '';
+			}
+			$T_COND[] = "!TZONES".count($tzoneList);
+			
       //Display the settings form
       $T_FILE = 'settings.html';
     }
@@ -236,5 +275,5 @@ if(isset($_INPUT['styles']))
 //Build the template (LAST LINE OF ALL MAIN DRIVERS)
 //In this file we alter the style path to ACP sub-directory
 //And attach true to the path string to signal using root header/footer
-BuildTemplate($T_FILE, $T_VAR, $T_COND, false, 'acp,true');
+BuildTemplate($T_FILE, $T_VAR, $T_COND, false, 'acp');
 ?>

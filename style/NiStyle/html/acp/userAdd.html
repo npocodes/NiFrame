@@ -1,49 +1,37 @@
 
 <!-- userAdd HTML START //-->
-<div id='AddUser' style='width:25%;margin:auto;'>
-  <form name='createForm' action='userA.php?add' method='POST'>
-    <p>{%MSG}</p>
-    <style>
-      table td {padding:5px;}
-    </style>
-    <table>
-      <tr>
-        <td class='left'><span class='label'>First Name:</span></td>
-        <td class='right'><input class='txtbx' type='basic' alt='basic' name='{%UserFirstName_col}'></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Last Name:</span></td>
-        <td class='right'><input class='txtbx' type='basic' alt='basic' name='{%UserLastName_col}'></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>E-Mail:</span></td>
-        <td class='right'><input class='txtbx' type='email' alt='email' name='{%UserEmail_col}'></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Password:</span></td>
-        <td class='right'><input class='txtbx' type='password' name='{%UserPass_col}'></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Confirm:</span></td>
-        <td class='right'><input class='txtbx' type='password' id='confPass'></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>Phone #:</span></td>
-        <td class='right'><input class='txtbx' type='tel' alt='tel' name='{%UserPhone_col}'></td>
-      </tr>
-      <tr>
-        <td class='left'><span class='label'>User Type:</span></td>
-        <td class='right'>
-          <select name='{%UserType_col}'>
-<!-- !USER_TYPE_OPTS //-->            <option value='{%USER_TYPE_OPT_VALUE[%N]}'>{%USER_TYPE_OPT_NAME[%N]}</option><!-- FIN !USER_TYPE_OPTS //-->
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class='left'><input class='btn' type='submit' name='submit' value='Create'></td>
-      </tr>
-    </table>
-  </form>        
+<div id='addUser'>
+	<p id='msg'>{%MSG}</p><br>
+	<div id='addUserForm'>
+		<form name='createForm' action='userA.php?add' method='POST'>
+		
+			<span class='label left'>First Name:</span>
+			<input class='txtbox' type='basic' alt='basic' name='{%UserFirstName_col}'><br><br>
+			
+			<span class='label left'>Last Name:</span>
+			<input class='txtbox' type='basic' alt='basic' name='{%UserLastName_col}'><br><br>
+			
+			<span class='label left'>Nickname:</span>
+			<input class='txtbox' id='nickname' type='basic' alt='basic' name='{%UserLastName_col}'><span style='position:absolute;' id='nicknameResult'></span><br><br>			
+			
+			<span class='label left'>E-Mail:</span>
+			<input class='txtbox' id='email' type='email' alt='email' name='{%UserEmail_col}'><span style='position:absolute;' id='emailResult'></span><br><br>
+			
+			<span class='label left'>Password:</span>
+			<input class='txtbox' type='password' name='{%UserPass_col}'><br><br>
+			
+			<span class='label left'>Confirm:</span>
+			<input class='txtbox' type='password' id='confPass'><br><br>
+			
+			<span class='label left'>Phone #:</span>
+			<input class='txtbox' type='tel' alt='tel' name='{%UserPhone_col}'><br><br>
+			
+			<span class='label left'>User Type:</span>
+			<select name='{%UserType_col}'>
+	<!-- !USER_TYPE_OPTS //-->            <option value='{%USER_TYPE_OPT_VALUE[%N]}'>{%USER_TYPE_OPT_NAME[%N]}</option><!-- FIN !USER_TYPE_OPTS //-->
+			</select><br><br>
+			<input class='btn' type='submit' id='submit' name='submit' value='Create'>
+		</form>
+	</div>
 </div>
 <!-- userAdd HTML END //-->

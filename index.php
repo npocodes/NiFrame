@@ -8,7 +8,7 @@
             making new Drivers!
             
   Author:   Nathan Poole - github/npocodes
-  Date:     July 2014
+  Date:     June 27 2019
 */
 //Include the common file
 require_once('common.php');
@@ -17,7 +17,7 @@ require_once('common.php');
 $T_FILE = 'index_body.html';
 
 //Create some HTML Variables
-$T_VAR['PAGE_NAME'] = 'Guest Portal';
+$T_VAR['PAGE_NAME'] = 'Home';
 
 //Build the template
 BuildTemplate($T_FILE, $T_VAR, $T_COND);

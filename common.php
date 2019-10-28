@@ -43,14 +43,6 @@ for($i = 0; $i < $dirCount-1; $i++){ if(!(empty($dirList[$i]))){ $SCRIPT_PATH .=
 //Get Current File name
 $CURR_FILE = $dirList[$dirCount-1];
 
-//Server Time References
-$CURR_TIME = date("H:i:s"); //The Time
-$CURR_DATE = date("Y-m-d"); //The Date
-$CURR_TZONE = date_default_timezone_get();//Default Server TimeZone
-$FiveMinAgoSecs = time() - (5*60); //5 mins ago (in secs)
-$CURR_5AGO = date("H:i:s", $FiveMinAgoSecs); //The Time (5 min ago)
-//(Time 5 min ago can be used for activity detection)
-
 //Get Users IP
 $CURR_IP = gethostbyname($_SERVER['REMOTE_ADDR']);
 
@@ -113,13 +105,38 @@ else
     exit();
   }
 
-  //Import our class files
+	//Server Time References
+	date_default_timezone_set(SERVER_TIMEZONE);//Set the timezone using const data.
+	
+	//Calculate UTC offset for set timezone
+	$utcZ = new DateTimeZone('UTC');
+	$utc = new DateTime('now', $utcZ);
+	$offset_sec = timezone_offset_get(timezone_open(SERVER_TIMEZONE), $utc);
+	$offset_hr = $offset_sec / (60 * 60);
+	$offset_hr = (string)$offset_hr;//String conversion
+	$CURR_TZ_OFFSET = (strpos($offset_hr, '-') === FALSE) ? '+'.$offset_hr : $offset_hr;	
+	$CURR_TZONE = date_default_timezone_get();//Default Server TimeZone
+	$dt = new DateTime();
+	$CURR_TZ_ABBR = $dt->format('T');
+	
+	//Time / Date References
+	$CURR_TIME = date("H:i:s"); //The Time
+	$CURR_DATE = date("Y-m-d"); //The Date
+	$FiveMinAgoSecs = time() - (5*60); //5 mins ago (in secs)
+	$CURR_5AGO = date("H:i:s", $FiveMinAgoSecs); //The Time (5 min ago)
+	//(Time 5 min ago can be used for activity detection)
+	
+  //Import our common class files
   require_once('inc/classes/class.nerror.php');
   require_once('inc/classes/class.template.php');
   require_once('inc/classes/class.dbAccess.php');
   require_once('inc/classes/class.attr.php');
-
-
+  require_once('inc/classes/class.amenity.php');
+	require_once('inc/classes/class.room.php');
+	require_once('inc/classes/class.building.php');
+	require_once('inc/classes/class.address.php');
+	require_once('inc/classes/class.location.php');
+	
   //Make gathering input easier by merging together POST & GET globals
   //$_REQUEST global includes cookies, we want to ignore them.
   //(POST has priority over GET)
@@ -138,16 +155,26 @@ else
   //is used only by the mod install feature to add new menu items
   //no matter what the HTML is like. See mod.php?install, menu section
   $T_COND[] = "LINK_TPL";
-
+	
+	//Check for ReCaptcha v2 enabled/disabled
+	if(RECAPTCHA)
+	{
+		$T_VAR['RECAPTCHA_PUBLIC_KEY'] = $CONFIG['PublicKey'];
+	}else{ $T_COND[] = 'RECAPTCHA'; }
+	
+	
   //Initialize some template variables
   //that are the most common
   $T_VAR['HOST_NAME'] = $HOST_NAME;
   $T_VAR['CURR_DATE'] = $CURR_DATE;
   $T_VAR['CURR_TIME'] = $CURR_TIME;
+	$T_VAR['CURR_TZONE'] = $CURR_TZONE;
+	$T_VAR['CURR_TZ_OFFSET'] = $CURR_TZ_OFFSET;
+	$T_VAR['CURR_TZ_ABBR'] = $CURR_TZ_ABBR;
   $T_VAR['STYLE_PATH'] = 'style/'.STYLE;
   $T_VAR['SITE_NAME'] = $CONFIG['SiteName'];
   $T_VAR['SCRIPT_PATH'] = $SCRIPT_PATH;
-
+	
   //////////////////////////////////
   //### BEGIN COMMON FUNCTIONS ###//
   //////////////////////////////////
@@ -305,9 +332,9 @@ else
     RETURN $retArray;
   }
   
-  //Lastly run the user permission check
+  //Run the user permission check
   require_once('inc/uCheck.php');
-  
+	
   //User Common Marker
 }
 ?>

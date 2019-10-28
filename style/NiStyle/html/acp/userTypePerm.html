@@ -1,34 +1,24 @@
 
 <!-- typePerm HTML START //-->
-<div id='addPerm'>
-	<form action='' method='POST'>
+<div id='typePerm'>
+	<p id='msg'>Manage User Type(Group) Permissions</p><br>
   <!-- PERM_LIST //-->
-  <div style='width:25%;margin:auto;'>
-    <style>
-      .left {text-align:right;}
-      .right {text-align:left;}
-    </style>
-    <table border=1 style='width:100%;'>
+  <div id='typePermList'>
+    <table>
       <tr>
         <th>User Type</th>
         <!-- !PERMS //--><th>{%PERM_NAME[0][%N]}</th><!-- FIN !PERMS //-->
-        <th>Actions</th>
+        <th colspan='2'>Actions</th>
       </tr>
       <!-- ~TYPES //-->
       <tr>
-        <td><form action='userA.php?typePerm' method='POST'>{%TYPE_NAME[%N]}</td>
+        <td><form action='userA.php?typePerm&uType={%TYPE_ID[%I]}' method='POST'>{%TYPE_NAME[%N]}</td>
         <!-- !PERMS //--><td><input type='checkbox' name='{%PERM_NAME[0][%N]}' value='1' {%PERM_CHECKED[%I][%N]}></td><!-- FIN !PERMS //-->
-        <td>
-          <input type='hidden' name='uType' value='{%TYPE_ID[%I]}'>
-          <input type='submit' class='btn' name='submit' value='Edit'></form>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a href='userA.php?delType&uType={%TYPE_ID[%I]}'>Delete</a>
-        </td>
+        <td><input type='submit' class='btn' name='submit' value='Update'></form></td>
       </tr>
       <!-- FIN ~TYPES //-->
     </table>
   </div>
   <!-- FIN PERM_LIST //-->
-	</form>
 </div>
 <!-- typePerm HTML END //-->

@@ -1,6 +1,0 @@
-DROP TABLE IF EXISTS `item`;
-CREATE TABLE IF NOT EXISTS `item` (`item_ID` int(11) NOT NULL AUTO_INCREMENT, `itemType_ID` int(11) NOT NULL, `itemMake_ID` tinyint(1) NOT NULL, `itemName` varchar(32) NOT NULL, `itemValue` tinyint(1) NOT NULL, `itemCost` tinyint(1) NOT NULL, `itemPrice` tinyint(1) NOT NULL, `itemUnits` tinyint(1) NOT NULL, `onHand` tinyint(1) NOT NULL, `consume` tinyint(1) NOT NULL, `perish` tinyint(1) NOT NULL, `itemWeight` tinyint(1) NOT NULL, `itemSize` tinyint(1) NOT NULL, `itemColor` tinyint(1) NOT NULL, PRIMARY KEY `item_ID` (`item_ID`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3;
-DROP TABLE IF EXISTS `itemType`;
-CREATE TABLE IF NOT EXISTS `itemType` (`itemType_ID` int(11) NOT NULL AUTO_INCREMENT, `itemTypeName` int(6) NOT NULL, PRIMARY KEY `itemType_ID` (`itemType_ID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-DROP TABLE IF EXISTS `itemMaker`;
-CREATE TABLE IF NOT EXISTS `itemMaker` (`itemMaker_ID` int(11) NOT NULL AUTO_INCREMENT, `itemMakerName` int(6) NOT NULL, PRIMARY KEY `itemMaker_ID` (`itemMaker_ID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

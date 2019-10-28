@@ -5,24 +5,11 @@
         <td>{%USER_NAME}</td>
         <td>{%USER_NICK_NAME}</td>
         <td>{%USER_TYPE_NAME}</td>
-        <td>{%USER_STATUS_NAME}</td>
-        <td>
-            {%USER_EMAIL}
-        </td>
-        <td>{%USER_PHONE}</td>
-        <td class='actions'>
-          <table id='actions'>
-            <tr>
-              <td><a href='user.php?view&uid={%USER_ID}'>VIEW</a></td>
-            <!-- ACP //-->
-              <td><a href='userA.php?del&uid={%USER_ID}'>DELETE</a></td>
-            </tr>
-            <tr>
-              <td><a href='user.php?edit&uid={%USER_ID}'>EDIT</a></td>
-              <td><a href='calendar.php?week&uid={%USER_ID}'>SCHEDULE</a></td>
-            <!-- FIN ACP //-->
-            </tr>
-          </table>
-        </td>
+        <td>{%USER_EMAIL}</td>
+				<td><form action='user.php?view&uid={%USER_ID}' method='POST'><input class='btn' type='submit' name='submit' value='View'></form></td>
+        <!-- ACP //-->
+        <td><form action='user.php?edit&uid={%USER_ID}' method='POST'><input class='btn' type='submit' name='submit' value='Edit'></form></td>
+        <td><form action='userA.php?del&uid={%USER_ID}' method='POST'><input class='btn' type='submit' name='submit' value='X'></form></td>
+        <!-- FIN ACP //-->
       </tr>
 <!-- userRow HTML END //-->

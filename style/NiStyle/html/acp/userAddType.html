@@ -1,34 +1,33 @@
 
 <!-- addType HTML START //-->
-<div id='addType'>
-	<p id='Msg'>{%MSG}</p>
-	<form action='userA.php?addType' method='POST'>
-	<div>
-		<span class='label'>Type Name:&nbsp; </span>
-		<input class='txtbx' type='text' name='{%UserTypeName_col}'>
-		<input class='btn' type='submit' name='submit' value='Create'>
+<div id='addUserType'>
+	<p id='msg'>{%MSG}</p><br>
+	<div id='userTypeForm'>
+		<form action='userA.php?addType' method='POST'>	
+			<span class='label left'>Type Name:&nbsp; </span>
+			<input class='txtbox' type='text' name='{%UserTypeName_col}'><br><br>
+			<input class='btn' type='submit' name='submit' value='Create'>
+		</form>	
 	</div>
   <!-- TYPE_LIST //-->
-  <br>
-  <div style='width:25%;margin:auto;'>
-    <style>
-      .left {text-align:right;}
-      .right {text-align:left;}
-    </style>
-    <table border=1 style='width:100%;'>
+  <br><br>
+
+  <div id='userTypeList'>
+    <table>
       <tr>
         <th>ID</th>
         <th>Name</th>
+				<th>Options</th>
       </tr>
       <!-- !USER_TYPES //-->
       <tr>
-        <td>{%USER_TYPE_ID[%N]}</td>
-        <td>{%USER_TYPE_NAME[%N]}</td>
+				<td>{%USER_TYPE_ID[%N]}</td>
+				<td>{%USER_TYPE_NAME[%N]}</td>
+				<td><form action='userA.php?delType&uType={%USER_TYPE_ID[%N]}' method='POST'><input class='btn' type='submit' value='X'></form></td>
       </tr>
       <!-- FIN !USER_TYPES //-->
     </table>
   </div>
   <!-- FIN TYPE_LIST //-->
-	</form>
 </div>
 <!-- addType HTML END //-->
