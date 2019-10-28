@@ -15,7 +15,7 @@ Simply install NiFrame to your web server and follow the installation wizard. Th
 that features can be added with as little as a new "driver" file or as many class, driver, and HTML 
 files as needed. HTML is separated from PHP so HTML files can be combined to form new pages or 
 "conditioned" to remove or add HTML as needed. Driver files can even be constructed or modified 
-to work with FLASH style GUIs or AJAX(JQUERY) style HTML pages with very little effort. After installing 
+to work with AJAX(JQUERY) style HTML pages with very little effort. After installing 
 NiFrame the following system features and functionality are available to you: 
 
 
@@ -77,8 +77,8 @@ NiFrame the following system features and functionality are available to you:
 
 
 #### Administrative Control Panel (ACP):
-  * System Settings: ⚒ 
-    + Default Time: 12hr | 24hr formats, Time Zones ⚒
+  * System Settings: ✓ 
+    + Default Time Zones ✓
     + Disable - Enable reCAPTCHA feature ✓
     + Select | De-select | Remove Styles ✓
       - (change entire website layout, look and content with 1 click!) 
@@ -105,5 +105,5 @@ NiFrame the following system features and functionality are available to you:
 * Programming Languages: PHP v5, SQL, HTML5, CSS3, JavaScript
 * Server Platform: Hosted Server Running: Apache, PHP, and MySQL
 * Tools Used: Notepad++, FileZilla, phpMyAdmin, Adobe Photoshop, Windows
-* Browser Support: Internet Explorer, Fire Fox, Chrome, Android (latest versions)
+* Browser Support: Internet Explorer, Fire Fox, Chrome
 
